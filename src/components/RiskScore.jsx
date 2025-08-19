@@ -1,30 +1,15 @@
-import React from 'react';
-import './Dashboard.css';
+// src/components/RiskScore.jsx
 
-const RiskScore = () => {
+import React from 'react';
+//import './RiskScore.css';
+
+// This component now receives 'score' and 'level' as props from its parent
+const RiskScore = ({ score, level }) => {
   return (
-    <div className="risk-score">
-      <h3>AI Risk Score</h3>
-      <div className="score-display">
-        <div className="score-circle">
-          <span className="score-value">78</span>
-        </div>
-        <div className="score-label">Medium Risk</div>
-      </div>
-      <div className="score-details">
-        <div className="detail-item">
-          <span className="detail-label">Financial Risk:</span>
-          <span className="detail-value">Medium (65)</span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-label">Operational Risk:</span>
-          <span className="detail-value">High (85)</span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-label">Compliance Risk:</span>
-          <span className="detail-value">Low (45)</span>
-        </div>
-      </div>
+    <div className="risk-score card">
+      <h2>AI Risk Score</h2>
+      <div className="score-circle">{score}</div>
+      <p>{level}</p>
     </div>
   );
 };
