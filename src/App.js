@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './components/Login';
 import ApplicantDashboard from './components/ApplicantDashboard';
 import UnderwriterDashboard from './components/UnderwriterDashboard';
-import Dashboard from './components/Dashboard';
 import Wireframes from './components/Wireframes';
+// NEW: Import the renamed dashboard component
+import RiskAnalysisDashboard from './components/RiskAnalysisDashboard';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   useEffect(() => {
     const storedUserType = localStorage.getItem('userType');
     const storedAuth = localStorage.getItem('isAuthenticated');
-    
+
     if (storedAuth === 'true' && storedUserType) {
       setUserType(storedUserType);
       setIsAuthenticated(true);
@@ -42,27 +43,28 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={!isAuthenticated ? <Login onLogin={handleLogin} /> : 
+          <Route path="/" element={!isAuthenticated ? <Login onLogin={handleLogin} /> :
             <Navigate to={userType === 'applicant' ? '/applicant-dashboard' : '/underwriter-dashboard'} />} />
-          
+
           <Route path="/applicant-dashboard" element={
-            isAuthenticated && userType === 'applicant' ? 
-            <ApplicantDashboard onLogout={handleLogout} /> : 
+            isAuthenticated && userType === 'applicant' ?
+            <ApplicantDashboard onLogout={handleLogout} /> :
             <Navigate to="/" />
           } />
-          
-          <Route path="/underwriter-dashboard" element={
-            isAuthenticated && userType === 'underwriter' ? 
-            <UnderwriterDashboard onLogout={handleLogout} /> : 
+
+          {/* UPDATED: Path now ends with '/*' to allow for nested routes */}
+          <Route path="/underwriter-dashboard/*" element={
+            isAuthenticated && userType === 'underwriter' ?
+            <UnderwriterDashboard onLogout={handleLogout} /> :
             <Navigate to="/" />
           } />
-          
-          {/* Keep the original dashboard for reference */}
-          <Route path="/original-dashboard" element={<Dashboard />} />
-          
+
+          {/* UPDATED: The element now uses the correctly imported component */}
+          <Route path="/original-dashboard" element={<RiskAnalysisDashboard />} />
+
           {/* Wireframes and mockups */}
           <Route path="/wireframes" element={<Wireframes />} />
-          
+
           {/* Redirect any other routes to home */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

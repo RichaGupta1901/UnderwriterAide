@@ -1,5 +1,5 @@
 import React from 'react';
-import './Dashboard.css';
+import './RiskAnalysisDashboard.css';
 
 const GeoRiskMap = () => {
   return (
