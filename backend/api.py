@@ -126,20 +126,23 @@ def parse_city_from_text(text):
     return None
 
 
+# Updated Flask API functions with stricter hazard keyword filtering
+
 def get_newsapi_hazards(city, max_retries=2):
-    """Fetch hazardous news using NewsAPI with better error handling."""
+    """Fetch hazardous news using NewsAPI with STRICT keyword filtering."""
     if not NEWS_API_KEY:
         print("⚠️  NEWS_API_KEY not available - skipping NewsAPI")
         return []
 
+    # STRICT hazard keywords - only these specific terms
     hazard_keywords = [
         "emergency", "disaster", "evacuation", "fire", "flood", "earthquake",
         "storm", "hurricane", "tornado", "accident", "explosion", "spill",
         "hazard", "alert", "warning", "crisis", "incident"
     ]
 
-    # Build search query
-    keyword_query = " OR ".join(hazard_keywords[:8])  # Limit query length
+    # Build search query with strict keyword matching
+    keyword_query = " OR ".join([f'"{keyword}"' for keyword in hazard_keywords[:8]])  # Use exact quotes
     query = f'"{city}" AND ({keyword_query})'
 
     url = "https://newsapi.org/v2/everything"
@@ -148,13 +151,15 @@ def get_newsapi_hazards(city, max_retries=2):
         'apiKey': NEWS_API_KEY,
         'language': 'en',
         'sortBy': 'publishedAt',
-        'from': (datetime.now() - timedelta(days=3)).strftime('%Y-%m-%d'),  # Last 3 days
-        'pageSize': 10
+        'from': (datetime.now() - timedelta(days=3)).strftime('%Y-%m-%d'),
+        'pageSize': 15  # Get more to filter better
     }
 
     for attempt in range(max_retries):
         try:
-            print(f"📰 Fetching news for {city} (attempt {attempt + 1}/{max_retries})")
+            print(f"📰 Fetching hazard news for {city} (attempt {attempt + 1}/{max_retries})")
+            print(f"🔍 Query: {query}")
+
             response = requests.get(url, params=params, timeout=15)
             response.raise_for_status()
             data = response.json()
@@ -170,39 +175,67 @@ def get_newsapi_hazards(city, max_retries=2):
                 description = article.get('description', '').lower() if article.get('description') else ''
                 content = f"{title} {description}"
 
-                # Check for hazard content
-                if any(keyword in content for keyword in hazard_keywords):
+                # STRICT filtering: Must contain at least one exact hazard keyword
+                hazard_found = False
+                matched_keywords = []
+
+                for keyword in hazard_keywords:
+                    # Use word boundaries to ensure exact matches
+                    if re.search(r'\b' + re.escape(keyword.lower()) + r'\b', content):
+                        hazard_found = True
+                        matched_keywords.append(keyword)
+
+                # Only include if hazard keywords found AND city mentioned
+                if hazard_found and city.lower() in content:
+                    # Determine severity based on keywords
+                    high_severity_keywords = ["emergency", "disaster", "evacuation", "explosion", "crisis"]
+                    severity = "High" if any(kw in matched_keywords for kw in high_severity_keywords) else "Medium"
+
                     alerts.append({
-                        'type': 'News Alert',
+                        'type': 'Hazard Alert',
                         'title': article.get('title'),
                         'details': article.get('description', 'No description available')[:150] + '...',
                         'source': article.get('source', {}).get('name', 'News'),
                         'published': article.get('publishedAt'),
                         'url': article.get('url'),
-                        'location': city
+                        'location': city,
+                        'severity': severity,
+                        'keywords_matched': matched_keywords[:3]  # Show first 3 matched keywords
                     })
 
-            print(f"✓ Found {len(alerts)} news alerts for {city}")
-            return alerts
+            # Sort by severity and recency
+            alerts.sort(key=lambda x: (
+                0 if x.get('severity') == 'High' else 1,  # High severity first
+                x.get('published', '2000-01-01')  # Then by date (newest first)
+            ), reverse=True)
+
+            print(f"✓ Found {len(alerts)} filtered hazard alerts for {city}")
+            return alerts[:8]  # Return top 8 most relevant
 
         except requests.exceptions.RequestException as e:
             print(f"❌ NewsAPI request failed (attempt {attempt + 1}): {e}")
+            if attempt < max_retries - 1:
+                time.sleep(2)  # Wait before retry
 
 
 def get_emergency_rss_feeds(city, max_feeds=3):
-    """Fetch emergency alerts from RSS feeds with better error handling."""
+    """Fetch emergency alerts from RSS feeds with STRICT hazard filtering."""
     alerts = []
 
     # Curated list of working RSS feeds
     rss_feeds = [
-        # Weather and emergency feeds
         "https://alerts.weather.gov/cap/us.php?x=1",
         "https://rss.cnn.com/rss/edition.rss",
         "https://feeds.bbci.co.uk/news/rss.xml",
-        "https://www.abc.net.au/news/feed/51120/rss.xml",  # ABC Australia
+        "https://www.abc.net.au/news/feed/51120/rss.xml",
     ]
 
-    hazard_keywords = ["emergency", "alert", "warning", "disaster", "evacuation", "fire", "flood", "storm"]
+    # STRICT hazard keywords - same as NewsAPI
+    hazard_keywords = [
+        "emergency", "disaster", "evacuation", "fire", "flood", "earthquake",
+        "storm", "hurricane", "tornado", "accident", "explosion", "spill",
+        "hazard", "alert", "warning", "crisis", "incident"
+    ]
 
     feeds_processed = 0
     for feed_url in rss_feeds:
@@ -210,7 +243,7 @@ def get_emergency_rss_feeds(city, max_feeds=3):
             break
 
         try:
-            print(f"📡 Parsing RSS feed: {feed_url}")
+            print(f"📡 Parsing RSS feed for hazards: {feed_url}")
             feed = feedparser.parse(feed_url)
 
             if not hasattr(feed, 'entries'):
@@ -219,68 +252,115 @@ def get_emergency_rss_feeds(city, max_feeds=3):
 
             feeds_processed += 1
 
-            for entry in feed.entries[:3]:  # Limit per feed
+            for entry in feed.entries[:5]:  # Check more entries per feed
                 title = entry.get('title', '').lower()
                 summary = entry.get('summary', '').lower()
                 content = f"{title} {summary}"
 
-                # Check relevance to city and hazard keywords
-                if (city.lower() in content and
-                        any(keyword in content for keyword in hazard_keywords)):
-                    alerts.append({
-                        'type': 'Emergency Alert',
-                        'title': entry.get('title'),
-                        'details': (entry.get('summary', 'No details available')[:120] + '...'),
-                        'source': 'Emergency RSS',
-                        'published': entry.get('published'),
-                        'url': entry.get('link'),
-                        'location': city
-                    })
+                # STRICT filtering: Must contain city AND exact hazard keywords
+                if city.lower() in content:
+                    matched_keywords = []
+                    for keyword in hazard_keywords:
+                        if re.search(r'\b' + re.escape(keyword.lower()) + r'\b', content):
+                            matched_keywords.append(keyword)
+
+                    # Only include if hazard keywords found
+                    if matched_keywords:
+                        high_severity_keywords = ["emergency", "disaster", "evacuation", "explosion", "crisis"]
+                        severity = "High" if any(kw in matched_keywords for kw in high_severity_keywords) else "Medium"
+
+                        alerts.append({
+                            'type': 'Emergency Alert',
+                            'title': entry.get('title'),
+                            'details': (entry.get('summary', 'No details available')[:120] + '...'),
+                            'source': 'Emergency RSS',
+                            'published': entry.get('published'),
+                            'url': entry.get('link'),
+                            'location': city,
+                            'severity': severity,
+                            'keywords_matched': matched_keywords[:3]
+                        })
 
         except Exception as e:
             print(f"❌ RSS feed error for {feed_url}: {e}")
             continue
 
-    print(f"✓ Found {len(alerts)} RSS alerts for {city}")
-    return alerts
+    # Sort by severity and recency
+    alerts.sort(key=lambda x: (
+        0 if x.get('severity') == 'High' else 1,
+        x.get('published', '2000-01-01')
+    ), reverse=True)
+
+    print(f"✓ Found {len(alerts)} filtered RSS hazard alerts for {city}")
+    return alerts[:5]  # Return top 5
 
 
 def get_location_specific_hazard_news(city):
-    """Main function to get all hazard news for a city."""
+    """Main function to get STRICTLY FILTERED hazard news for a city."""
     if not city:
         print("❌ No city provided for hazard news")
         return []
 
-    print(f"🚨 Getting hazard news for: {city}")
+    print(f"🚨 Getting FILTERED hazard news for: {city}")
     all_alerts = []
 
-    # Try NewsAPI
+    # Try NewsAPI with strict filtering
     try:
         news_alerts = get_newsapi_hazards(city)
         all_alerts.extend(news_alerts)
+        print(f"📰 NewsAPI hazard alerts: {len(news_alerts)}")
     except Exception as e:
         print(f"❌ NewsAPI failed: {e}")
 
-    # Try RSS feeds
+    # Try RSS feeds with strict filtering
     try:
         rss_alerts = get_emergency_rss_feeds(city)
         all_alerts.extend(rss_alerts)
+        print(f"📡 RSS hazard alerts: {len(rss_alerts)}")
     except Exception as e:
         print(f"❌ RSS feeds failed: {e}")
 
-    # Remove duplicates based on title
+    # Remove duplicates based on title similarity
     unique_alerts = []
     seen_titles = set()
 
     for alert in all_alerts:
         title_key = alert.get('title', '').lower().strip()
-        if title_key and title_key not in seen_titles and len(title_key) > 10:
+        # Create a simplified title for duplicate detection
+        title_words = set(re.findall(r'\w+', title_key))
+
+        # Check if this is too similar to existing alerts
+        is_duplicate = False
+        for seen_title in seen_titles:
+            seen_words = set(re.findall(r'\w+', seen_title))
+            # If more than 70% of words overlap, consider it a duplicate
+            if len(title_words & seen_words) / max(len(title_words), len(seen_words), 1) > 0.7:
+                is_duplicate = True
+                break
+
+        if not is_duplicate and title_key and len(title_key) > 10:
             seen_titles.add(title_key)
             unique_alerts.append(alert)
 
-    print(f"✓ Total unique alerts for {city}: {len(unique_alerts)}")
-    return unique_alerts[:10]  # Return top 10
+    # Final sort by severity and recency
+    unique_alerts.sort(key=lambda x: (
+        0 if x.get('severity') == 'High' else 1,
+        x.get('published', '2000-01-01')
+    ), reverse=True)
 
+    print(f"✅ FILTERED unique hazard alerts for {city}: {len(unique_alerts)}")
+
+    # Log what keywords were found for debugging
+    all_keywords = []
+    for alert in unique_alerts:
+        all_keywords.extend(alert.get('keywords_matched', []))
+    if all_keywords:
+        keyword_counts = {}
+        for kw in all_keywords:
+            keyword_counts[kw] = keyword_counts.get(kw, 0) + 1
+        print(f"📊 Hazard keywords found: {dict(sorted(keyword_counts.items(), key=lambda x: x[1], reverse=True))}")
+
+    return unique_alerts[:8]  # Return top 8 most relevant alerts
 
 def finance_news(symbols=None, max_retries=2):
     """Fetch financial news using FINNHUB API with better error handling."""
@@ -595,7 +675,127 @@ def health_check():
         "message": "API is running",
         "config_loaded": bool(NEWS_API_KEY and OPENWEATHERMAP_API_KEY),
         "timestamp": datetime.now().isoformat()
+
     })
+
+
+# Add this debug endpoint to your Flask app to test if financial alerts are working
+
+@app.route('/api/debug/finance', methods=['GET'])
+def debug_finance():
+    """Debug endpoint to test financial alerts functionality."""
+    try:
+        print("🧪 Testing financial alerts...")
+
+        # Test with a few popular symbols
+        test_symbols = ['AAPL', 'GOOGL', 'MSFT']
+        financial_alerts = finance_news(symbols=test_symbols)
+
+        return jsonify({
+            "finance_api_key_available": bool(FINANCE_API_KEY),
+            "finance_api_key_length": len(FINANCE_API_KEY) if FINANCE_API_KEY else 0,
+            "financial_alerts_count": len(financial_alerts),
+            "financial_alerts": financial_alerts,
+            "test_symbols": test_symbols,
+            "status": "success"
+        })
+    except Exception as e:
+        return jsonify({
+            "error": str(e),
+            "status": "error",
+            "finance_api_key_available": bool(FINANCE_API_KEY)
+        })
+
+
+# Also add this improved version of the assess endpoint with better debugging:
+
+@app.route('/api/assess_debug', methods=['POST'])
+def assess_application_debug():
+    """Enhanced PDF assessment with detailed debugging."""
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part in the request"}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"error": "No file selected"}), 400
+
+    try:
+        print(f"🔄 Processing file: {file.filename}")
+        file_content = file.read()
+
+        if len(file_content) == 0:
+            return jsonify({"error": "Uploaded file is empty"}), 400
+
+        # Extract text
+        full_text = extract_text_from_pdf(file_content)
+        print(f"📄 Text extracted: {len(full_text)} characters")
+
+        # Parse location
+        city = parse_city_from_text(full_text)
+        print(f"📍 Location detected: {city}")
+
+        # Get weather and hazards
+        weather_details = get_location_specific_weather(city) if city else "No location specified"
+        print(f"🌤️ Weather details: {weather_details}")
+
+        hazard_news = get_location_specific_hazard_news(city) if city else []
+        print(f"⚠️ Hazard alerts found: {len(hazard_news)}")
+
+        # Get financial news - IMPORTANT: Make sure this is called!
+        print("💰 Getting financial alerts...")
+        financial_news_alerts = finance_news()
+        print(f"💰 Financial alerts found: {len(financial_news_alerts)}")
+
+        # Debug: Print first few financial alerts
+        for i, alert in enumerate(financial_news_alerts[:3]):
+            print(f"💰 Financial Alert {i + 1}: {alert.get('title', 'No title')}")
+
+        # Calculate risk score
+        base_score = 65
+        hazard_adjustment = min(len(hazard_news) * 5, 20)
+        financial_adjustment = min(len(financial_news_alerts) * 2, 10)
+        risk_score = base_score + hazard_adjustment + financial_adjustment
+
+        risk_level = "High Risk" if risk_score > 80 else "Medium Risk" if risk_score > 60 else "Low Risk"
+
+        response = {
+            "risk_score": risk_score,
+            "risk_level": risk_level,
+            "location_found": city or "Not specified",
+            "weather_details": weather_details,
+            "hazard_alerts": hazard_news,
+            "financial_alerts": financial_news_alerts,  # Make sure this is included
+            "alert_count": len(hazard_news),
+            "financial_alert_count": len(financial_news_alerts),  # Make sure this is included
+            "total_alert_count": len(hazard_news) + len(financial_news_alerts),
+            "text_length": len(full_text),
+            "processing_status": "success",
+            "timestamp": datetime.now().isoformat(),
+            # Debug information
+            "debug_info": {
+                "city_detected": city,
+                "weather_api_called": bool(city),
+                "hazard_news_count": len(hazard_news),
+                "financial_news_count": len(financial_news_alerts),
+                "finance_api_key_available": bool(FINANCE_API_KEY)
+            }
+        }
+
+        print(f"✅ Assessment complete. Response keys: {list(response.keys())}")
+        print(f"✅ Financial alerts in response: {len(response.get('financial_alerts', []))}")
+
+        return jsonify(response)
+
+    except Exception as e:
+        error_msg = f"Failed to process PDF: {str(e)}"
+        print(f"❌ Assessment error: {error_msg}")
+        print(f"❌ Full traceback: {traceback.format_exc()}")
+
+        return jsonify({
+            "error": error_msg,
+            "processing_status": "failed",
+            "timestamp": datetime.now().isoformat()
+        }), 500
 
 
 if __name__ == '__main__':

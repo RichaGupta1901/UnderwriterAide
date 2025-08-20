@@ -1,0 +1,424 @@
+/* Applicant Dashboard Styles */
+.applicant-dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1a365d;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  font-weight: 500;
+}
+
+.logout-btn {
+  padding: 6px 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dashboard-container {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: white;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2d3748;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+}
+
+.nav-item {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-item:hover {
+  background-color: #f7fafc;
+  color: #3182ce;
+}
+
+.nav-item.active {
+  background-color: #ebf8ff;
+  color: #3182ce;
+  font-weight: 500;
+  border-left: 3px solid #3182ce;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* Application Form Styles */
+.application-form-container,
+.applications-list-container,
+.reports-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+}
+
+.application-form-container h2,
+.applications-list-container h2,
+.reports-container h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #2d3748;
+  font-size: 1.5rem;
+}
+
+.form-section {
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+}
+
+.form-section h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #4a5568;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #2d3748;
+  transition: border-color 0.3s ease;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #4299e1;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.primary-btn, .secondary-btn, .action-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background-color: #4299e1;
+  color: white;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background-color: #3182ce;
+}
+
+.primary-btn:disabled {
+  background-color: #cbd5e0;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: #4299e1;
+  border: 1px solid #4299e1;
+}
+
+.secondary-btn:hover {
+  background-color: #ebf8ff;
+}
+
+.action-btn {
+  background-color: #edf2f7;
+  color: #4a5568;
+}
+
+.action-btn:hover {
+  background-color: #e2e8f0;
+}
+
+/* Underwriter Selection Styles */
+.underwriter-selection p {
+  margin-bottom: 15px;
+  color: #4a5568;
+}
+
+.underwriters-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.underwriter-card {
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.underwriter-card:hover {
+  border-color: #4299e1;
+  box-shadow: 0 2px 8px rgba(66, 153, 225, 0.15);
+}
+
+.underwriter-card h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #2d3748;
+}
+
+.underwriter-card p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.selected-underwriter {
+  padding: 15px;
+  border: 1px solid #4299e1;
+  border-radius: 6px;
+  background-color: #ebf8ff;
+}
+
+.selected-underwriter h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #2c5282;
+}
+
+.selected-underwriter p {
+  margin: 5px 0;
+  color: #2d3748;
+}
+
+/* Applications List Styles */
+.applications-table {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr;
+  background-color: #f7fafc;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.header-cell, .cell {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr;
+  transition: background-color 0.3s;
+}
+
+.table-row:hover {
+  background-color: #f7fafc;
+}
+
+.table-row:last-child .cell {
+  border-bottom: none;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-badge.completed {
+  background-color: #c6f6d5;
+  color: #276749;
+}
+
+.status-badge.in-review {
+  background-color: #fefcbf;
+  color: #975a16;
+}
+
+.status-badge.pending {
+  background-color: #e9d8fd;
+  color: #553c9a;
+}
+
+/* Reports Styles */
+.reports-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.report-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.report-header {
+  padding: 15px;
+  background-color: #f7fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.report-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2d3748;
+}
+
+.report-date {
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.report-details {
+  padding: 15px;
+}
+
+.report-details p {
+  margin: 8px 0;
+  color: #4a5568;
+}
+
+.report-actions {
+  padding: 15px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 10px;
+}
+
+.empty-state {
+  padding: 30px;
+  text-align: center;
+  color: #718096;
+  background-color: #f7fafc;
+  border-radius: 6px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .underwriters-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .table-header, .table-row {
+    grid-template-columns: 0.5fr 1fr 1fr 1fr;
+  }
+  
+  .header-cell:nth-child(3),
+  .header-cell:nth-child(4),
+  .cell:nth-child(3),
+  .cell:nth-child(4) {
+    display: none;
+  }
+  
+  .reports-list {
+    grid-template-columns: 1fr;
+  }
+}
