@@ -1,4 +1,5 @@
-// src/components/RiskAlerts.jsx
+// Fixed RiskAlerts.jsx - Proper prop destructuring and debugging
+
 import React, { useState, useEffect } from 'react';
 import { AlertTriangle, TrendingUp } from 'lucide-react';
 import './RiskAlerts.css';
@@ -7,14 +8,27 @@ const RiskAlerts = ({
   locationWeather,
   location,
   hazardAlerts = [],
-  financialAlerts = [], // NEW: Add financial alerts prop
+  financialAlerts = [],
   alertCount = 0,
-  financialAlertCount = 0, // NEW: Add financial alert count prop
+  financialAlertCount = 0,
   lastUpdated
 }) => {
   const [activeTab, setActiveTab] = useState('alerts');
   const [generalAlerts, setGeneralAlerts] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  // FIX 1: Add debug logging to see what props are being received
+  useEffect(() => {
+    console.log('RiskAlerts Props Debug:', {
+      location,
+      locationWeather,
+      hazardAlerts: hazardAlerts?.length || 0,
+      financialAlerts: financialAlerts?.length || 0,
+      alertCount,
+      financialAlertCount,
+      lastUpdated
+    });
+  }, [location, locationWeather, hazardAlerts, financialAlerts, alertCount, financialAlertCount, lastUpdated]);
 
   // Fetch general alerts when component mounts or location changes
   useEffect(() => {
@@ -32,8 +46,13 @@ const RiskAlerts = ({
         ? `http://localhost:5000/api/risk_alerts?location=${encodeURIComponent(locationParam)}`
         : 'http://localhost:5000/api/risk_alerts';
 
+      console.log('Fetching general alerts from:', url); // FIX 2: Debug API calls
+
       const response = await fetch(url);
       const data = await response.json();
+
+      console.log('General alerts response:', data); // FIX 3: Debug API response
+
       setGeneralAlerts(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error('Error fetching general alerts:', error);
@@ -60,8 +79,8 @@ const RiskAlerts = ({
     const typeMap = {
       'News Alert': 'alert-news',
       'Emergency Alert': 'alert-emergency',
-      'Financial Alert': 'alert-financial', // NEW
-      'Market Alert': 'alert-market', // NEW
+      'Financial Alert': 'alert-financial',
+      'Market Alert': 'alert-market',
       'Weather Hazard': 'alert-weather',
       'Hazard Alert': 'alert-hazard',
       'Weather': 'alert-weather',
@@ -72,47 +91,167 @@ const RiskAlerts = ({
   };
 
   // Render individual alert item
-  const renderAlert = (alert, index, isFromAssessment = false) => (
-    <div key={`${isFromAssessment ? 'assessment' : 'general'}-${index}`}
-         className={`alert-item ${getAlertTypeClass(alert.type)}`}>
-      <div className="alert-header">
+  // Updated RiskAlerts.jsx - Enhanced display for filtered hazard alerts
+
+// Update the renderAlert function to show hazard keywords and severity
+const renderAlert = (alert, index, isFromAssessment = false) => (
+  <div key={`${isFromAssessment ? 'assessment' : 'general'}-${index}`}
+       className={`alert-item ${getAlertTypeClass(alert.type)} ${
+         alert.severity ? `severity-${alert.severity.toLowerCase()}` : ''
+       }`}>
+    <div className="alert-header">
+      <div className="alert-header-left">
         <span className="alert-type">{alert.type}</span>
-        {alert.symbol && <span className="alert-symbol">{alert.symbol}</span>} {/* NEW: Show stock symbol */}
-        {alert.impact_level && <span className={`impact-badge ${alert.impact_level.toLowerCase()}`}>{alert.impact_level}</span>} {/* NEW: Impact level */}
+        {alert.symbol && <span className="alert-symbol">{alert.symbol}</span>}
+        {alert.severity && (
+          <span className={`severity-badge ${alert.severity.toLowerCase()}`}>
+            {alert.severity}
+          </span>
+        )}
+      </div>
+      <div className="alert-header-right">
+        {alert.impact_level && (
+          <span className={`impact-badge ${alert.impact_level.toLowerCase()}`}>
+            {alert.impact_level}
+          </span>
+        )}
         {isFromAssessment && alert.published && (
           <span className="alert-time">
             {formatTimestamp(alert.published)}
           </span>
         )}
       </div>
+    </div>
 
-      <div className="alert-content">
-        {alert.title && <h4 className="alert-title">{alert.title}</h4>}
-        <p className="alert-details">{alert.details}</p>
+    <div className="alert-content">
+      {alert.title && <h4 className="alert-title">{alert.title}</h4>}
+      <p className="alert-details">{alert.details}</p>
 
-        <div className="alert-footer">
-          {alert.source && (
-            <div className="alert-source">Source: {alert.source}</div>
-          )}
-          {alert.category && (
-            <div className="alert-category">Category: {alert.category}</div>
-          )}
+      {/* NEW: Display matched hazard keywords */}
+      {alert.keywords_matched && alert.keywords_matched.length > 0 && (
+        <div className="alert-keywords">
+          <span className="keywords-label">🏷️ Hazard Types:</span>
+          <div className="keywords-list">
+            {alert.keywords_matched.map((keyword, idx) => (
+              <span key={idx} className="keyword-tag">
+                {keyword}
+              </span>
+            ))}
+          </div>
         </div>
+      )}
 
-        {alert.url && (
-          <a href={alert.url} target="_blank" rel="noopener noreferrer"
-             className="alert-link">
-            Read more →
-          </a>
+      <div className="alert-footer">
+        {alert.source && (
+          <div className="alert-source">Source: {alert.source}</div>
+        )}
+        {alert.category && (
+          <div className="alert-category">Category: {alert.category}</div>
+        )}
+        {alert.location && (
+          <div className="alert-location">📍 {alert.location}</div>
         )}
       </div>
-    </div>
-  );
 
-  // NEW: Financial Alerts Card Component
+      {alert.url && (
+        <a href={alert.url} target="_blank" rel="noopener noreferrer"
+           className="alert-link">
+          Read more →
+        </a>
+      )}
+    </div>
+  </div>
+);
+
+// Update the hazard alerts section to show filtering information
+{activeTab === 'alerts' && !loading && (
+  <div className="alerts-list">
+    {hazardAlerts && hazardAlerts.length > 0 ? (
+      <>
+        <div className="section-header">
+          <h4>🚨 Location-Specific Hazard News</h4>
+          <p>Emergency and hazard alerts for {location || 'the detected location'}</p>
+          <div className="filter-info">
+            <span className="filter-label">📋 Filtered for:</span>
+            <div className="hazard-keywords-display">
+              {[
+                "emergency", "disaster", "evacuation", "fire", "flood", "earthquake",
+                "storm", "hurricane", "tornado", "accident", "explosion", "spill",
+                "hazard", "alert", "warning", "crisis", "incident"
+              ].map((keyword, idx) => (
+                <span key={idx} className="filter-keyword">
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="hazard-summary">
+          <div className="summary-stats">
+            <div className="stat-item">
+              <span className="stat-value">{hazardAlerts.length}</span>
+              <span className="stat-label">Total Alerts</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-value">
+                {hazardAlerts.filter(alert => alert.severity === 'High').length}
+              </span>
+              <span className="stat-label">High Severity</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-value">
+                {hazardAlerts.filter(alert => alert.severity === 'Medium').length}
+              </span>
+              <span className="stat-label">Medium Severity</span>
+            </div>
+          </div>
+        </div>
+
+        {hazardAlerts.map((alert, index) => renderAlert(alert, index, true))}
+      </>
+    ) : (
+      <div className="no-alerts">
+        <div className="no-alerts-icon">📰</div>
+        <h4>No Hazard-Specific Alerts Found</h4>
+        <p>
+          {location === 'Not specified' || location === 'Error'
+            ? 'Upload a policy document to get location-specific hazard risk alerts'
+            : `No current hazard alerts found for ${location} matching emergency keywords`
+          }
+        </p>
+        <div className="search-criteria">
+          <h5>We monitor for these hazard types:</h5>
+          <div className="monitored-hazards">
+            {[
+              "🚨 Emergency", "🌪️ Disaster", "🏃 Evacuation", "🔥 Fire",
+              "🌊 Flood", "🏠 Earthquake", "⛈️ Storm", "🌀 Hurricane",
+              "🌪️ Tornado", "💥 Accident", "💥 Explosion", "🛢️ Spill",
+              "⚠️ Hazard", "📢 Alert", "⚠️ Warning", "🚨 Crisis", "📰 Incident"
+            ].map((hazard, idx) => (
+              <span key={idx} className="hazard-type">
+                {hazard}
+              </span>
+            ))}
+          </div>
+        </div>
+        {location && location !== 'Not specified' && location !== 'Error' && (
+          <button
+            className="refresh-button"
+            onClick={() => window.location.reload()}
+          >
+            🔄 Refresh Hazard Alerts
+          </button>
+        )}
+      </div>
+    )}
+  </div>
+)}
+
+  // Financial Alerts Card Component
   const FinancialAlertsCard = ({ alerts }) => (
     <div className="financial-alerts-section">
-      {alerts.length > 0 ? (
+      {alerts && alerts.length > 0 ? (
         alerts.map((alert, index) => (
           <div key={index} className={`alert-item financial-alert ${
             alert.impact_level === 'High' ? 'high-impact' :
@@ -190,13 +329,13 @@ const RiskAlerts = ({
           className={`tab ${activeTab === 'alerts' ? 'active' : ''}`}
           onClick={() => setActiveTab('alerts')}
         >
-          Hazard News ({hazardAlerts.length})
+          Hazard News ({hazardAlerts?.length || 0})
         </button>
         <button
           className={`tab ${activeTab === 'financial' ? 'active' : ''}`}
           onClick={() => setActiveTab('financial')}
         >
-          Financial ({financialAlerts.length})
+          Financial ({financialAlerts?.length || 0})
         </button>
         <button
           className={`tab ${activeTab === 'general' ? 'active' : ''}`}
@@ -226,7 +365,7 @@ const RiskAlerts = ({
         {/* Location-specific hazard alerts from PDF assessment */}
         {activeTab === 'alerts' && !loading && (
           <div className="alerts-list">
-            {hazardAlerts.length > 0 ? (
+            {hazardAlerts && hazardAlerts.length > 0 ? (
               <>
                 <div className="section-header">
                   <h4>Location-Specific Hazard News</h4>
@@ -257,14 +396,18 @@ const RiskAlerts = ({
           </div>
         )}
 
-        {/* NEW: Financial alerts tab */}
+        {/* Financial alerts tab - FIX 4: Add debug info */}
         {activeTab === 'financial' && !loading && (
           <div className="alerts-list">
             <div className="section-header">
               <h4>Financial Market Alerts</h4>
               <p>Recent financial news and market movements that could impact risk assessment</p>
+              {/* FIX 5: Add debug display */}
+              <small style={{ color: '#666', fontSize: '12px' }}>
+                Debug: {financialAlerts?.length || 0} financial alerts received
+              </small>
             </div>
-            <FinancialAlertsCard alerts={financialAlerts} />
+            <FinancialAlertsCard alerts={financialAlerts || []} />
           </div>
         )}
 
@@ -287,20 +430,32 @@ const RiskAlerts = ({
           </div>
         )}
 
-        {/* Weather information */}
-        {activeTab === 'weather' && locationWeather && !loading && (
+        {/* Weather information - FIX 6: Add debug info */}
+        {activeTab === 'weather' && !loading && (
           <div className="weather-info">
             <div className="section-header">
               <h4>Weather Information</h4>
               <p>Current weather conditions for {location}</p>
+              {/* FIX 7: Add debug display */}
+              <small style={{ color: '#666', fontSize: '12px' }}>
+                Debug: Weather data - {locationWeather ? 'Available' : 'Not available'}
+              </small>
             </div>
-            <div className="weather-card">
-              <div className="weather-icon">🌤️</div>
-              <div className="weather-details">
-                <p>{locationWeather}</p>
-                <small>Data provided by OpenWeatherMap</small>
+            {locationWeather ? (
+              <div className="weather-card">
+                <div className="weather-icon">🌤️</div>
+                <div className="weather-details">
+                  <p>{locationWeather}</p>
+                  <small>Data provided by OpenWeatherMap</small>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="no-alerts">
+                <div className="no-alerts-icon">🌤️</div>
+                <h4>No Weather Data</h4>
+                <p>Weather information not available. Try uploading a document with location details.</p>
+              </div>
+            )}
           </div>
         )}
       </div>
