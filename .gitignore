@@ -1,4 +1,15 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependency directories
+
+# Environment variables
+.env
+
+# Python artifacts
+__pycache__/
+*.pyc
+
+# Old config files (if not used anymore)
+backend/config.py
 
 # dependencies
 /node_modules
