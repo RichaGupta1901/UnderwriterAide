@@ -20,6 +20,10 @@ import json
 from jinja2 import Environment, BaseLoader
 from fpdf import FPDF
 import logging
+import json
+from jinja2 import Environment, BaseLoader
+from fpdf import FPDF
+import logging
 
 
 # --- App Initialization ---
@@ -179,12 +183,14 @@ def parse_city_from_text(text):
     return None
 
 
+# Updated Flask API functions with stricter hazard keyword filtering
+
 def get_newsapi_hazards(city, max_retries=2):
-    # ... (This function remains unchanged)
     """Fetch hazardous news using NewsAPI with STRICT keyword filtering."""
     if not NEWS_API_KEY:
         print("⚠️  NEWS_API_KEY not available - skipping NewsAPI")
         return []
+    ...
 
     # STRICT hazard keywords - only these specific terms
     hazard_keywords = [
@@ -271,7 +277,6 @@ def get_newsapi_hazards(city, max_retries=2):
 
 
 def get_emergency_rss_feeds(city, max_feeds=3):
-    # ... (This function remains unchanged)
     """Fetch emergency alerts from RSS feeds with STRICT hazard filtering."""
     alerts = []
 
@@ -349,8 +354,6 @@ def get_emergency_rss_feeds(city, max_feeds=3):
 
 
 def get_location_specific_hazard_news(city):
-    # ... (This function remains unchanged)
-    """Main function to get STRICTLY FILTERED hazard news for a city."""
     if not city:
         print("❌ No city provided for hazard news")
         return []
@@ -415,7 +418,6 @@ def get_location_specific_hazard_news(city):
         print(f"📊 Hazard keywords found: {dict(sorted(keyword_counts.items(), key=lambda x: x[1], reverse=True))}")
 
     return unique_alerts[:8]  # Return top 8 most relevant alerts
-
 
 def finance_news(symbols=None, max_retries=2):
     # ... (This function remains unchanged)
@@ -791,8 +793,8 @@ def health_check():
         "message": "API is running",
         "config_loaded": bool(NEWS_API_KEY and OPENWEATHERMAP_API_KEY),
         "timestamp": datetime.now().isoformat()
-    })
 
+    })
 
 @app.route('/api/debug/finance', methods=['GET'])
 def debug_finance():
@@ -818,7 +820,6 @@ def debug_finance():
             "status": "error",
             "finance_api_key_available": bool(FINANCE_API_KEY)
         })
-
 
 @app.route('/api/assess_debug', methods=['POST'])
 def assess_application_debug():
@@ -907,13 +908,6 @@ def assess_application_debug():
             "processing_status": "failed",
             "timestamp": datetime.now().isoformat()
         }), 500
-
-
-# Add these imports to the top of your existing api.py (after the existing imports)
-import json
-from jinja2 import Environment, BaseLoader
-from fpdf import FPDF
-import logging
 
 # Add these after your existing global variables
 APRA_COMPLIANCE_CHECKLIST = {
@@ -1494,8 +1488,6 @@ def enhanced_assess_application():
             "timestamp": datetime.now().isoformat()
         }), 500
 
-
-# --- App Runner ---
 if __name__ == '__main__':
     check_api_keys_on_startup()  # Run the API key check
     print("🚀 Starting Flask application...")

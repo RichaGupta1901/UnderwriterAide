@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// NEW: Import routing components from react-router-dom
+// Import routing components from react-router-dom
 import { Routes, Route, NavLink, useParams } from 'react-router-dom';
 import './UnderwriterDashboard.css';
 
@@ -10,13 +10,14 @@ import RiskScore from './RiskScore';
 import ScenarioTesting from './ScenarioTesting';
 import ComplianceAnalysis from './ComplianceAnalysis';
 
-// NEW: All the logic for the main underwriting workflow is moved into its own component.
+// All the logic for the main underwriting workflow is moved into its own component.
 const WorkflowView = () => {
-  const { status } = useParams();
+  const { status } = useParams(); // Gets the status ('in-review', 'completed') from the URL
   const [selectedApplication, setSelectedApplication] = useState(null);
   const [riskScore, setRiskScore] = useState(null);
   const [complianceResults, setComplianceResults] = useState(null);
   const [premiumAdjustment, setPremiumAdjustment] = useState(0);
+
   const [locationInput, setLocationInput] = useState('');
   const [isAssessing, setIsAssessing] = useState(false);
   const [complianceAnalysisData, setComplianceAnalysisData] = useState(null);
@@ -35,15 +36,19 @@ const WorkflowView = () => {
     last_updated: null,
   });
 
-  const applications = [
-    { id: 201, type: 'Life Insurance', applicant: 'Robert Chen', date: '2023-07-15', status: 'Pending', coverageAmount: 500000, policyTerm: 20, assetDetails: 'Term life insurance policy for family protection', location: 'Sydney, NSW' },
-    { id: 202, type: 'Property Insurance', applicant: 'Lisa Wong', date: '2023-07-18', status: 'In Review', coverageAmount: 750000, policyTerm: 5, assetDetails: 'Residential property in Sydney CBD, 3 bedroom apartment', location: 'Sydney CBD, NSW' },
-    { id: 203, type: 'Auto Insurance', applicant: 'James Miller', date: '2023-07-20', status: 'Pending', coverageAmount: 35000, policyTerm: 1, assetDetails: '2022 Tesla Model 3, primarily used for commuting', location: 'Melbourne, VIC' },
-  ];
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState(null);
 
+  // Mock data for applications
+  const applications = [
+    { id: 201, type: 'Life Insurance', applicant: 'Robert Chen', date: '2023-07-15', status: 'Pending', coverageAmount: 500000, policyTerm: 20, assetDetails: 'Term life insurance policy for family protection', location: 'Melbourne, VIC' },
+    { id: 202, type: 'Property Insurance', applicant: 'Lisa Wong', date: '2023-07-18', status: 'In Review', coverageAmount: 750000, policyTerm: 5, assetDetails: 'Residential property in Sydney CBD, 3 bedroom apartment', location: 'Sydney, NSW' },
+    { id: 203, type: 'Auto Insurance', applicant: 'James Miller', date: '2023-07-20', status: 'Pending', coverageAmount: 35000, policyTerm: 1, assetDetails: '2022 Tesla Model 3, primarily used for commuting', location: 'Brisbane, QLD' },
+  ];
   const completedApplications = [
-    { id: 195, type: 'Health Insurance', applicant: 'Emily Johnson', date: '2023-07-01', status: 'Completed', riskScore: 65, premium: 450, notes: 'Standard health coverage with dental add-on', location: 'Brisbane, QLD' },
-    { id: 196, type: 'Business Insurance', applicant: 'Mark Davis', date: '2023-07-05', status: 'Completed', riskScore: 72, premium: 1200, notes: 'Small business liability coverage with cyber protection', location: 'Perth, WA' },
+    { id: 195, type: 'Health Insurance', applicant: 'Emily Johnson', date: '2023-07-01', status: 'Completed', riskScore: 65, premium: 450, notes: 'Standard health coverage with dental add-on', location: 'Perth, WA' },
+    { id: 196, type: 'Business Insurance', applicant: 'Mark Davis', date: '2023-07-05', status: 'Completed', riskScore: 72, premium: 1200, notes: 'Small business liability coverage with cyber protection', location: 'Adelaide, SA' },
   ];
 
   const handleSelectApplication = (application) => {
@@ -53,12 +58,12 @@ const WorkflowView = () => {
     setComplianceAnalysisData(null);
     setPremiumAdjustment(0);
     setLocationInput(application.location || '');
+    setError(null);
 
-    // Reset assessment data
     setAssessmentData({
       risk_score: null,
       risk_level: 'Not assessed',
-      location: application.location || 'Not specified',
+      location: 'Not specified',
       weather: null,
       hazard_alerts: [],
       financial_alerts: [],
@@ -74,9 +79,7 @@ const WorkflowView = () => {
       alert('Please enter a location first');
       return;
     }
-
     setIsAssessing(true);
-
     // Simulate API call to assess location-based risks
     setTimeout(() => {
       const mockAssessment = {
@@ -100,12 +103,10 @@ const WorkflowView = () => {
         alert_count: 2,
         last_updated: new Date().toISOString()
       };
-
       setAssessmentData({
         ...mockAssessment,
         total_alert_count: mockAssessment.alert_count + mockAssessment.financial_alert_count
       });
-
       setIsAssessing(false);
     }, 2000);
   };
@@ -145,7 +146,6 @@ const WorkflowView = () => {
     }, 1500);
   };
 
-  // FIXED: Move handleComplianceAnalysis function outside of handleRunComplianceCheck
   const handleComplianceAnalysis = async (file) => {
     // Simulate compliance analysis API call
     return new Promise((resolve) => {
@@ -186,7 +186,6 @@ const WorkflowView = () => {
             analysis_model: "APRA-GPT-4"
           }
         };
-
         setComplianceAnalysisData(mockComplianceData);
         resolve(mockComplianceData);
       }, 3000);
@@ -221,6 +220,77 @@ const WorkflowView = () => {
     const basePremium = calculateBasePremium(application);
     const adjustedPremium = basePremium * (1 + adjustment / 100);
     return Math.round(adjustedPremium);
+  };
+  
+  // Risk Analysis Dashboard handlers
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setError(null);
+  };
+
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      setError("Please select a file first!");
+      return;
+    }
+    setError(null);
+    setUploading(true);
+    setAssessmentData({
+      risk_score: null,
+      risk_level: 'Not assessed',
+      location: 'Not specified',
+      weather: null,
+      hazard_alerts: [],
+      financial_alerts: [],
+      financial_alert_count: 0,
+      total_alert_count: 0,
+      alert_count: 0,
+      last_updated: null,
+    });
+
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/assess', {
+        method: 'POST',
+        body: formData,
+      });
+      const result = await response.json();
+
+      if (response.ok) {
+        setAssessmentData({
+          risk_score: result.risk_score || 'N/A',
+          risk_level: result.risk_level || 'Analysis complete',
+          location: result.location_found || 'Not specified',
+          weather: result.weather_details,
+          hazard_alerts: result.hazard_alerts || [],
+          financial_alerts: result.financial_alerts || [],
+          financial_alert_count: result.financial_alert_count || 0,
+          total_alert_count: (result.alert_count || 0) + (result.financial_alert_count || 0),
+          alert_count: result.alert_count || 0,
+          last_updated: result.timestamp || new Date().toISOString()
+        });
+      } else {
+        throw new Error(result.error || `Request failed with status ${response.status}`);
+      }
+    } catch (err) {
+      setError(`Assessment Failed: ${err.message}`);
+      setAssessmentData({
+        risk_score: null,
+        risk_level: 'Not assessed',
+        location: 'Not specified',
+        weather: null,
+        hazard_alerts: [],
+        financial_alerts: [],
+        financial_alert_count: 0,
+        total_alert_count: 0,
+        alert_count: 0,
+        last_updated: null,
+      });
+    } finally {
+      setUploading(false);
+    }
   };
 
   const renderApplicationsList = (apps, title) => {
@@ -387,7 +457,7 @@ const WorkflowView = () => {
                 {isAssessing ? '🔄 Analyzing...' : '🔍 Analyze Location Risk'}
               </button>
             </div>
-
+            
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
               <RiskAlerts
                 location={assessmentData.location}
