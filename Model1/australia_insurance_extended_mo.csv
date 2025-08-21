@@ -1,0 +1,1001 @@
+Customer Name,Age,State,Insurance Type,Annual Premium (AUD),Claim Amount (AUD),Claim Status,Policy Start Date,Policy End Date,Policy Number,Product Tier,Payment Frequency,Risk Score,Email,Phone,Agent Name
+Caitlin Henderson,51,NT,Home,961.16,6409.96,Approved,5/3/2024,5/4/2025,POL1652758,Standard,Monthly,0.9,campbellkevin@jones-ochoa.com,744073428,Kevin Weber
+George Owen,57,ACT,Home,735.15,18936.43,Approved,9/25/2022,2/18/2023,POL8979002,Basic,Monthly,0.95,clarkrichard@hotmail.com.au,61485537,Robert Rodriguez
+Mrs. Sarah Smith MD,33,TAS,Life,3817.66,16265.9,Approved,6/26/2023,4/27/2024,POL5299120,Gold,Annually,0.08,cassandra71@hendrix.biz,-8366,Ashley Jenkins
+Katelyn Wilson,38,SA,Health,2946.32,15382.5,Approved,5/15/2023,6/11/2023,POL6474551,Standard,Quarterly,0.13,james54@hotmail.com.au,08 0512 5378,Traci Fritz
+Danielle Arnold,27,WA,Life,4076.51,7767.14,Approved,3/12/2024,1/4/2025,POL3953756,Premium,Quarterly,0.37,amandarodriguez@hotmail.com.au,2062 5300,Christine Ross
+James Aguirre,75,QLD,Home,3993.37,8912.52,Approved,12/28/2022,6/6/2023,POL2213526,Basic,Quarterly,0.75,samantha53@hotmail.com.au,+61 408 693 353,Kayla Schultz
+Angelica Kelly,24,TAS,Home,2390.03,9276.02,Approved,1/5/2023,3/17/2023,POL5594618,Standard,Monthly,0.52,anthony56@yahoo.com,02-6249-8667,Devon Collier
+Alexander Wood,27,VIC,Travel,2177.07,11693.81,Approved,12/21/2022,2/16/2023,POL4741556,Premium,Monthly,0.98,edwardbenson@yahoo.com,0439-064-956,James Nolan
+Katherine Hudson,44,NT,Health,1852.75,16611.02,Approved,4/13/2023,8/5/2023,POL4371613,Standard,Annually,0.89,gwhite@yahoo.com,+61.8.8660.1334,Amanda Hall
+Neil Rivera,31,SA,Health,1505.7,17687.17,Approved,7/13/2023,8/12/2023,POL9134872,Gold,Quarterly,0.14,oyoung@taylor-miller.org.au,03-7464-8458,Joseph Mitchell
+Derrick Miller,29,NSW,Car,1653.97,19322.54,Rejected,5/12/2024,5/16/2025,POL2804149,Gold,Annually,0.4,angela19@hotmail.com.au,-4257,Michael Costa DDS
+Carl Simpson,44,QLD,Health,3564.88,11600.34,Approved,9/20/2023,7/7/2025,POL3943479,Premium,Quarterly,0.87,albertcurry@scott.edu,9734.7915,Samantha Casey
+Bethany Adkins,52,SA,Life,2980.71,14190.91,Approved,11/12/2022,5/7/2023,POL6191062,Gold,Annually,0.45,lshort@powell.info,08.1357.5759,Christopher Oliver
+Kayla Rodriguez,32,QLD,Life,353.64,17509.11,Approved,3/14/2024,7/25/2025,POL5210103,Gold,Annually,0.71,xfreeman@yahoo.com,0467 646 027,Sandra Knox
+Dennis Smith,34,QLD,Life,3038.81,8272.95,Pending,11/7/2023,5/14/2025,POL8818225,Gold,Quarterly,0.31,megan23@hotmail.com.au,4633.8814,Anna Hess
+Jeremy Walker,37,TAS,Travel,1260.67,13600.11,Approved,1/29/2023,9/26/2024,POL8420798,Gold,Annually,0.86,dford@smith-wilson.edu,8004 5717,Anna Cannon
+Elizabeth Johnson,29,SA,Life,1123.8,1541.44,Pending,12/13/2023,1/21/2024,POL4286111,Standard,Annually,0.22,owensmelissa@yahoo.com.au,+61 435 994 802,Jeffrey Potts
+Eric Terry,34,ACT,Health,1867.66,16648.11,Rejected,5/28/2024,8/3/2024,POL8502375,Gold,Monthly,0.68,mcdanieleric@downs.net,+61.499.861.636,Jonathan Sandoval
+Laura Manning,61,ACT,Travel,1957.29,1136.71,Approved,3/24/2023,7/2/2023,POL6178532,Premium,Annually,0.82,jonathan28@yahoo.com.au,(03)-3735-7577,Laura Elliott
+Kenneth Howard,20,VIC,Health,3638.12,11381.45,Approved,11/17/2022,5/16/2025,POL7574713,Gold,Quarterly,0.39,desiree25@thomas.org.au,07 5437 5927,Ms. Sarah Gilbert
+Kelly Myers,20,SA,Health,1767.83,17627.62,Approved,1/6/2023,5/6/2024,POL3703833,Premium,Monthly,0.05,wallerjanet@yahoo.com,9732 6783,Tara Rios
+Justin Mcknight,70,QLD,Life,2480.98,18954.84,Rejected,10/24/2022,3/2/2023,POL6093008,Gold,Annually,0.21,bcoleman@robinson-hale.net,6531.339,Anthony Keith
+Stanley Wheeler,64,NSW,Car,3504.63,7365.8,Approved,6/13/2024,11/22/2024,POL8037438,Gold,Annually,0.34,martinezfernando@jackson.net,0430.572.056,Abigail Lee
+Justin Scott,41,ACT,Travel,4584.46,3722.65,Approved,7/3/2024,3/10/2025,POL4715131,Premium,Quarterly,0.58,aaronmartinez@hotmail.com.au,(08)-9341-9315,Eugene Harris
+Brian Harris,39,NSW,Health,753.45,3224.02,Approved,2/3/2024,3/23/2024,POL6770753,Standard,Quarterly,0.23,christinedennis@hotmail.com.au,(02)73877949,Aaron Johnson
+Wayne Valentine,66,SA,Life,4141.34,17117.54,Rejected,12/13/2022,3/18/2025,POL5911651,Basic,Quarterly,0.7,garciaheather@myers-cruz.org.au,+61.7.5659.6329,Jeffrey Bullock
+Suzanne Carter,26,WA,Car,461.95,3177.46,Approved,7/20/2023,11/30/2024,POL2826169,Gold,Monthly,0.32,amandawallace@hotmail.com,6768 8709,Lisa Anderson
+Brandon Melton,20,ACT,Life,2590.96,18763.04,Approved,9/1/2022,12/20/2023,POL6992140,Basic,Quarterly,0.16,wilsonanthony@hotmail.com.au,0484 492 289,Lisa Smith
+Allen Barker,45,QLD,Health,1739.08,4375.84,Approved,9/4/2022,10/26/2023,POL5580338,Gold,Annually,0.05,cervantesmelanie@gmail.com,(02) 1266 9522,Mary Parks
+Tammy Bryant,49,VIC,Health,3707.96,14230.2,Pending,1/5/2023,9/11/2023,POL5042316,Basic,Annually,0.98,brendaharrison@galloway-torres.edu,0441-771-736,Cynthia Avery
+Maria Anderson,59,TAS,Travel,4735.18,9508.34,Approved,9/8/2022,12/9/2022,POL2333615,Standard,Monthly,0.34,beardnathaniel@williams.org.au,08 3642 4090,Matthew Myers
+Steven Conner,64,QLD,Health,1750.71,4790.79,Approved,7/3/2024,8/10/2024,POL8327458,Gold,Monthly,0.12,teresa66@wells.org,(07)-1813-2645,Ronald Wood
+Timothy Melton,56,WA,Health,959.34,16870.3,Approved,10/10/2023,9/6/2024,POL3932602,Gold,Quarterly,0.78,austincombs@gmail.com,0415-448-891,Jean Bowman
+Katrina Howell,20,ACT,Health,1963.26,1147.41,Approved,7/24/2024,6/5/2025,POL4509923,Gold,Annually,0.27,ewong@gmail.com,-1250,Mike Martin
+Hannah Larsen,20,SA,Health,3107.41,1215.92,Rejected,8/10/2023,11/15/2024,POL9753867,Gold,Annually,0.75,levibarnett@munoz.org,0465-387-363,Anna Johnson
+Veronica Ortiz,19,NSW,Travel,1550.93,6199.24,Approved,2/28/2024,4/10/2025,POL4345825,Standard,Monthly,0.54,josephfoster@atkins-horne.org.au,0405 266 506,Nathan Perez
+Benjamin Patterson,37,NSW,Car,1814.65,4436.04,Approved,9/4/2023,12/4/2024,POL1866369,Gold,Quarterly,0.66,jordaneric@yahoo.com.au,+61 2 0594 8862,Meghan Turner
+Travis Patton,22,QLD,Car,939.04,12102.01,Rejected,4/21/2023,7/21/2023,POL6830568,Premium,Annually,0.13,ssantos@valentine.com.au,(03) 2916 0603,Jeffery Johnson
+Pamela Clark,24,NT,Travel,2318.04,3213.77,Pending,1/28/2024,5/18/2025,POL5723099,Basic,Monthly,0.49,watsontony@hotmail.com,61703127818,Cynthia Smith
+Amy Kelly,33,QLD,Home,2302.17,11975.22,Approved,8/28/2023,5/1/2025,POL4039286,Basic,Monthly,0.03,traceycarson@hampton-pacheco.net.au,835001108,Dr. Jill Allen
+Kevin Blankenship,72,WA,Home,919.5,129.73,Approved,1/30/2023,6/20/2025,POL1172827,Premium,Quarterly,1,moraleskevin@hotmail.com.au,702706366,Anthony Shelton
+Heather Graham,20,VIC,Life,1781.78,7565.72,Approved,3/31/2024,3/7/2025,POL4471937,Basic,Annually,0.11,scole@hotmail.com.au,+61 476 103 852,Michele Hart
+Beth Li,33,WA,Health,3590.08,1931.59,Approved,11/7/2022,10/5/2024,POL8044342,Standard,Monthly,0.85,zmyers@moore.edu.au,-1134,Casey Nguyen
+Elizabeth Gonzales,20,SA,Life,792,12900.49,Approved,6/29/2024,7/24/2024,POL3687361,Standard,Quarterly,0.78,ohenry@dean.org,07.4761.1636,Andrew Adams
+Christopher Rowland,49,WA,Life,2725.24,6834.66,Approved,10/3/2022,11/19/2024,POL8411982,Standard,Monthly,0.9,smithsarah@yahoo.com.au,(07).1850.8058,Mark Maxwell
+Alexis Hall,53,TAS,Home,4884.63,1701.62,Rejected,8/2/2023,8/19/2024,POL6430547,Premium,Quarterly,0.72,lindahubbard@yahoo.com.au,59346494,Ryan Parker
+Dale Williams,43,SA,Life,1877.22,14493.26,Pending,1/26/2024,3/11/2024,POL8992068,Gold,Monthly,0.13,patricia95@yahoo.com,(07)52984507,Megan Sandoval
+Michelle West,67,TAS,Health,746.27,1473.59,Approved,6/12/2023,1/30/2025,POL6117056,Gold,Monthly,0.97,cmartin@wallace.edu,(02)32529027,Corey Bailey
+Brian Rowe,70,ACT,Health,3024.43,9362.37,Approved,5/20/2024,2/11/2025,POL2988096,Basic,Quarterly,0.49,jchase@miller-miller.com,47856768,Benjamin Smith
+Phillip Tapia,24,NT,Car,1395.96,15553.99,Approved,9/15/2022,11/22/2024,POL1826515,Basic,Annually,0.37,pwilliams@yahoo.com.au,242011581,Nicholas Cox
+Jared Garcia,41,ACT,Car,3584.29,9777.86,Pending,5/5/2024,10/21/2024,POL5098658,Premium,Monthly,0.19,mariowarner@peterson-diaz.com.au,0407.397.901,Shelia Banks
+Charles Brown,68,TAS,Home,3758.75,18179.61,Pending,6/1/2024,12/23/2024,POL5503629,Premium,Quarterly,0.1,allison01@yahoo.com.au,2300.6992,Amanda Parker
+Karen Crosby,20,VIC,Health,1941.84,143.57,Approved,4/5/2024,11/22/2024,POL4528608,Basic,Annually,0.9,wbaker@barrera.com,-16016,Christopher Ramirez
+Andrew Walker,28,TAS,Life,1629.55,10725.9,Approved,7/17/2023,6/7/2025,POL6440766,Basic,Annually,0.93,jordandebbie@shah-carr.com.au,(08).7703.9630,Kyle Wells
+Paul Smith,50,NSW,Car,4463.54,4170.12,Approved,1/1/2024,1/14/2024,POL6688542,Standard,Monthly,0.8,icarter@hotmail.com,388349449,Austin Thompson
+Justin Hill,34,ACT,Travel,3478.49,1729.71,Approved,1/7/2023,2/10/2025,POL1570494,Premium,Quarterly,0.59,jimalvarez@hernandez-smith.biz,-878,Jennifer Brown
+Mr. Raymond Hernandez,65,ACT,Health,2562.72,19579.55,Approved,5/13/2023,7/5/2023,POL4958800,Basic,Quarterly,0.42,vcastaneda@mcmillan-brown.edu.au,02-7997-7182,Dana Pennington
+Lee Phillips,37,TAS,Life,3730.75,19398.28,Rejected,12/20/2022,4/7/2025,POL1108491,Standard,Annually,0.79,ujohnson@yahoo.com.au,(07) 5517 4667,Michael Miller
+Brent West,37,NSW,Home,3364.59,11939.27,Approved,5/5/2024,5/14/2024,POL6332439,Standard,Annually,0.75,connieholmes@jones.edu,+61.3.8398.8637,Mark Hicks
+Mark Tate,53,NT,Travel,3947.6,6540.75,Rejected,4/24/2023,6/20/2024,POL9741773,Premium,Monthly,0.26,williamhall@yahoo.com.au,0420.607.444,Kelsey Hines
+Heather Reid,62,NSW,Home,4513.49,1234.47,Approved,6/19/2023,10/18/2024,POL3035589,Standard,Annually,0.36,kgonzales@yahoo.com.au,(07).1002.4493,Robert Wade
+Elizabeth Brown,56,ACT,Car,2380.03,7910.44,Rejected,5/21/2024,6/4/2024,POL2722266,Standard,Quarterly,0.4,colleenwise@white.edu,(07)67675804,Darin Morgan
+Catherine Perry,65,TAS,Travel,3429.84,16253.63,Approved,8/4/2023,6/13/2024,POL7628897,Basic,Annually,0.75,qmartin@clark.edu,07-2171-6295,Clinton Holmes
+Natalie Hughes,39,QLD,Travel,4499.92,4671.64,Rejected,5/14/2024,12/4/2024,POL8187610,Gold,Monthly,0.54,roachrhonda@fields.info,-1888,Raymond Richards
+James King,21,QLD,Car,4501.5,13603.2,Pending,12/17/2023,6/29/2025,POL1814986,Gold,Annually,0.65,darrenrodriguez@nelson-brown.com.au,98730099,William Salazar
+Kristina Thompson,37,WA,Health,2301.62,16608.37,Approved,7/13/2024,3/19/2025,POL3603427,Premium,Quarterly,0.02,johnandrade@pruitt.org.au,0046-8700,Billy Greer
+Erica Ferguson,42,NT,Travel,4430.25,10816.14,Approved,8/29/2022,5/15/2023,POL8709426,Premium,Quarterly,1,ebishop@gmail.com,747534630,Joseph Mcguire
+Erica Hensley,70,ACT,Travel,2380.15,8776.42,Pending,1/23/2023,9/25/2024,POL3719649,Basic,Annually,0.66,joannreed@brown-henry.edu,+61 7 2594 5157,Paul Mcgrath
+Donald Douglas,73,SA,Car,2885.84,14722.6,Approved,9/10/2022,6/3/2023,POL5880064,Premium,Quarterly,0.92,matthew89@hotmail.com.au,61830557494,Colin Hernandez
+Brandon Gilbert,52,NSW,Health,566.24,11484.1,Pending,11/7/2023,12/31/2023,POL5625208,Premium,Monthly,0.93,reevesernest@taylor-james.edu,(03)-8256-6018,Valerie Ford
+Marc Bell,54,VIC,Travel,1815.71,951.93,Pending,1/4/2023,3/16/2023,POL3619015,Standard,Quarterly,0.84,emilysampson@gmail.com,08 9700 0942,John Nelson
+Amy Smith,56,NSW,Health,3344.8,1258.33,Approved,7/24/2024,8/27/2024,POL8644349,Basic,Quarterly,0,bryan00@gmail.com,61286393922,Derrick Thompson
+Joshua Barnes,43,VIC,Travel,2744.65,13185.87,Approved,6/16/2023,12/28/2023,POL2513208,Gold,Quarterly,0.78,glewis@gmail.com,(02) 9382 0957,Norma Carroll
+William Padilla,36,NSW,Car,2695.46,1014.1,Pending,8/15/2023,11/16/2023,POL7440617,Premium,Monthly,0.76,rachael92@yahoo.com.au,0418 668 556,Cynthia Wilson
+Johnny Dillon,59,WA,Car,2794.78,3310.09,Approved,3/18/2024,7/18/2024,POL6685401,Basic,Monthly,0.48,brittanystafford@yahoo.com,(03).4124.7066,Abigail Lambert
+Amy Edwards,62,QLD,Car,1409.63,9887.28,Pending,9/23/2023,11/4/2023,POL5002123,Basic,Quarterly,0.37,bryantmatthew@hotmail.com,61864309866,Madison Fletcher
+Oscar Clark,51,QLD,Home,781.88,18543.29,Pending,4/30/2024,8/18/2024,POL9750183,Gold,Monthly,0.76,nicholasjordan@schneider-hernandez.com.au,03.1801.7602,Denise Phillips
+Raymond Barnett,31,NSW,Car,4762.01,16389.96,Approved,3/4/2023,4/27/2025,POL6936105,Basic,Monthly,0.67,debbiesmith@hotmail.com.au,0448 001 226,Mary Webb
+Susan Clark,72,WA,Travel,828.03,453.7,Approved,11/17/2022,8/8/2023,POL3038910,Premium,Quarterly,0.92,bobsmith@harrell-garcia.com,+61.423.006.355,Sean Ruiz
+Melinda Taylor,50,NSW,Travel,3138.15,10252.02,Approved,1/11/2024,11/6/2024,POL4440329,Premium,Monthly,0.73,brian56@hotmail.com,0499 086 883,Sarah Cox
+Robert Choi,35,QLD,Travel,3231.56,6006,Approved,12/21/2023,2/23/2025,POL5162223,Gold,Quarterly,0.51,matthewgray@odonnell.org,0479 426 309,John Ramirez
+James Coleman,60,NSW,Travel,3712.74,4962.25,Rejected,10/26/2023,4/15/2024,POL2191664,Premium,Annually,0.86,iandunlap@yahoo.com,61747526972,Richard Cortez
+Kaitlyn White,19,SA,Travel,435.33,2270.78,Approved,3/26/2023,11/26/2023,POL2845277,Gold,Quarterly,0.39,leslie12@hotmail.com,61820683080,Caroline Ortiz
+Mark Matthews,33,VIC,Car,4744.29,290.81,Pending,10/21/2023,11/20/2023,POL7708608,Gold,Quarterly,0.77,millercharles@villanueva.edu,+61.2.0191.6621,Nicole Martinez DDS
+Victoria Simon,27,ACT,Life,1954.96,14107.56,Approved,7/4/2023,9/30/2024,POL6986677,Premium,Annually,0.34,ogonzalez@morrison.com.au,1677 1355,Megan Diaz
+Tracey Hood,41,TAS,Home,4597.75,829.49,Rejected,1/13/2023,4/15/2023,POL4460742,Basic,Annually,0.53,gmccoy@hotmail.com.au,+61 3 3983 6154,Maria Sims MD
+Ronald Young,52,TAS,Home,435.21,413.28,Approved,3/31/2024,1/4/2025,POL7953039,Premium,Monthly,0.43,vlogan@ayers-fernandez.com,8084 5986,Darren Jones
+Christopher Smith,46,SA,Home,4106.62,4929.44,Approved,10/6/2022,4/26/2023,POL5461591,Basic,Quarterly,0.49,qmills@hotmail.com,61730526505,Michelle Nichols
+Henry Blair,64,TAS,Life,4044.37,15675.34,Approved,2/3/2024,7/9/2024,POL5547808,Basic,Annually,0.9,mark73@yahoo.com.au,07-0423-3840,Meagan Guerrero
+Shannon Ellis,23,SA,Health,488.55,3608.42,Rejected,7/4/2023,1/24/2024,POL4662187,Basic,Quarterly,0.47,harold26@hotmail.com.au,0431 564 652,Sean Washington
+Megan Clark,58,SA,Travel,2612.47,7894.25,Approved,4/14/2024,9/9/2024,POL8943004,Premium,Quarterly,0.86,adrian26@yahoo.com,02-2931-9713,Wendy West
+Luke Smith,40,WA,Travel,3143.14,13370.16,Rejected,7/14/2024,3/30/2025,POL3054487,Standard,Annually,0.88,larry97@yahoo.com,03 5087 0001,Wendy Sanchez
+Diana Armstrong,57,SA,Life,3629.75,1423.78,Pending,3/11/2023,7/22/2023,POL2492210,Premium,Quarterly,0.05,grayelizabeth@yahoo.com,80917883,Kayla Schwartz
+Andrew Craig,49,QLD,Health,3583.36,4507.33,Approved,5/12/2024,5/16/2024,POL4435587,Standard,Monthly,0.25,gonzalestodd@hotmail.com,+61.8.1388.3609,Jeremiah Jones
+Tracy Howard,48,QLD,Car,3645.56,3969.07,Approved,7/28/2023,5/19/2025,POL1664138,Premium,Monthly,0.98,george52@castaneda.net.au,0494 324 701,Mary Oconnor
+Mark Hurst,52,NT,Life,3287.92,7411.7,Approved,4/2/2024,5/27/2024,POL8566558,Basic,Monthly,0.02,johnhill@hotmail.com.au,+61 3 0466 2523,Megan Price
+Cynthia Combs,55,QLD,Health,4806.84,16174.14,Approved,4/12/2024,7/26/2024,POL6415174,Premium,Annually,0.69,vgalloway@yahoo.com,(07) 8761 8078,Cheryl Allen
+Jennifer Castillo MD,22,NT,Travel,2578.21,18260.58,Approved,5/3/2023,5/30/2024,POL8634335,Standard,Quarterly,0.76,summersjohn@torres.com.au,07 6613 4410,Maurice Hill
+Michael Graves,44,ACT,Home,3901.72,13837.11,Rejected,1/5/2023,8/13/2024,POL5030665,Basic,Monthly,0.51,hwilson@yahoo.com,(03).1639.3881,Tabitha Chapman
+Jamie Haney,43,NSW,Travel,530.72,11668.22,Rejected,3/22/2024,3/7/2025,POL9954876,Basic,Quarterly,0.06,ylong@cherry.net.au,+61 3 7707 4786,Sheila Browning
+Kathleen Tate,53,VIC,Life,2404.42,15993.84,Pending,1/20/2023,5/4/2024,POL4904216,Standard,Quarterly,0.46,brian79@hotmail.com.au,(08)08336334,Andrea Strong
+Brandy Brown,27,NT,Life,3615.11,6758.85,Rejected,11/13/2023,8/20/2024,POL9634861,Standard,Annually,0.32,townsendpriscilla@yahoo.com.au,02 3072 2761,Crystal Rodriguez
+Christine Morgan MD,65,QLD,Home,4913.52,4936.25,Approved,12/24/2023,10/23/2024,POL6569347,Basic,Annually,0.7,autumnkelley@yahoo.com,61354186554,Matthew Mckinney
+Greg Johnson,66,SA,Travel,4544.48,7373.56,Approved,8/10/2023,8/4/2024,POL2637977,Basic,Annually,0.88,oleonard@yahoo.com,4323.9672,Larry Banks
+Austin Silva,62,SA,Health,2717.66,5446.52,Rejected,3/1/2024,7/9/2025,POL9966680,Basic,Annually,0.04,james61@henry-williams.edu,0428.290.352,Isaiah Davis
+Jordan Hill,30,VIC,Car,546.8,2595.07,Approved,4/1/2023,2/12/2025,POL9054706,Gold,Quarterly,0.37,njordan@lambert.net,(02)03904266,Hannah Brock
+Joanne Lang,73,NSW,Car,2941.15,3097.89,Approved,8/4/2023,8/31/2024,POL6161310,Premium,Annually,1,kelly77@gmail.com,61841400838,Ashley Jensen
+Dawn Collins,53,VIC,Car,4180.99,16041.31,Pending,3/20/2024,6/1/2025,POL2774856,Basic,Annually,0.03,tanya65@pollard-glover.info,(07)-4800-7439,Justin Booth
+Michelle Perry,27,NSW,Health,2616.26,7717.92,Approved,7/14/2023,5/25/2025,POL4991252,Gold,Monthly,0.11,jessica24@yahoo.com.au,0422-539-624,Leslie Myers
+Stephanie Rowe,21,NSW,Car,1678.11,1947.04,Pending,8/23/2023,7/1/2025,POL2193817,Standard,Monthly,0.06,hamiltonsteven@yahoo.com,(03) 6262 7339,Jill Monroe
+Karina Harris,54,TAS,Home,2847.19,1587.7,Approved,10/23/2023,7/12/2025,POL6313975,Standard,Annually,0.76,murphyandrew@allen.net.au,+61.420.487.424,Jessica Dougherty
+Michael Webster,61,QLD,Health,3869.47,8798.91,Rejected,8/1/2022,6/20/2023,POL4946275,Basic,Annually,0.72,deniserobinson@fernandez.org.au,28.7623,Maxwell Olson
+Joshua Smith,43,ACT,Home,4081.98,15514.93,Rejected,10/29/2022,4/20/2024,POL1398562,Gold,Quarterly,0.25,perezamanda@hotmail.com,(08)21092059,Paul Mueller
+Kevin Kline,37,VIC,Home,2542.35,5193.97,Approved,7/7/2024,1/24/2025,POL3163059,Gold,Quarterly,0.82,jasonmartinez@howell.edu.au,-1374,Eddie Lee
+Kristen Richardson,44,WA,Home,4561,10269.44,Pending,2/19/2024,4/30/2024,POL4090924,Premium,Annually,0.96,joe91@best.info,+61 3 6595 0735,Kyle Parker
+Christopher Bright,69,SA,Car,4315.64,2181.33,Approved,12/15/2023,6/28/2024,POL6938445,Gold,Quarterly,0.98,rebeccasmith@hotmail.com,+61 425 033 350,John Jackson
+Debra Hamilton,60,ACT,Travel,3192.73,9747.35,Approved,5/22/2024,12/4/2024,POL4094844,Basic,Annually,0.11,deannamacdonald@ross.org,61647066,Brian Rice
+Jill Terry,50,NT,Life,4450.95,4721.67,Approved,1/9/2023,6/7/2023,POL4409009,Gold,Annually,0.24,lori25@hotmail.com,0468-759-217,Wayne Johnson
+Jose Hood,28,SA,Health,3615.82,18608.4,Pending,5/3/2023,10/23/2024,POL2201370,Standard,Monthly,0.04,mooreshane@rosales.edu,0961 5310,Vanessa Bradley
+Samantha Garcia,40,TAS,Health,2179.84,6890.85,Approved,3/19/2024,8/25/2024,POL1181540,Basic,Annually,0.43,emoore@ross-harris.net.au,731773298,Heather Smith
+Darlene Huffman,30,QLD,Travel,3232.4,890.28,Approved,3/2/2023,6/14/2025,POL7127049,Gold,Quarterly,0.38,shieldsjohn@reeves.edu.au,0470.665.330,Anita White
+Lisa Diaz,53,ACT,Health,1391.47,3601.96,Pending,3/21/2024,10/8/2024,POL1391395,Basic,Quarterly,0.79,brandongolden@edwards.edu,07 3132 9858,Riley Johnson
+Stephanie Robinson,65,SA,Car,1344.16,11019.11,Approved,7/2/2024,7/26/2025,POL7262662,Gold,Quarterly,0.54,sethdiaz@yahoo.com.au,26957292,Brooke Ramirez
+Michelle Wright,19,VIC,Travel,4529.17,5468.75,Rejected,9/4/2022,4/5/2023,POL7399530,Gold,Quarterly,0.99,andersonfrank@pineda.edu,07.7472.6230,Shawn Valencia
+Latoya Brown,54,NSW,Car,888.47,12633.15,Approved,11/21/2022,4/30/2024,POL8925644,Gold,Quarterly,0.09,johnsonwanda@phillips.org.au,1722-1350,Stephen Moore
+Kristina Davis,70,WA,Home,4825.98,18996.79,Pending,1/29/2024,4/5/2025,POL6510848,Premium,Quarterly,0.08,lawrence84@yahoo.com.au,1779-4832,Natalie Hall
+Jennifer Wong,30,TAS,Home,1603.18,17226.09,Pending,3/9/2023,10/3/2024,POL4044033,Premium,Monthly,0.98,timothylopez@hotmail.com,-8924,Carla Garrett
+Catherine Morris,36,ACT,Car,656.65,12230.02,Approved,5/3/2023,11/11/2023,POL1202536,Premium,Annually,0.2,john44@dunn.org.au,0478-719-239,Dan Adams
+Rachel Cooley,58,ACT,Car,2215.18,17090.15,Approved,3/20/2024,4/10/2024,POL6869163,Standard,Monthly,0.74,iwarner@hotmail.com.au,+61 7 6194 1628,Colleen Anderson
+David Duke,29,SA,Life,4292.79,10521.84,Approved,12/31/2022,6/11/2024,POL9593202,Basic,Annually,0.48,tylergeorge@yahoo.com,+61.8.8940.4815,Daniel Gonzalez
+William Spears,61,SA,Travel,783,57.16,Approved,4/3/2024,12/30/2024,POL2724259,Premium,Monthly,0.15,kelly98@hotmail.com.au,02.4094.6342,Laura Taylor
+Melissa Edwards,73,NSW,Home,2505.44,2822.28,Approved,8/11/2023,5/9/2024,POL5297761,Premium,Annually,0.11,cameron00@yahoo.com,3579-8077,Austin Cook
+Eric Steele,36,NSW,Life,4424.32,4779.98,Approved,10/30/2022,1/28/2024,POL2280514,Standard,Monthly,0.2,james96@smith.net.au,0417 678 926,April Bender
+Kristina Hill,75,NSW,Life,1518.56,9521.68,Pending,8/22/2022,11/27/2023,POL5423425,Gold,Quarterly,0.8,debra39@hotmail.com,(02)20990586,George Taylor
+Tammy Roberts,71,QLD,Home,477.68,3784.5,Rejected,7/24/2024,1/15/2025,POL2091348,Premium,Annually,0.89,amanda84@thompson.edu.au,+61 3 2123 7343,Rose Ellison
+Megan Rice,35,QLD,Health,3896.35,4571.79,Approved,1/8/2023,1/6/2025,POL3141085,Premium,Quarterly,0.31,patricklawrence@waters.com,-12783,Charles Thomas
+John Cantu,58,QLD,Home,1565.12,8664.78,Approved,1/6/2024,2/4/2024,POL4221421,Gold,Monthly,0.18,michael42@hotmail.com.au,(08) 3823 7691,Jordan Juarez
+Leah Randall,40,WA,Travel,4588.64,18505.17,Rejected,2/8/2024,6/12/2024,POL5571876,Basic,Quarterly,0.82,bflynn@rodriguez.org,61352199044,Michelle Davis
+Paul Wilcox DDS,62,NT,Life,3653.94,15450.29,Pending,3/16/2024,7/21/2025,POL2436945,Basic,Annually,0.83,heatherwebb@yahoo.com,-5427,Jonathon Cameron
+Christine Chang,61,NT,Health,1882.4,1442.4,Approved,9/13/2022,3/1/2023,POL5807608,Basic,Monthly,0.42,juliahall@dickerson-brown.edu.au,0436.124.185,Willie Davis
+Brett Burnett,47,VIC,Travel,4286.04,5120.22,Rejected,6/15/2024,6/21/2025,POL9804979,Premium,Quarterly,0.33,mwilliams@hotmail.com.au,61282893390,Kristi Vargas
+Lee Carrillo,58,QLD,Car,4135.88,7874.92,Approved,8/18/2023,11/26/2024,POL8384578,Basic,Monthly,0.56,lwilkerson@herring.biz,2659.7194,Margaret Cooper
+Stephanie Conrad,57,TAS,Car,1932.44,2857.79,Approved,7/16/2023,12/21/2024,POL3247800,Premium,Monthly,0.59,lwise@yahoo.com.au,(07)69743017,Gordon Washington
+Elizabeth Reynolds,40,QLD,Home,1239.53,9611.19,Approved,7/27/2024,7/2/2025,POL3789262,Basic,Monthly,0.95,jcarpenter@calhoun.edu.au,5587 8035,Alexander Mayo
+Michele Harrington,25,TAS,Life,3792.08,9525.46,Approved,4/28/2024,6/8/2024,POL5757671,Standard,Monthly,0.9,hobbsgregory@hotmail.com.au,-1261,Geoffrey Wilkerson
+Tracy Hebert,20,SA,Health,2527.78,18009.83,Approved,8/4/2022,2/28/2025,POL4706875,Standard,Quarterly,0.99,maureen95@yahoo.com,(02).7380.0241,Robert Perry
+Theresa Mcintosh,64,SA,Health,3864.7,6858.97,Approved,5/18/2024,8/29/2024,POL2747282,Gold,Monthly,0.31,molly62@yahoo.com,-3253,Daniel Rodriguez
+Nancy Thompson,43,WA,Health,4732.98,14867.49,Approved,2/23/2024,1/5/2025,POL9675527,Standard,Quarterly,0.13,jill41@hall.net.au,02.4846.1454,Henry Robinson
+Reginald Brown,19,NSW,Life,1370.39,816.95,Approved,11/20/2023,5/21/2024,POL9820726,Standard,Quarterly,0.27,rodriguezdaniel@hotmail.com,02-7493-6075,Robert Rasmussen
+Stephen Gonzalez,48,QLD,Car,3201.85,14910.33,Rejected,1/2/2024,4/23/2025,POL4900569,Basic,Annually,0.89,fcastillo@hotmail.com.au,0478-632-558,Travis Roach
+Lauren Charles,56,TAS,Travel,1012.9,16315.04,Approved,8/24/2023,10/19/2024,POL7314674,Gold,Monthly,0.83,gilbertstephanie@martin-vaughan.net,(03)03062423,Karen Lawrence
+Michael Nelson,34,NT,Life,4988.28,3699.72,Approved,7/28/2024,1/25/2025,POL1378153,Standard,Quarterly,0.23,odaniels@kline.biz,+61 475 225 042,Michael Meyer
+Ashley Austin,27,WA,Life,458.53,13416.62,Rejected,8/12/2023,11/10/2024,POL2969392,Basic,Monthly,0.84,laura02@yahoo.com.au,02.9488.6368,Derek Brown
+James Byrd,28,QLD,Health,403.94,19987.14,Pending,9/29/2023,3/25/2024,POL5358318,Gold,Quarterly,0.82,kathleen29@wyatt-lee.biz,0429 749 600,Terry Lee
+Amanda Murray,35,QLD,Life,2255.77,8237.98,Approved,1/18/2023,9/14/2024,POL5340130,Gold,Monthly,0.71,millermichael@hotmail.com.au,(08)-0471-7504,Karen Rice
+Joseph Smith,56,TAS,Car,3650.61,2317.19,Approved,11/3/2023,9/4/2024,POL3081268,Basic,Annually,0.76,ldrake@hubbard.biz,-6357,Suzanne Davis
+Jill Barron,29,SA,Home,4596.91,1922.02,Approved,9/5/2023,7/20/2025,POL6092843,Gold,Monthly,0.44,tonyawhite@cooper.biz,(07) 1051 6676,Justin Sherman
+Nathan Li,64,VIC,Travel,2809.45,18494.7,Rejected,1/16/2024,8/7/2024,POL5227821,Basic,Monthly,0.5,littlecaroline@hotmail.com.au,(07)52485303,Derek Nunez
+Molly Dudley,29,QLD,Travel,2895.87,6990.8,Approved,4/3/2024,6/24/2024,POL8830518,Gold,Monthly,0.99,christopher06@gill.net,0432-925-060,Glen Walker
+Amy Martin,53,VIC,Car,4212.98,16303.52,Approved,10/10/2023,7/25/2025,POL6597444,Standard,Quarterly,0.34,vincentbrianna@romero-marshall.org,4482-9707,Julia Soto
+Michael Randall,59,WA,Travel,1051.29,17233.33,Approved,9/7/2023,3/7/2025,POL3138004,Basic,Monthly,0.34,gkennedy@gmail.com,+61.8.6086.0147,Catherine Cunningham
+Sandra Gonzalez,43,TAS,Life,3527.01,18111.84,Rejected,5/17/2023,11/25/2024,POL6113844,Standard,Quarterly,0.48,johnsonjoshua@hotmail.com,0472-030-876,Devon Henderson
+Sabrina Mcintosh,52,WA,Car,1630.99,12060.95,Approved,12/23/2023,7/20/2024,POL2739309,Basic,Quarterly,0.08,cynthiafletcher@hotmail.com,340215415,Cynthia Brennan MD
+Donna Griffith,61,NT,Health,4655.25,625.25,Approved,5/9/2023,2/24/2025,POL7796473,Premium,Quarterly,0.36,philipgomez@hotmail.com.au,-17774,Tina Gonzalez
+Ronald James,39,TAS,Life,2491.95,15942.96,Pending,4/21/2023,5/21/2024,POL3132457,Premium,Annually,0.3,sarawebb@colon.net,(08) 8775 2575,Kenneth Brown
+Tiffany Kennedy,55,VIC,Home,2475.19,17068.4,Approved,4/6/2024,1/2/2025,POL2501001,Basic,Quarterly,0.82,hdavies@yahoo.com,-1655,Steven Garcia
+Julie Jones,51,VIC,Travel,3675.73,9191.6,Pending,10/15/2023,3/19/2024,POL5258129,Basic,Annually,0.02,laurathomas@yahoo.com.au,07 9327 1585,Sean Jones
+Richard George,32,QLD,Car,3050.64,5187.78,Approved,5/7/2024,11/5/2024,POL7276234,Standard,Annually,0.07,kcampbell@hotmail.com,61846866941,Heather Brown
+Martha Davis,60,VIC,Life,1124.01,10965.53,Approved,1/6/2023,5/31/2025,POL3368624,Premium,Monthly,0.86,karen75@yahoo.com.au,-7134,Jason Good
+Jennifer Villa,58,SA,Home,2713.45,15401.46,Approved,6/18/2023,5/4/2024,POL1091709,Gold,Annually,0.18,katherineharrington@garcia-franco.edu.au,08-6883-9975,Mark Castillo
+Amber Gutierrez,48,WA,Life,2811.62,9675.16,Approved,6/29/2024,4/14/2025,POL6208024,Gold,Annually,0.42,eford@gmail.com,+61 8 6599 1779,Donald Vaughn
+Anna Rodriguez,50,WA,Car,1809.01,9931.38,Approved,4/30/2023,1/16/2025,POL4996143,Premium,Monthly,0.85,skinnermelissa@gmail.com,1829 5603,Sean Mitchell
+Renee Johnson,37,NSW,Car,4468.37,19091.29,Rejected,7/7/2023,10/4/2023,POL9777910,Gold,Monthly,0.38,odavis@bennett.info,-1103,Erica Cruz
+Destiny Nelson,41,NT,Health,4128.3,9311.38,Approved,9/23/2022,9/27/2024,POL8183171,Standard,Quarterly,0.02,turnerjoseph@kemp.com,+61 432 590 799,Clinton Hale
+Jessica White,24,SA,Car,3267.49,4538.24,Pending,9/20/2022,8/17/2024,POL5622229,Standard,Quarterly,0.15,eberry@ho.com.au,0424-228-362,Ruth Mccoy
+Mandy Rocha,18,ACT,Car,4493.2,8706.78,Approved,12/21/2023,3/3/2025,POL2190763,Gold,Monthly,0.22,krivers@gmail.com,+61 477 323 706,Robin Garcia
+Rodney Nichols,61,SA,Car,4305.5,13542.97,Approved,3/11/2023,8/2/2023,POL6578669,Premium,Annually,0.94,wadejorge@yahoo.com.au,+61.8.5700.1395,Troy Crane
+Paige Carroll,32,TAS,Home,1661.74,7913.06,Approved,12/16/2023,4/23/2024,POL3781394,Gold,Annually,0.29,amy50@clay-harding.net,0450-002-409,Jennifer Dean
+Susan Palmer,38,NT,Travel,1945.56,3958.88,Approved,9/15/2022,2/15/2025,POL1602615,Premium,Quarterly,0.2,kingdavid@gmail.com,02.0276.2995,Alyssa Harris
+Lisa Mullen,71,NT,Life,2953.62,1946.08,Pending,10/8/2022,7/30/2025,POL7690599,Gold,Annually,0.95,anelson@anderson.com.au,(03)08216944,Lisa Gilbert
+James Kemp,36,ACT,Health,2712.32,14505.84,Rejected,7/10/2023,8/25/2024,POL3833694,Gold,Quarterly,0.74,landryclayton@johnson.net,+61 497 167 985,Christopher Hart
+Terry Andrews,25,TAS,Car,1131.2,490.98,Approved,3/31/2023,2/7/2024,POL5761110,Premium,Annually,0.69,spencermatthew@hotmail.com.au,(03) 7141 8008,Kim White
+Kelly Carroll,24,TAS,Health,2701.14,3725.84,Approved,10/11/2022,10/20/2023,POL2073247,Standard,Annually,0.28,michelehogan@gmail.com,+61.2.9932.2327,Derrick Barton
+Melissa Parker,55,TAS,Life,749.98,9559.48,Approved,3/11/2023,3/30/2024,POL5094818,Premium,Quarterly,0.54,ramosshelby@greer.net.au,(02) 8284 6342,Matthew Horn
+Kathleen Hill,49,SA,Travel,1657.56,17020.96,Approved,5/18/2023,10/11/2024,POL1481568,Standard,Monthly,0.06,jorgemiller@wright-tyler.edu.au,6999.366,Sandra Carter
+Morgan Humphrey,68,QLD,Travel,2299.04,10646.47,Approved,10/10/2022,5/10/2025,POL1377885,Premium,Annually,0.13,wendy34@gmail.com,0446.808.485,Michael Howard
+Jennifer Ray,47,QLD,Car,1749.52,4853.37,Approved,9/26/2022,6/19/2023,POL5208729,Premium,Annually,0.56,druiz@hudson.net,07.8721.3393,Shawn Lee
+Walter Diaz,42,VIC,Health,4944.58,16993.12,Approved,7/15/2023,12/19/2024,POL1336265,Basic,Monthly,0.77,erinweber@gmail.com,(08) 6811 6289,Mrs. Samantha Yoder
+Robert Elliott,33,WA,Travel,496.78,3676.32,Approved,12/21/2023,4/10/2025,POL3330399,Basic,Annually,0.89,milesmargaret@welch.edu,0424.997.866,Kelly Osborne
+Christopher Thompson,46,SA,Car,1894.59,18789.99,Approved,12/30/2022,1/11/2025,POL3814809,Premium,Monthly,0.18,preynolds@yahoo.com,0436.162.290,Cody Cox
+Barbara Hernandez,44,QLD,Travel,2834.19,19366.95,Rejected,10/4/2023,6/30/2025,POL9514560,Basic,Annually,0.61,mendozamichael@johnson.net.au,(07)-0047-4799,Maria Cain
+Tara Wilson,30,NT,Health,3735.57,4972.1,Approved,1/6/2024,9/19/2024,POL7047883,Basic,Annually,0.62,aaronnunez@hill.org.au,+61.400.943.270,Patrick Fowler
+Kimberly Contreras,45,SA,Life,2875.2,8761.9,Approved,12/10/2022,6/8/2024,POL2403921,Premium,Monthly,0.95,qgalloway@cantu-miller.info,-1311,Dr. Amy Mathews
+Mary Rodriguez,56,VIC,Home,4736.5,15979.02,Rejected,10/20/2022,1/9/2023,POL3630006,Gold,Monthly,0.73,willie80@serrano-hansen.net,+61 469 579 977,Andrew Jones
+Hunter Rich,27,ACT,Car,981.92,9864.54,Approved,7/21/2023,5/2/2025,POL7133967,Standard,Quarterly,0.82,harperjeremy@gmail.com,1151-6062,Gary White
+James Gardner,36,ACT,Life,1566,1265.56,Approved,4/19/2023,9/6/2024,POL5831556,Standard,Quarterly,0.29,andrea35@griffin.edu,0429.574.796,Richard Massey
+Mark Taylor,24,NT,Health,3309.62,14808.51,Rejected,4/21/2023,7/26/2024,POL8325325,Gold,Quarterly,0.23,jacksongary@nichols.org,07-3730-0692,Shawn Mason
+William Burke,47,SA,Life,2322.13,13263.6,Rejected,1/12/2023,10/3/2023,POL2648419,Premium,Annually,0.37,latashazimmerman@flores-harrington.edu,(02)-7108-8057,Jennifer Newman
+Charles Gomez,24,WA,Health,4789.63,18143.79,Approved,9/10/2022,11/27/2023,POL1914350,Basic,Annually,0.91,hintonjames@yahoo.com.au,0141 2294,Marcus Gonzales
+Stephanie Dalton,69,NSW,Health,4333.22,14057.35,Approved,7/10/2023,7/31/2024,POL3176751,Premium,Quarterly,0.64,richardnguyen@mcconnell.com.au,61393772085,Suzanne Raymond
+Jennifer Campbell,31,TAS,Travel,376.27,1457.53,Approved,4/10/2024,6/13/2024,POL5145298,Basic,Annually,0.95,josesantos@gmail.com,08 7056 7608,Alexandria Johnson
+Cindy Hernandez,55,QLD,Life,2609.02,2471.91,Rejected,4/2/2023,8/2/2024,POL2987268,Premium,Monthly,0.55,dmay@peterson-johnson.info,323925060,Donald Hodge
+Joseph Brown,72,SA,Life,3183.31,4036.44,Approved,3/18/2024,7/25/2025,POL8787983,Gold,Monthly,0.05,tiffany24@mitchell-esparza.org.au,61379224990,Shirley Hernandez
+Gerald Moore,48,ACT,Travel,2738.65,19233.72,Approved,6/20/2024,7/7/2025,POL8984254,Standard,Monthly,0.66,william62@barnes.com,833743924,Dale Wright
+Michael Simmons,70,QLD,Travel,4448.02,10851.54,Approved,3/4/2024,7/27/2024,POL1318289,Standard,Annually,0.32,melissa20@clark.biz,+61.2.5998.1096,Phillip Reed
+Stacy Moreno,52,VIC,Travel,2919.55,8132.16,Rejected,4/1/2023,8/23/2023,POL3462598,Basic,Monthly,0.41,johnnyrich@hansen.com,0466.535.674,Barbara Grimes
+Felicia Mcdaniel,36,TAS,Home,1989.11,9567.34,Approved,3/18/2024,3/6/2025,POL4027533,Premium,Annually,0.03,joshua14@yahoo.com.au,(07)-4030-8566,Henry Barker
+Gary Williams,32,SA,Life,3565.62,11893.44,Approved,1/7/2023,3/16/2025,POL6787107,Basic,Annually,0.05,patrickbrown@spears-brown.com,7868.4142,Tina Perez
+Steven Collins,68,QLD,Travel,1859.29,15.94,Approved,1/24/2023,2/14/2024,POL6605769,Standard,Quarterly,0.61,cummingscarol@yahoo.com.au,0419.569.472,Katelyn Smith
+Scott Barajas,22,NSW,Travel,1200.23,4907.06,Pending,2/9/2023,8/24/2023,POL9835036,Standard,Quarterly,0.25,taylorsandra@gmail.com,+61 7 6501 6898,Todd Carter
+Taylor Norris,19,TAS,Home,2299.89,1217.75,Rejected,9/5/2023,1/27/2025,POL4367458,Standard,Quarterly,0.48,sara44@yahoo.com.au,+61 3 4354 8739,Robin Morton
+Denise Morrison,45,VIC,Health,1843.64,13518.38,Pending,5/16/2024,10/29/2024,POL2736044,Standard,Annually,0.54,keithburch@huff.edu.au,44115708,Rose Wagner
+Andrew Bond,73,NT,Health,2409.38,690.75,Approved,6/13/2023,7/1/2024,POL2146091,Standard,Monthly,0.39,ericphillips@gardner-parsons.biz,4556.5319,Natalie Phillips
+Benjamin Wilson,74,TAS,Travel,2236.06,3689.54,Approved,2/9/2023,9/12/2024,POL3389854,Premium,Quarterly,0.54,jesse66@hotmail.com,+61 424 282 572,Carla Aguirre
+Megan Mitchell,63,ACT,Travel,4526,10110.58,Rejected,9/5/2022,6/18/2024,POL5709069,Basic,Annually,0.42,parkchristopher@simon-lewis.net.au,03-3943-2645,Tanya Williams
+Travis Parker,34,ACT,Home,356.4,1707.4,Rejected,7/6/2024,7/31/2024,POL7819312,Standard,Annually,0.39,valerie50@yahoo.com,0470-071-480,Thomas Wilkinson
+Mr. Stephen Fitzgerald,65,WA,Car,2446.15,4786.39,Approved,5/4/2024,4/29/2025,POL1955548,Basic,Quarterly,0.52,judithramirez@ryan.org,+61.7.1949.4323,Billy Kim
+Fernando Smith,24,SA,Car,949.66,2159.96,Pending,5/30/2023,4/14/2025,POL1617193,Gold,Annually,0.63,aarondickson@gmail.com,(08)-3028-2054,Jose Salazar
+Thomas Mills,24,NSW,Home,976.21,5924.63,Rejected,2/25/2023,1/22/2024,POL7143808,Standard,Annually,0.02,howardmichael@smith-scott.net,(07)-9053-5564,Sarah Love
+Lydia Costa,32,WA,Home,476.61,2005,Approved,6/19/2024,5/6/2025,POL3402688,Premium,Quarterly,0.41,bmiller@yahoo.com,(08)47228725,David Perkins
+Wendy Russell,67,NSW,Home,2542.19,6512.85,Approved,9/22/2022,6/24/2025,POL7434519,Standard,Monthly,0.17,pstewart@hale-jimenez.net,18147143,Scott Harrington
+John Kennedy,73,WA,Travel,884.73,2664.54,Approved,7/21/2023,8/18/2023,POL5287331,Gold,Quarterly,0.82,justinfrazier@yahoo.com.au,(02) 7289 4824,Ashley Gilmore
+Crystal Acosta,46,TAS,Car,1726.34,3487.06,Approved,1/12/2024,7/9/2024,POL5409838,Standard,Monthly,0.02,zvega@gmail.com,+61.409.748.751,Melissa Becker
+Robert Brown,39,ACT,Home,2900.95,13129.49,Pending,6/22/2024,1/21/2025,POL5732568,Standard,Annually,0.99,tzimmerman@hotmail.com.au,08.6922.9520,John Bentley
+Deborah Campbell,42,ACT,Health,4244.12,12897.97,Pending,11/22/2022,1/1/2023,POL1969505,Basic,Annually,0.77,lynnkayla@hotmail.com.au,5349 1202,Sarah Russell
+Brenda Parker,52,SA,Home,4678.64,13599.54,Approved,6/23/2023,8/18/2023,POL2073730,Gold,Monthly,0.71,ashleymichael@yahoo.com,02 5154 4652,William Patrick
+Wayne Simon,26,NSW,Car,2241.43,4301.62,Approved,10/2/2023,2/17/2025,POL9569871,Gold,Monthly,0.05,jasonmartin@yahoo.com.au,574.2034,Mr. Lance Schwartz MD
+Tracy Schultz,74,WA,Car,823.1,11937.38,Pending,12/24/2023,3/1/2025,POL3285258,Basic,Annually,0.88,henryromero@gmail.com,+61.7.4608.9901,Anthony Griffin
+Amber Ford,44,ACT,Life,1619.26,1605.04,Approved,2/12/2023,3/25/2025,POL4405733,Standard,Annually,0.47,aaron42@silva-smith.com.au,0455.047.073,Kathleen Gaines
+Gabriel Williams,51,TAS,Home,2694.28,11527.91,Pending,3/16/2024,7/30/2025,POL8092913,Gold,Quarterly,0.75,sanfordnicholas@wilson.org,710633890,Scott Caldwell
+Sara Foster,66,NT,Health,4107.37,8695.21,Pending,4/30/2024,8/14/2024,POL4712614,Premium,Annually,0.24,turnerallison@smith.info,0437.884.029,Dr. Julie Sandoval PhD
+Roger Maldonado,65,ACT,Travel,3792.09,13795.28,Pending,2/8/2024,8/7/2024,POL1105504,Basic,Monthly,0.79,jrichard@moore.biz,-2245,Carol King
+Angela Wood,75,ACT,Home,1059.59,14200.13,Approved,8/25/2022,3/1/2025,POL9814777,Premium,Monthly,0.23,taylormcgrath@trujillo.net.au,61888380086,Susan Little
+Michelle Roberson,40,ACT,Health,4029.91,6585.63,Pending,9/10/2023,11/7/2023,POL7786200,Premium,Monthly,0.84,amanda03@hotmail.com,(02).0649.2793,Matthew Mendez
+Randy Sanders,27,TAS,Home,312.32,236.38,Approved,12/8/2022,5/17/2023,POL6149297,Basic,Quarterly,0.53,hannahhawkins@rodriguez.com,(08).7123.6164,Kelly Ford
+Wesley Montgomery,36,TAS,Life,3497.54,10080.23,Approved,8/25/2022,2/3/2023,POL2130826,Premium,Quarterly,0.09,elizabeth70@ryan.org,08-9375-4139,Sarah Gross
+Anna Walter,24,VIC,Health,3012.21,19596.86,Rejected,4/17/2024,9/2/2024,POL8461695,Premium,Annually,0.91,agarcia@fields-moore.com.au,03-2391-7779,Jennifer Rush
+Juan Stanley,46,SA,Home,3400.38,11850.87,Approved,11/22/2023,6/10/2024,POL2852489,Basic,Annually,0.51,colleen42@robinson.org.au,(08)56555066,Casey Adkins
+Cynthia Charles,62,VIC,Health,1607.97,4166.57,Approved,3/17/2024,12/28/2024,POL1745984,Premium,Monthly,0.53,jsanchez@yahoo.com.au,205206944,Allison Jones
+Brianna Evans,18,ACT,Health,1797.3,9974.76,Pending,5/29/2024,10/31/2024,POL8323932,Basic,Monthly,0.01,paulhiggins@gmail.com,03 3519 7192,Casey Luna DDS
+Lydia Mitchell,68,WA,Health,2136.57,19704.2,Rejected,3/30/2023,9/2/2023,POL8069765,Basic,Monthly,0.1,cleon@gmail.com,+61.7.7716.2686,Daniel Sanchez
+Javier Peterson MD,47,QLD,Home,3823.93,2613.56,Approved,6/6/2023,8/22/2023,POL5055634,Gold,Monthly,0.88,williamsmallory@horton.com,02-0880-1461,Alexander Johnston
+Barbara Richard,21,NSW,Life,832.94,3860.71,Approved,10/14/2022,3/15/2023,POL7534727,Standard,Annually,0.36,hancockjohn@larsen-moore.com.au,02.6248.7052,Joe Rodriguez
+Jessica Ingram,32,TAS,Home,3957.92,4710.56,Approved,2/7/2024,6/20/2025,POL1859053,Premium,Quarterly,0.05,julie27@christensen-clements.net,19489376,Ricky Scott
+John Johnson,75,QLD,Home,387.81,6494.53,Approved,10/12/2023,1/10/2024,POL5754509,Standard,Monthly,0.83,abbottpaula@yahoo.com,03 8770 4518,Nicholas Lynch
+Janice Rogers,32,VIC,Health,4630.23,1973.32,Rejected,8/24/2022,4/7/2023,POL3416963,Gold,Monthly,0.82,lammario@hotmail.com,(07) 6855 0763,Cody Hoffman MD
+Katherine Hawkins,28,NSW,Car,790.05,1496.58,Approved,12/26/2023,11/21/2024,POL9087580,Standard,Quarterly,0.37,richard90@gmail.com,-3777,Phillip Green
+Ryan Marshall,23,VIC,Travel,874.24,10428.03,Approved,8/11/2023,6/2/2024,POL1775143,Basic,Monthly,0.5,bakerstephanie@yahoo.com,(03) 7784 6201,Jessica Mccullough
+Kyle Anderson,34,ACT,Car,3826.79,15727.9,Approved,3/16/2023,4/3/2024,POL7821264,Basic,Annually,0.71,wilsoncarol@reyes.org.au,+61 414 629 950,Emily Soto
+Natalie Rodriguez,60,VIC,Health,3438.23,5954.29,Approved,3/2/2023,4/28/2023,POL9584379,Gold,Annually,0.11,jtorres@thompson.net.au,07.5882.2515,Sandra Bray
+Darren Weber,46,NSW,Car,4051.95,19878.01,Approved,4/5/2024,4/5/2025,POL5730787,Basic,Quarterly,0.72,holmesbonnie@yahoo.com.au,0408-023-736,Daniel Smith
+John Lewis,18,TAS,Travel,2822.67,14423.09,Approved,3/26/2023,12/16/2023,POL1626716,Premium,Annually,0.86,bettylynn@hotmail.com.au,0473 293 788,Joseph Clark
+Laura Smith,25,QLD,Car,3926.47,11591.47,Approved,9/3/2022,1/31/2023,POL1288978,Basic,Monthly,0.19,troybrown@gmail.com,02.0809.0147,Candace Harris
+Frank Rios,36,NSW,Travel,2914.31,8510.11,Approved,6/16/2024,6/12/2025,POL6051207,Premium,Monthly,0.54,deanna29@holland.edu.au,+61.405.961.469,Pamela Jones
+Emily Simpson,47,ACT,Life,4008.33,12827.65,Approved,10/22/2022,4/26/2024,POL6128842,Standard,Annually,0.67,heidireyes@curtis-wheeler.info,+61 2 5726 6159,Mr. Henry Jimenez
+Crystal Stokes,53,VIC,Travel,4207.96,12777.42,Rejected,3/18/2023,7/1/2023,POL5903067,Standard,Monthly,0.4,fhoward@johnston.net.au,+61.2.7914.9028,Amanda Juarez
+Carrie Riley,56,SA,Car,4827.15,19498.89,Approved,2/28/2024,4/11/2025,POL9667628,Basic,Annually,0.43,jacob81@hotmail.com.au,(03) 5094 5930,Robert Rivera
+Sabrina Bass,48,VIC,Life,317.89,2464.68,Approved,9/30/2023,10/5/2023,POL1194083,Premium,Quarterly,0.53,ygarner@smith.biz,53857632,Maria Palmer
+John Wagner,46,NT,Travel,4804.49,19058.69,Rejected,8/20/2023,5/8/2025,POL8312272,Premium,Quarterly,0.74,codydougherty@velasquez.edu.au,+61.3.5993.0627,Scott Gonzalez
+Ashley Prince,52,ACT,Car,2515.12,11640.36,Approved,4/29/2024,1/31/2025,POL8393497,Gold,Monthly,0.69,thompsonmichael@hotmail.com,0491.756.120,Kara Smith
+Hailey Hill,70,TAS,Life,2804.15,14994.9,Pending,4/19/2023,6/2/2024,POL2959736,Premium,Monthly,0.46,mooreabigail@rosales.edu.au,7737 2441,Donald Campbell
+Laura Wright,44,VIC,Health,1504.54,12266.59,Pending,3/27/2024,4/13/2025,POL5044813,Gold,Annually,0.54,tammy56@fox.org,+61 2 4099 7155,Jennifer Lopez
+Mrs. Kathy Hooper,18,SA,Travel,4010.63,11515.99,Approved,6/24/2024,7/9/2025,POL2050562,Basic,Quarterly,0.89,kbrady@yahoo.com,-5813,Christopher Patrick
+Angelica Clark,26,ACT,Life,3315.32,14417.69,Approved,1/14/2023,10/9/2024,POL2262566,Basic,Annually,0.33,barnettlinda@patrick.com,7645 9433,Vanessa Mcguire
+Melinda Woods,55,QLD,Health,4222.49,9640.54,Rejected,3/11/2023,11/17/2023,POL9368632,Gold,Monthly,0.43,vchoi@jones.edu,03 4843 8394,Jeanette George
+Victoria Miller,62,TAS,Health,3748.55,420.41,Approved,2/20/2024,6/17/2025,POL2594219,Premium,Monthly,0.67,bradybryan@henry.com.au,1092 6365,Tina White
+Samuel Moore,45,NSW,Car,2688.92,5992.57,Approved,4/10/2024,2/11/2025,POL9561168,Gold,Annually,0.23,kleinduane@gutierrez-carter.edu,(07) 0014 7461,Kyle Zamora
+Anthony Gutierrez,50,ACT,Home,4887.27,18295.06,Rejected,5/6/2023,7/14/2025,POL7154370,Premium,Monthly,0.58,fdavis@garza.biz,802.5541,Mr. Joseph Taylor DDS
+Vickie Castro,45,TAS,Home,491.08,10465.58,Approved,3/9/2023,4/12/2024,POL6306851,Standard,Monthly,0.57,brownkaren@gmail.com,+61 476 842 221,Lucas Carrillo
+Mark Weaver,58,NSW,Car,1191.34,10022.81,Approved,7/28/2024,7/12/2025,POL1356683,Basic,Annually,0.03,zjohnson@hunt.edu.au,(03) 7795 7876,Stephanie James
+Heather Barajas,68,SA,Health,4707.45,4559.34,Rejected,1/8/2024,1/29/2024,POL3035850,Basic,Annually,0.17,dlopez@valdez.edu.au,(08)11505144,David Stevens
+Scott Hogan,36,SA,Home,3677.1,15834.52,Pending,9/26/2022,10/30/2023,POL1106169,Premium,Annually,0.16,dporter@taylor-williams.com,284247015,Tanner Rodriguez
+Ronald Bell,73,SA,Life,2260.75,11427.18,Rejected,10/19/2022,1/2/2023,POL3219733,Premium,Annually,0.81,melissablake@hotmail.com,0400 173 545,Linda Perry
+Amy Reid,41,TAS,Car,1065.04,4019.89,Approved,2/26/2023,3/10/2025,POL5824042,Standard,Annually,0.27,austinmendoza@george.biz,+61.426.918.430,Andrea Shaw
+Laura Hernandez,46,TAS,Life,1831.75,12976.81,Approved,9/30/2023,4/21/2025,POL3353447,Basic,Quarterly,0.37,awilliams@gmail.com,(08)-3214-5174,Dennis Martin
+Veronica Hunter,44,TAS,Life,1875.02,1949.75,Approved,9/23/2022,11/20/2023,POL5623500,Gold,Annually,0.13,garciamichelle@yahoo.com.au,1619-7166,Kimberly Johnson
+Edward Pope,52,TAS,Home,4960.39,3257.13,Pending,3/16/2023,11/2/2024,POL2816238,Basic,Quarterly,0.41,pricejudith@hall.org.au,02.2752.1500,Penny Castillo
+Justin Hernandez,40,TAS,Health,2039.3,18039.95,Approved,6/18/2024,12/5/2024,POL8207722,Basic,Quarterly,0.26,smithemily@hotmail.com,+61.3.0702.2942,Pamela Cox
+Wesley Russell,39,QLD,Car,493.2,17557.63,Pending,3/23/2024,9/14/2024,POL7855899,Basic,Monthly,0.94,russotara@scott-norris.info,+61.8.3355.0298,Cassidy Preston
+Kimberly Williams,42,WA,Travel,3905.21,13477.86,Approved,4/30/2023,5/19/2023,POL6973026,Gold,Annually,0.49,john23@nunez-mack.org,+61 424 664 184,John Williams
+Katie Gray,61,QLD,Home,3388.4,3238.26,Approved,8/10/2022,4/3/2023,POL9317711,Gold,Monthly,0.19,sanchezlogan@clark.biz,(03)04352738,Emily Powell
+Megan Smith,63,ACT,Travel,4125.7,9861.03,Rejected,11/13/2023,1/3/2025,POL5498174,Standard,Monthly,0.28,kevin49@wright-butler.edu,0473 709 577,Tracy Meyer
+Jennifer Mcdonald,41,TAS,Life,3090.44,227.95,Rejected,6/3/2024,8/30/2024,POL6198618,Gold,Annually,0.64,alec98@hotmail.com,0467 768 372,Jeffrey Jimenez
+Theresa Harvey,45,ACT,Life,4658.59,13465.99,Approved,2/4/2023,8/23/2023,POL6909558,Standard,Monthly,0.55,emilybryant@hotmail.com.au,0429-387-690,Eric Washington
+Jeffrey Schmidt,62,TAS,Health,4428.74,7741.19,Pending,10/14/2023,10/10/2024,POL6411093,Basic,Quarterly,0.21,phernandez@yahoo.com.au,(03)-8264-3547,Christopher Keller
+Calvin Cruz,27,SA,Home,4997.81,6202.39,Pending,8/9/2022,7/20/2024,POL9631318,Basic,Quarterly,0.79,michaelsingh@hotmail.com.au,8585.9767,Diane Garcia
+Sydney Cox,64,VIC,Home,1992.33,4509.64,Approved,8/18/2022,12/13/2022,POL5222573,Basic,Annually,0.74,edwardfarrell@hotmail.com,(07)30400994,Nicholas Miller
+Caroline Deleon,53,WA,Health,4860.42,14644.06,Approved,1/31/2024,6/28/2025,POL5090920,Gold,Annually,0.28,jillhorne@hotmail.com.au,(07) 0359 2113,Alex Mccall
+Joseph Morris,62,QLD,Home,3411.61,9374.89,Rejected,4/20/2023,1/3/2025,POL5633007,Gold,Monthly,0.94,john07@hardin.edu,07 7463 2626,Danny Montes
+Robert Wright IV,59,WA,Travel,920.05,606.17,Approved,4/13/2023,12/24/2024,POL9737548,Standard,Monthly,0.55,gvance@wilkins-price.org.au,-15274,Hannah Dalton
+Tamara Nguyen,25,SA,Home,4516.21,3995.78,Approved,12/30/2022,4/30/2023,POL1534056,Basic,Quarterly,0.41,meyerschloe@gmail.com,6887-9724,Jerry Monroe
+John Massey,27,QLD,Car,2052.48,12885.84,Pending,8/15/2023,3/10/2025,POL3674725,Premium,Annually,0.45,kevinhughes@brewer-richards.net.au,0412.223.581,Scott Evans
+Jasmine Jenkins,22,SA,Car,567.36,14414.35,Approved,11/13/2022,12/14/2022,POL6356538,Basic,Annually,0.34,tammy09@hawkins.net.au,+61 2 8889 3909,Amy Vasquez
+Jason Copeland,49,TAS,Travel,1899.69,19430.64,Rejected,5/18/2024,9/27/2024,POL6346696,Gold,Monthly,0.42,alexandermary@gmail.com,07-0704-9036,Jenna Price DDS
+Travis Rios,63,VIC,Home,4248.48,16682.83,Approved,7/11/2024,5/1/2025,POL3860208,Premium,Quarterly,0,qvalentine@mullen.com.au,(02)85274093,Anthony Walsh
+Kimberly Jensen,49,NSW,Travel,1879.05,3471.91,Approved,4/4/2023,3/22/2025,POL5269470,Standard,Quarterly,0.02,michelleking@avila.org,(02) 9590 6828,Christine Fry
+David Williams,45,NSW,Travel,1933.34,5589.56,Approved,8/11/2023,3/10/2024,POL9608590,Gold,Quarterly,0.77,gloria20@fernandez.biz,(02) 3744 8503,Terry Vincent
+Erik Moran,39,WA,Car,971.91,12320.5,Approved,6/15/2024,4/27/2025,POL4436806,Premium,Quarterly,0.54,xjohnson@evans-landry.edu.au,61222143008,Tammy Ford
+Joseph Klein,55,VIC,Life,1664.54,846.2,Approved,8/29/2022,4/30/2025,POL1308544,Premium,Annually,0.56,david08@tucker.biz,6380 8439,Sandra Miller
+Nathan Schultz,35,WA,Car,4060.45,4489.66,Approved,9/11/2022,4/4/2025,POL2882238,Gold,Quarterly,0.58,brandonmontoya@haynes.com,(03).3000.3761,Mr. Dustin Mcclure
+Aaron Terrell,26,ACT,Life,3187.36,7151.95,Approved,4/25/2024,12/26/2024,POL4734542,Standard,Monthly,0.29,virginiafigueroa@smith.info,+61.7.2535.4098,Brittany Huff
+Timothy Graham,55,WA,Travel,1389.9,9077.31,Approved,8/23/2023,3/20/2024,POL7032154,Gold,Quarterly,0.26,simmonserica@morales.com,0487 623 942,Paul Carney
+Phillip Larson,71,NT,Health,575.19,71.43,Approved,9/21/2023,12/27/2024,POL9089582,Standard,Annually,0.98,shannonklein@castro.org.au,-1685,Michael Haas
+Andrea Baldwin,55,TAS,Life,1781.5,17498.22,Rejected,10/8/2022,7/7/2025,POL1553132,Premium,Quarterly,0.11,michaelsantiago@yahoo.com,-879,Jacob Pitts MD
+Kristina Harrington,30,ACT,Home,2065.08,17723.87,Pending,2/10/2023,3/13/2025,POL7621943,Premium,Monthly,0.23,david26@simmons.net.au,-1759,Catherine Leon
+Melissa Gonzales,73,QLD,Car,2176.94,12735.22,Rejected,5/23/2024,12/13/2024,POL1657870,Gold,Annually,0.09,brett28@gmail.com,(03)81099994,Susan Hernandez
+Carla Dalton,72,ACT,Health,684.69,15696.73,Rejected,3/2/2024,12/25/2024,POL7740901,Premium,Quarterly,0.45,elizabethstanley@yahoo.com.au,(02)-3785-9899,Leslie Silva
+Deborah Scott,57,NSW,Car,2826.05,5182.04,Rejected,9/21/2022,12/17/2024,POL2207878,Standard,Monthly,0.84,francisco02@kelly.com.au,03 9866 1066,Howard Dillon
+Lawrence Jackson,70,QLD,Health,1111.34,12052.94,Approved,11/1/2022,2/27/2024,POL8720470,Standard,Annually,0.85,gonzalesmolly@burke.biz,73185592,Taylor Perez
+Stacy Woods,34,WA,Health,4756.75,12716.15,Rejected,8/31/2023,4/19/2025,POL5972596,Premium,Monthly,0.47,cookejames@hotmail.com.au,5925-3603,Walter Pierce
+Karina Schultz,56,VIC,Home,1378.73,17485.98,Approved,11/11/2023,3/21/2024,POL5865099,Basic,Monthly,0.99,sandra05@hotmail.com,0499 739 086,Michael Jordan
+Jackie Shelton,68,NT,Life,1145.62,3739.94,Approved,10/7/2023,4/29/2024,POL1362395,Standard,Quarterly,0.99,willistracy@morrison.org.au,03.8318.6548,Matthew Cortez
+Felicia Brown,35,NSW,Health,1370.32,16156.14,Approved,10/2/2022,12/21/2023,POL5249453,Basic,Annually,0.87,dherrera@yahoo.com.au,0410-031-476,Heather Robinson DDS
+Valerie Walker,19,NT,Health,2013.89,7191.21,Rejected,12/8/2023,7/26/2025,POL1526996,Standard,Quarterly,0.59,arnoldlisa@steele.org.au,02.1718.1840,Edward Leonard
+Justin Davis,62,NT,Travel,3858.9,18848.4,Rejected,9/10/2023,5/24/2024,POL8873680,Gold,Quarterly,0.66,anthonyward@cooper-martinez.biz,-1487,Katherine Adams
+Anthony Schaefer,22,TAS,Life,3237.07,13552.93,Approved,2/17/2024,2/3/2025,POL8252253,Gold,Quarterly,0.14,hraymond@sexton.com,-2237,Melinda Steele
+Kelly Brady,65,TAS,Travel,1495.11,15973.73,Approved,11/17/2023,3/18/2025,POL7875265,Premium,Monthly,1,bknapp@hotmail.com.au,+61 2 6009 0784,Sabrina Parker
+Dr. Cory Martinez,25,NT,Health,4228.93,15153.85,Rejected,7/12/2024,7/1/2025,POL9771421,Premium,Monthly,0.04,smithdavid@yahoo.com,(08).0033.9166,Jason Martinez
+Adriana Glass,74,SA,Health,4666.26,10226.51,Approved,3/26/2024,9/11/2024,POL5365036,Gold,Monthly,0.6,nortiz@gmail.com,4186.2592,Ashley Cox
+Sydney Brown,66,SA,Car,2858.61,17758.06,Approved,8/18/2022,12/19/2023,POL6224197,Premium,Monthly,0.56,mackchristine@kramer-hanson.edu,714605182,Mark Nicholson
+Melissa Brooks,44,SA,Life,3657.4,18742.71,Approved,1/20/2024,8/10/2024,POL3070717,Premium,Monthly,0.53,chavezjesse@hotmail.com,(07)-6527-7144,Casey Jones
+Benjamin Campbell,21,QLD,Car,3867.01,16187.06,Pending,8/14/2023,10/21/2023,POL1767600,Gold,Annually,0.83,joanne08@gmail.com,0446 915 972,Kelly Allen
+Ricardo King,58,ACT,Health,2016.02,4593.11,Pending,9/2/2023,9/30/2024,POL6531713,Gold,Monthly,0.18,joshuacurry@gmail.com,+61 426 925 110,Carol Gallagher
+Tyler Wade,40,ACT,Life,4910.8,11107.16,Approved,8/20/2022,3/7/2024,POL8639081,Premium,Annually,0.42,whitakerkaren@hotmail.com,(08)-0716-3405,Bridget Mason
+Brian Jones,64,TAS,Car,1689.61,7432.5,Approved,10/7/2022,4/9/2024,POL5069364,Standard,Quarterly,0.19,courtneyrose@hotmail.com,03.6987.7945,Steven Anderson
+Victoria Lee,34,QLD,Life,1948.65,7393.1,Approved,11/10/2022,1/21/2025,POL6037857,Basic,Monthly,0.27,oschmidt@hotmail.com,-12303,Molly Sanders
+Angel Ho,47,VIC,Life,1665.32,11102.76,Pending,9/12/2023,7/13/2024,POL5157577,Basic,Quarterly,0.32,jeffery32@hotmail.com,-7315,Megan Gray
+Anthony Arroyo,67,QLD,Life,4574.48,4865.33,Approved,7/29/2024,10/27/2024,POL4421925,Standard,Quarterly,0.85,whitedawn@yahoo.com.au,0424-600-494,Evan Nelson
+David Winters,44,NT,Travel,1166.27,1000.95,Pending,5/24/2023,9/21/2024,POL2129329,Standard,Annually,0.83,lauracooper@yahoo.com.au,0483-807-678,Gregory Thompson
+Catherine Massey,46,NT,Health,783.14,8881.87,Approved,2/17/2024,4/14/2025,POL1757260,Standard,Annually,0.11,chasesarah@yahoo.com,0448 851 728,April Gonzalez
+Brandi Griffith,72,VIC,Health,2413.44,475.29,Approved,3/3/2023,4/1/2025,POL4327032,Standard,Quarterly,0.48,cbrown@hotmail.com,+61 420 288 187,Laurie Jackson
+Anthony Obrien,63,QLD,Health,4554.23,8777.11,Approved,7/27/2023,10/23/2023,POL7859010,Gold,Annually,0.19,hodgesisabella@yahoo.com,+61 419 676 782,Kelly Cummings
+Richard Carter,26,VIC,Home,4198.66,12117.05,Approved,5/10/2023,11/12/2024,POL4657329,Premium,Quarterly,0.56,krodgers@hotmail.com,+61 423 121 570,Kimberly Robinson
+Jessica Sandoval,24,ACT,Home,3658.7,14733.04,Rejected,2/11/2024,6/25/2025,POL6215931,Standard,Quarterly,0.52,gonzalesbryan@hotmail.com,222400914,Jimmy Marshall
+Lisa Moore,57,WA,Home,4865.4,5330.15,Approved,11/10/2022,10/25/2024,POL5432912,Standard,Annually,0.31,brownadrian@henderson-martin.com,+61 407 615 388,Kathryn Parker
+Gary Patterson,27,NT,Health,2616.37,2854.33,Approved,9/9/2022,10/23/2023,POL4801373,Gold,Annually,0.31,charles48@gmail.com,61877115523,Luis Nguyen
+Michelle Martinez,29,NT,Home,4598.32,3727.4,Rejected,6/30/2024,9/24/2024,POL4496186,Premium,Quarterly,0.79,nicolebradford@hotmail.com.au,-16076,Melissa Turner
+Jacob Butler,29,TAS,Car,4681.59,12729.86,Approved,4/7/2023,7/18/2023,POL1075233,Gold,Monthly,0.01,alejandrohenry@yahoo.com,07-7508-9885,Kevin Gibson
+Melissa Bailey,45,NSW,Home,2502.12,9957.98,Approved,11/3/2022,8/13/2023,POL3888225,Gold,Annually,0.66,kiddmelissa@hernandez.net.au,61329452717,Angela Lane
+Debra Stone,28,VIC,Home,3840.21,17045.19,Approved,1/10/2024,2/23/2025,POL6990480,Gold,Monthly,0.99,samanthalambert@yahoo.com,+61 467 122 203,Ashley Campbell
+William Taylor,75,NSW,Car,1040.59,17927.89,Approved,5/31/2023,6/6/2024,POL8496820,Gold,Annually,0.61,gina59@olson.edu.au,0404.978.677,Robert Shaw
+Carrie Larson,34,SA,Health,1046.44,11916.95,Approved,8/1/2022,9/3/2023,POL4134488,Basic,Annually,0.96,mgibbs@kerr.com,(02)-7831-9330,Jennifer Kelley
+Elizabeth James,35,SA,Travel,3322.37,8018.36,Approved,4/7/2024,5/12/2025,POL5912638,Standard,Annually,0.16,smartinez@hotmail.com.au,(02) 4949 9615,Carol Whitaker
+William Ewing,32,VIC,Car,848.45,4345.03,Approved,2/23/2023,8/20/2023,POL8650350,Standard,Annually,0.86,jonescrystal@hotmail.com.au,+61.3.2463.5344,Diana Proctor
+Rachel Johnson,34,NSW,Car,3260.75,15262.54,Approved,4/24/2024,6/29/2025,POL4062896,Gold,Monthly,0.66,calvin60@yahoo.com.au,8631 9963,Tanner Evans
+Tamara Mcdaniel,21,NSW,Life,3622.67,7237.05,Rejected,5/27/2023,8/27/2023,POL1143466,Standard,Monthly,0.13,fordjoseph@powers-villa.biz,9088.8213,Emily Reynolds
+Jessica Galvan,35,ACT,Life,2051.97,6083.83,Pending,9/4/2022,12/25/2022,POL8928234,Gold,Quarterly,0.43,yvette20@yahoo.com.au,0433.742.732,Terry Warren
+Aaron Christian,56,VIC,Health,2886.8,12950.2,Approved,2/27/2024,4/14/2025,POL8096253,Standard,Annually,0.9,claytracy@gmail.com,02.0205.0003,Christopher Schultz
+Lauren Baker,61,SA,Car,3032.98,2256.93,Approved,9/2/2023,4/3/2025,POL9579548,Basic,Quarterly,0.05,petersonjohn@reyes.org.au,-15498,Kenneth Escobar
+John Marquez,70,VIC,Car,3209.22,5496.62,Pending,9/5/2023,4/23/2025,POL3426247,Standard,Monthly,0.16,kmorris@yahoo.com.au,+61 499 662 514,David Powell
+Jane Prince,65,NT,Health,4384.8,11057.19,Pending,3/3/2023,1/5/2025,POL1367435,Basic,Annually,0.57,sherrymorris@bray.edu,+61.8.8817.9287,James Wagner
+Audrey Robertson,75,NSW,Travel,1497.32,7270.82,Pending,9/14/2022,5/15/2023,POL7489930,Gold,Quarterly,0.62,vbutler@yahoo.com.au,+61 8 1034 2988,Anthony Wallace
+Heather Rodriguez,62,SA,Home,4895.48,2522.93,Rejected,8/21/2022,11/25/2022,POL8339931,Standard,Monthly,0.25,martinezheidi@hotmail.com.au,0442.198.825,Gary Miller
+Steven Weeks,75,NT,Car,1685.24,3070.84,Approved,8/13/2022,1/12/2023,POL5988758,Standard,Monthly,0.82,michael64@gmail.com,0423 681 535,Melanie Miranda
+Stephen Gonzalez,60,WA,Car,2822.33,10764.42,Approved,10/28/2023,6/10/2025,POL7194498,Premium,Monthly,0.32,perezlydia@yahoo.com,0413.032.985,Amanda Case
+Preston Henry,74,QLD,Travel,4983.32,2865.74,Approved,3/16/2024,2/8/2025,POL9132139,Gold,Annually,0.37,scottjennings@martinez.com.au,5134-7674,Angela Cooper
+Kyle Mcconnell,67,TAS,Home,4718.35,17706.42,Approved,5/6/2023,8/29/2023,POL3967471,Standard,Monthly,0.6,nathanielsnyder@chen.org,07 9455 4931,Wendy Roth
+Kyle Chan,59,WA,Life,3266.53,14151.59,Pending,6/13/2024,1/15/2025,POL6306421,Standard,Annually,0.48,shaun13@brown.net,07.3363.6471,Michelle Mejia
+Mark Castillo,60,ACT,Life,2072.99,18112.79,Pending,3/30/2023,10/21/2024,POL6587114,Basic,Quarterly,0.66,dianapowell@martin-hunter.edu,08 1073 8791,Linda Turner
+Jessica Hatfield,63,VIC,Car,2866.8,12356.94,Rejected,12/14/2023,4/12/2025,POL7915360,Basic,Quarterly,0.53,hfox@james-brennan.net.au,-810,Eric Johnson
+Gwendolyn Hebert,68,QLD,Car,4434.66,14241.06,Approved,10/5/2023,7/22/2025,POL8612765,Premium,Quarterly,0.88,laurenwaller@harris.com,61358509765,Chad Kim
+Marilyn Jensen,23,VIC,Health,2408.65,3182.1,Approved,10/29/2022,11/7/2022,POL2142448,Premium,Quarterly,0.9,donaldgibbs@west.com.au,0416-358-986,David Beasley
+Stanley Berry,66,NSW,Home,4289.14,7970.06,Approved,11/8/2022,3/3/2025,POL6521526,Basic,Quarterly,0.49,wilkinsonheidi@anderson-bell.com,08-6037-2662,Michael Johnson
+Ashley Miller,62,SA,Car,4071.88,3369.87,Approved,10/13/2023,3/13/2024,POL8806515,Basic,Quarterly,0.71,tammy73@gmail.com,+61 7 6176 8189,Antonio Harris
+Adrienne Harris,56,NSW,Travel,3287.25,11702.34,Pending,6/20/2023,8/24/2023,POL9143348,Basic,Annually,0.95,slynch@yahoo.com.au,03-3215-2095,Michael Acevedo
+Joshua Randolph,46,NT,Travel,4470.35,150.48,Rejected,1/12/2023,3/18/2024,POL8556256,Gold,Quarterly,0.52,patricialin@yahoo.com,0461-971-581,Sarah Miles
+Brandy Booth,37,VIC,Travel,1678.76,1513.93,Approved,6/24/2024,10/7/2024,POL8802598,Standard,Quarterly,0.86,sierra55@aguirre-stewart.biz,-1689,Eric Rodriguez
+Alexander Obrien,25,SA,Travel,3329.2,15068.18,Approved,2/1/2023,5/14/2024,POL9199969,Premium,Monthly,0.09,paultaylor@hotmail.com,1425.0364,Alan Morales
+Margaret Simpson,36,VIC,Travel,597.33,17548.02,Approved,11/7/2022,4/21/2023,POL8314288,Standard,Quarterly,0.19,paula21@barrett.edu.au,341523918,Jonathan Ball
+Louis Newton,36,QLD,Life,2764.52,10003.45,Approved,1/2/2024,5/9/2025,POL5799770,Premium,Annually,0.03,ricecynthia@jackson.edu,0409 674 782,Raymond Friedman III
+Susan Jones,30,SA,Home,990.53,272.52,Approved,8/4/2023,7/7/2025,POL9675881,Standard,Annually,0.64,jamesleach@yahoo.com,73516969,Jeffrey Oliver
+Chad Smith,38,QLD,Travel,2573.14,10701.15,Pending,10/29/2022,7/7/2024,POL1646984,Basic,Monthly,0.72,johnmercer@petty.com,0450-146-287,Kathleen Wong
+Daniel Holt,59,ACT,Health,2896.8,4174.92,Pending,7/13/2024,9/25/2024,POL6404690,Standard,Quarterly,0.88,christy08@smith-hicks.edu,+61.408.145.457,Gregory Bennett
+Michelle Navarro,20,QLD,Life,4185.05,12077.23,Pending,2/5/2024,8/29/2024,POL7647403,Basic,Monthly,0.21,jacobponce@hotmail.com.au,(07) 7281 8598,Pamela Johnson
+Ralph Jefferson,41,WA,Travel,1089.47,140.85,Rejected,5/11/2024,3/1/2025,POL5247213,Premium,Monthly,0.24,natasha13@gmail.com,(08).6572.4659,Andrew Mckee
+Randall Collins,38,NT,Home,1754.96,8670.77,Rejected,11/10/2022,1/28/2023,POL5859108,Gold,Monthly,0.6,bedwards@hotmail.com.au,-2470,Jeffrey Thompson
+Jeffrey Kane,54,QLD,Life,1586.37,2538.04,Rejected,10/1/2023,6/7/2025,POL6335546,Basic,Annually,0.36,dunlapchristian@gmail.com,07-1559-0550,Tonya Hill
+Keith Fleming,59,TAS,Home,4172.11,206.88,Approved,7/15/2024,2/15/2025,POL2389656,Premium,Annually,0.93,luke69@hotmail.com.au,0487 149 585,Daniel Marquez
+Christopher Hamilton,70,NSW,Life,398.94,5861.34,Approved,5/27/2024,7/9/2025,POL6827176,Basic,Annually,0.9,ijohnson@yahoo.com,7213-8193,Tanya Arellano
+Raymond Perez,58,QLD,Car,4198.37,9347.43,Rejected,6/21/2023,4/15/2024,POL1450312,Basic,Monthly,0.48,mraymond@hartman.biz,+61.3.9953.9602,Craig Olson
+Lori Martinez,74,NSW,Life,1404.93,1257.51,Approved,9/22/2023,4/12/2024,POL9446895,Gold,Quarterly,0.56,monica72@gmail.com,(02)07137388,Lisa Jones
+Leslie Armstrong,63,QLD,Health,1522.93,14058.29,Approved,12/4/2023,7/10/2024,POL4900854,Gold,Annually,0.95,warddaniel@garcia.org.au,02 2567 9405,Jamie Blair
+Emma Smith,71,TAS,Life,3517.94,6666.16,Pending,7/16/2023,9/1/2023,POL9573535,Gold,Monthly,0.34,lauren60@yahoo.com,61324321061,Donald Cross
+Michael Lee,55,NSW,Travel,3361.12,3253,Approved,3/13/2024,9/18/2024,POL4881008,Premium,Quarterly,0.77,amybrown@hotmail.com,0254-1929,Omar Young
+Brianna Burgess,73,SA,Life,2983.06,3403.44,Rejected,2/14/2024,7/6/2024,POL9815299,Basic,Annually,0.41,jacobsmith@gmail.com,+61.420.357.126,Robert Holmes
+Deanna Pham,29,VIC,Travel,4562.28,10419.96,Approved,7/5/2023,1/31/2025,POL5581881,Premium,Quarterly,0.94,larrybarnett@gmail.com,(07) 3841 7824,Troy Knight
+John Monroe,30,TAS,Travel,901.17,7531.85,Pending,11/10/2022,7/13/2024,POL2857948,Standard,Quarterly,0.22,tammymcfarland@hotmail.com.au,830369621,Dennis Ward
+Christine Smith,75,WA,Car,4251.87,7249.17,Approved,6/16/2024,1/16/2025,POL5786015,Basic,Monthly,0.68,kparker@short-brown.edu.au,5991 5615,Gerald Garza
+Emma Parker,38,VIC,Home,3043.63,17040.14,Approved,4/7/2023,8/20/2023,POL6683557,Premium,Annually,0.26,princekristin@martin.net.au,+61 418 717 225,Amanda Clarke
+Kelly Turner,68,SA,Travel,4611.65,5418.43,Pending,12/17/2022,10/23/2023,POL6302820,Premium,Monthly,0.48,jerry84@hotmail.com,397413376,Andrew Best
+Alicia Harrell,26,ACT,Travel,1984.91,18020.49,Rejected,4/27/2023,8/3/2023,POL6475916,Basic,Annually,0.89,tracy22@gmail.com,0427 306 281,Debra Thomas
+Scott Thomas,53,VIC,Car,348.27,11873.94,Approved,12/29/2023,7/29/2024,POL5684982,Gold,Quarterly,0.98,cruzrichard@osborne-bailey.org,61277721124,Rebecca Ayers
+Lynn Lawrence,24,WA,Travel,2687.14,6585.42,Approved,12/2/2023,2/14/2025,POL3565329,Standard,Annually,0.1,daniel98@mendez-cooper.biz,-2072,Juan Hanson
+Heidi Meyer,59,QLD,Car,4205.81,9711.22,Pending,9/9/2023,12/15/2024,POL4360325,Basic,Monthly,0.69,jennifer48@hotmail.com.au,(03)-5071-1595,Paul Carter
+Jeffrey Stewart,28,QLD,Health,1770.51,12036.23,Approved,6/19/2024,10/22/2024,POL2576780,Premium,Annually,0.41,mnewman@martin.org,61366155815,Samantha Shepherd
+Frederick Whitney,48,VIC,Home,1865.17,16750.42,Pending,3/7/2024,5/21/2025,POL4695051,Gold,Quarterly,0.44,smeyer@johnson-anderson.com.au,+61.483.133.686,Gabriel Juarez
+Margaret Lee,40,WA,Travel,4882.39,11660.87,Pending,6/27/2024,1/19/2025,POL6089615,Gold,Quarterly,0.39,ofoster@hotmail.com,08.9409.9237,Zachary Robinson
+Diane Rivera,28,ACT,Travel,2088.26,8008.76,Approved,12/21/2023,5/4/2024,POL8674269,Premium,Quarterly,0.73,jeffreymartin@hotmail.com.au,+61 481 521 988,Lisa Adams
+Lindsay Vasquez,69,WA,Home,1693.06,15765.29,Approved,1/7/2023,6/27/2024,POL9735184,Basic,Annually,0.77,padillakeith@hotmail.com,0453.206.871,Amy Green
+Kenneth Carroll,35,QLD,Life,3053.15,10060.2,Pending,10/17/2023,7/5/2024,POL1800443,Gold,Quarterly,0.98,ashley17@carpenter-lopez.net.au,(03) 3613 3912,William Mathis
+Steven Serrano,59,VIC,Health,2661.35,14429.55,Approved,9/14/2022,5/31/2024,POL8847246,Standard,Quarterly,0.52,kristen32@gmail.com,(02)78039463,David Callahan
+Julie Rogers,52,SA,Life,2029.96,4000.77,Approved,7/6/2024,10/6/2024,POL5166276,Premium,Quarterly,0.46,frankgonzalez@patel-willis.net,08.4762.8218,Deborah Chaney
+Tammy Archer,28,QLD,Life,3435.34,15866.55,Approved,5/28/2023,1/29/2024,POL6924063,Basic,Annually,0.82,ryan38@clark.edu.au,+61.423.241.181,Theodore Lang
+William Blanchard,18,SA,Home,2197.2,2780.9,Rejected,3/7/2024,6/14/2025,POL4899728,Gold,Quarterly,0.01,rwest@yahoo.com.au,+61 3 5766 0972,Wesley Moran
+Leonard Gentry,33,NT,Car,1629.11,11732.01,Approved,6/21/2023,2/13/2024,POL1035425,Standard,Monthly,0.19,kristin00@yahoo.com,0489.782.864,Lisa Patterson
+Emma Payne,55,SA,Car,1271.42,469.98,Approved,12/2/2023,2/10/2025,POL8533999,Basic,Annually,0.5,ykeller@yahoo.com.au,08.5034.8783,Laurie Davis
+Joshua Baker,66,NSW,Life,1018.25,9857.72,Rejected,7/14/2023,9/7/2023,POL2517874,Standard,Monthly,0.43,smiththomas@kirby.info,7783-7668,Ryan Jackson
+Rebecca Rivera,46,TAS,Life,3038.21,15399.21,Approved,12/28/2022,9/13/2023,POL3328481,Premium,Quarterly,0.99,brianrichmond@burton-wilson.org,8348 9887,Jessica Page
+Rodney Thomas,69,QLD,Travel,442.05,5740.02,Approved,1/9/2023,5/13/2024,POL4531605,Basic,Quarterly,0.65,martinmoss@yahoo.com,756478874,Stephen Li
+Gary Hernandez,38,WA,Car,1573.35,15095.54,Approved,11/7/2022,2/25/2024,POL3830668,Standard,Monthly,0.94,sreed@hotmail.com,(07).9371.3932,Stephen Marshall
+David Barnes,29,VIC,Health,4973.84,7093.74,Approved,2/26/2023,12/1/2023,POL2568521,Basic,Quarterly,0.96,adambrown@yahoo.com,+61.8.9875.0821,Jessica Jones
+Michelle Taylor,43,TAS,Car,585.39,10310.04,Approved,10/10/2022,6/27/2025,POL7398127,Basic,Annually,0.39,philip63@smith-castro.edu.au,+61 477 374 302,Dr. Katelyn Smith DDS
+Melvin Clark,41,NT,Life,1742.51,9958.35,Rejected,4/30/2024,2/14/2025,POL3449445,Standard,Quarterly,0.35,nli@sullivan-brown.net.au,3418.0707,Nicole Jenkins
+Nicole Carr,67,TAS,Life,3653.39,9450.27,Approved,5/11/2023,6/18/2024,POL2923285,Premium,Annually,0.54,ashley16@obrien-smith.org,+61 413 137 111,David Graham
+Tom Mathews,75,ACT,Home,2973.12,3201.21,Approved,4/4/2023,12/15/2023,POL1516198,Basic,Monthly,0.37,johningram@taylor.com.au,02.0575.9355,Martin Holder
+Ashley Walsh,61,ACT,Travel,2372.5,1495.47,Rejected,9/4/2022,7/13/2023,POL9511737,Basic,Monthly,0.95,cruzlaura@huff.edu.au,236726778,Jay Mack
+Michael Wilson,35,NSW,Life,1631.33,536.75,Approved,4/28/2023,3/26/2025,POL1011089,Premium,Annually,0.42,wilsonpatricia@hill.org.au,(07) 0833 9026,Alexander Baldwin
+Randy Le,39,SA,Travel,1637.58,17565.92,Rejected,6/11/2024,2/17/2025,POL5952512,Standard,Monthly,0.88,kimberly14@payne.biz,(02) 5418 2666,Jessica Burton
+Gary Whitehead,50,NSW,Home,4050.13,19831.07,Approved,1/14/2024,3/26/2025,POL8445993,Standard,Monthly,0.57,tscott@yahoo.com,0469.142.056,Emily James
+Daniel Evans,54,NT,Home,2734.14,14937.72,Rejected,11/10/2023,6/3/2025,POL6786022,Standard,Quarterly,0.71,maxwellandrea@solomon.com.au,+61 492 895 387,Javier Horne
+Tina Sullivan,24,TAS,Home,1499.36,15997.88,Approved,9/14/2023,7/25/2025,POL6330356,Basic,Monthly,0.52,catherine27@hotmail.com.au,(03)09937997,Dr. Joseph Mckee
+Jessica Murphy,44,VIC,Car,3464.06,8392.87,Approved,5/29/2024,1/14/2025,POL2071900,Premium,Monthly,0.68,fhill@johnson-young.biz,0459-709-312,Charles Estrada
+Bridget Fitzpatrick,61,VIC,Life,357.38,8417.14,Rejected,10/20/2022,12/30/2023,POL6395775,Premium,Monthly,0.39,ryanoconnor@crawford.net.au,8576.2223,Daniel Harrell
+Tyler Taylor,56,SA,Car,1090.07,16681.03,Approved,4/18/2024,7/4/2024,POL3588478,Standard,Monthly,0.01,melissa71@hotmail.com.au,-5029,John Fields
+Glenda Jackson,59,VIC,Life,3751.43,8278.1,Rejected,8/16/2022,12/2/2024,POL6168875,Gold,Annually,0.28,tylerevans@hotmail.com,(02)-0272-1917,Eric Alvarez
+James Cruz,32,ACT,Car,1250.64,2003.26,Pending,11/5/2022,1/4/2024,POL6090519,Premium,Quarterly,0.11,ellisalicia@gmail.com,08 3610 4939,Dylan Reyes
+Linda Fisher,48,ACT,Life,3377.81,16508.77,Pending,9/13/2023,9/7/2024,POL9705901,Standard,Monthly,0.2,nicholasknight@yahoo.com.au,347530976,Jessica Hudson
+Daniel Frank,57,ACT,Car,2929.95,1861.56,Rejected,5/11/2024,11/30/2024,POL7073359,Premium,Monthly,0.64,harveydaniel@anderson.net,1263-6507,Stephen Edwards
+John Montgomery,29,WA,Home,4909.62,13689.12,Approved,8/17/2022,11/19/2024,POL4440756,Basic,Annually,0.51,oriley@yahoo.com.au,0471.790.517,Cindy Lee
+Michele Ray,34,SA,Health,650.02,16022.91,Approved,2/29/2024,7/4/2024,POL4695675,Basic,Monthly,0.1,alawson@gmail.com,(07) 1096 0592,Tracy Rogers
+Anne Fisher,26,WA,Travel,3735.04,18679.18,Approved,9/4/2023,7/8/2025,POL6683252,Standard,Monthly,0.16,marc12@johnston-ayers.com.au,8487 5799,Melissa Webb
+Nancy Rodriguez,58,TAS,Home,2883.85,8878.56,Approved,1/24/2023,1/1/2025,POL8836317,Standard,Monthly,0.61,matthewsdustin@hotmail.com.au,+61.474.064.548,Brittany Cunningham
+Leroy Johnson,66,NSW,Life,4569.29,18266.8,Approved,2/5/2023,7/6/2024,POL5411572,Standard,Annually,0.24,christinarobles@hotmail.com,0404-369-705,Ryan Shah
+Tiffany Mcclure,27,QLD,Travel,4322.15,18993.87,Pending,10/4/2023,6/10/2025,POL7590752,Gold,Monthly,0.42,josephharris@hotmail.com.au,8058 9024,Samantha Moreno
+Christina Hamilton,45,NT,Home,4979.94,10204.72,Approved,5/24/2023,7/23/2024,POL8809512,Premium,Monthly,0.73,wilsonmichelle@romero.net.au,(08)37837079,Destiny Abbott
+James Gallagher,24,ACT,Car,487.97,5222.72,Approved,5/28/2024,7/6/2025,POL2489190,Standard,Quarterly,0.32,iwarren@miller.info,08-6800-5109,Shannon Murray
+Gary Wagner,69,QLD,Life,2393.8,5002.48,Approved,4/30/2024,6/14/2025,POL8118097,Premium,Monthly,0.33,kimberly58@yahoo.com.au,(03)-9705-8119,Robert Jones
+Robert Porter,18,TAS,Car,1533.63,15560.24,Approved,10/5/2023,11/8/2023,POL9063849,Basic,Quarterly,0.73,rpace@yahoo.com,+61.7.7800.0373,Marc Mckee
+John Harris,75,NSW,Travel,646.64,16127.74,Rejected,3/13/2024,3/21/2025,POL6483615,Basic,Annually,0.36,riosjohn@yahoo.com,0473 557 988,Colleen Lowe
+Jose Holloway,32,VIC,Life,998.69,15286.35,Pending,3/15/2023,4/9/2025,POL6946588,Premium,Quarterly,0.48,pateltaylor@reed.org,61717579976,Brian Hernandez
+Kevin Roberts,33,SA,Travel,3372.71,2971.72,Approved,5/4/2024,6/17/2024,POL8819294,Gold,Annually,0.35,trantammy@hotmail.com,47904912,Michael Beck
+Megan Smith,67,SA,Car,2957.14,13218.47,Approved,1/9/2024,8/22/2024,POL9655291,Standard,Quarterly,0.44,adrian53@hotmail.com,-1449,Douglas Carpenter
+Randall Byrd,27,VIC,Home,1827.29,15845.35,Rejected,5/20/2023,5/5/2025,POL8926516,Basic,Quarterly,0.55,jacksonlinda@yahoo.com,+61 3 9413 9664,Justin Rowe
+Virginia King,55,WA,Car,2190.38,4444.13,Approved,4/22/2024,8/7/2024,POL1905094,Premium,Quarterly,0.02,jessica47@carr-sellers.biz,08 2373 7840,Brian Hall
+Phillip Bullock,33,NT,Car,1723.67,19841.82,Rejected,10/19/2022,2/26/2024,POL3983391,Basic,Monthly,0.11,hurleyrichard@holt.info,(03).6109.8947,Joseph Wells
+Howard Smith,34,VIC,Home,3032.77,18904.74,Pending,5/20/2023,4/14/2025,POL9034750,Gold,Quarterly,0.81,xjohnson@cross-wheeler.biz,-14171,Jennifer Smith
+Alyssa Dorsey,70,QLD,Home,2569.66,580.03,Rejected,3/15/2023,6/20/2025,POL6475032,Basic,Monthly,0.11,iestes@baker.info,+61.8.8549.6217,Joseph Hurst
+Benjamin Brown,38,NSW,Life,2051.15,6747.79,Pending,7/23/2024,12/3/2024,POL6876131,Basic,Monthly,0.39,brian65@hotmail.com,+61.7.2931.4077,Christopher Carney
+Robert Smith,75,VIC,Home,4882.3,15703.87,Approved,4/23/2023,3/11/2025,POL2556013,Basic,Monthly,0.58,martinkevin@yahoo.com,(08)94576177,Melissa Cox
+Austin Mitchell,45,NSW,Health,4968.04,7529.09,Pending,6/16/2023,7/4/2024,POL8821546,Premium,Quarterly,0.17,tamarabailey@hotmail.com,0403.037.421,Seth Acevedo
+Carolyn Boone,74,NT,Home,3194.51,15222.34,Approved,11/8/2023,4/21/2025,POL8628383,Standard,Annually,0.06,qhanna@adams.com,0417-173-772,Craig Robinson
+Craig Barnes,20,SA,Travel,757.47,17442.66,Pending,9/3/2023,5/13/2025,POL7971009,Standard,Quarterly,0.24,mario06@ortiz-melton.info,+61 3 3176 6478,Ashley Wood
+Brandy Peters,64,QLD,Travel,3552.7,18003.87,Approved,7/30/2023,11/3/2024,POL1964717,Standard,Quarterly,0.53,angelabird@yahoo.com.au,385383989,Austin Stone
+Jeffrey Miller,22,NT,Car,4641.27,844.98,Approved,3/31/2023,10/28/2024,POL9500393,Basic,Annually,0.07,bassjustin@martinez.com,07.0201.8799,Rachel Kelly
+Erik Johnson,42,NT,Travel,2508.57,5995.42,Rejected,3/21/2023,8/9/2024,POL3877161,Standard,Monthly,0.55,stephensjessica@yahoo.com,-13471,Shawn Santiago
+Stephen Allen,24,VIC,Health,4805.1,11709.25,Approved,9/10/2022,2/18/2024,POL7713333,Standard,Monthly,0.83,abigail86@butler-roberts.edu.au,+61 470 220 679,Kevin King
+Dale Schaefer,25,NSW,Car,3101.81,18116,Rejected,4/8/2023,4/21/2024,POL5820656,Basic,Annually,0.09,duffykimberly@walker.com.au,+61 7 7455 0239,Karina West
+Christine Riley,26,NSW,Home,645.06,11200.4,Pending,2/23/2024,4/14/2025,POL9282925,Standard,Quarterly,0.79,jacksonjulia@martinez-pollard.biz,+61.3.4856.6191,Timothy Green
+Karen Miller,68,NT,Car,2887.19,12168.1,Approved,5/2/2023,11/5/2023,POL1951505,Gold,Monthly,0.7,lpreston@smith-green.org.au,0402.598.215,Nicole Davis
+Felicia White,53,NSW,Health,2311.72,3424.02,Rejected,8/29/2022,2/9/2023,POL9326864,Gold,Annually,0.61,sherrybell@yang-patel.biz,29949232,Jacqueline Jennings
+Sean Rice,60,VIC,Car,475.16,8456.93,Approved,2/9/2023,9/4/2023,POL4776957,Premium,Quarterly,0.02,matthewrios@phillips-martin.net,08-9494-2274,Amanda Rodriguez
+Samantha Meyer,64,QLD,Travel,2082.18,10443.01,Rejected,11/21/2022,5/26/2023,POL7903697,Standard,Quarterly,0.7,mark09@edwards.biz,(03)58143952,Kim Nelson
+Stephanie Wilson,45,QLD,Life,1079.3,19463.92,Approved,6/30/2024,7/8/2024,POL2486854,Gold,Quarterly,0.86,hendersonandrew@mcdonald-madden.net.au,306854924,Matthew Mann
+Deborah Soto,36,SA,Home,551.72,910.78,Pending,12/28/2023,4/5/2025,POL4440945,Gold,Monthly,0.52,murphyemily@garcia-nguyen.info,61212367859,Jonathan Gray
+Charles Gallagher,62,TAS,Travel,1232.95,12850.86,Approved,4/7/2024,7/21/2024,POL2575084,Basic,Annually,0.81,iankeller@yahoo.com.au,0470.951.797,Steven Barrett
+Keith Cruz,21,TAS,Home,1309.96,101.38,Approved,10/26/2022,5/18/2025,POL9904055,Basic,Monthly,0.92,christinefisher@gmail.com,+61.476.818.680,Tiffany Zimmerman
+Bethany Campbell,46,QLD,Home,3506.25,11326.85,Approved,6/2/2024,5/31/2025,POL5149714,Gold,Monthly,0.65,qmoran@rosales.edu.au,59971112,Scott Floyd
+Mr. Tony Williams MD,71,SA,Health,2363.38,8771.07,Approved,8/27/2023,7/11/2025,POL2012921,Standard,Monthly,0.45,greggruiz@white-garcia.org,03 9590 2933,James Bender
+Leslie Phillips,64,QLD,Life,753.07,4013.55,Approved,11/10/2022,2/13/2025,POL2511266,Premium,Quarterly,0.56,fernandezchristopher@smith-davis.net.au,07.1236.5936,Amber Burns
+Donald Padilla,40,TAS,Travel,2785.54,16450.29,Pending,6/3/2024,10/14/2024,POL2850270,Basic,Annually,0.81,kariwade@gmail.com,+61 431 784 084,Carla Cole
+Laura Wall,62,SA,Travel,1769.35,8055.89,Approved,1/26/2023,4/4/2024,POL2974365,Premium,Quarterly,0.62,collinsjason@hotmail.com.au,(07).2123.4668,Benjamin Sullivan
+Jeffrey Taylor,38,WA,Travel,3130.36,18681.42,Approved,6/8/2024,3/1/2025,POL5163958,Standard,Monthly,0.62,pamela21@anderson.org.au,259673897,Raymond Dominguez
+Charles Carrillo,27,QLD,Life,1901.84,7953.18,Rejected,4/23/2024,5/9/2025,POL2289320,Basic,Monthly,0.5,davidwillis@barton.info,07 1955 3030,Bradley Johnson
+Kimberly Medina,19,VIC,Car,4240.11,14630.49,Pending,12/18/2022,3/25/2024,POL8652521,Gold,Quarterly,0.63,evanwhite@weber-sanchez.org,-2063,Tiffany Hunter
+Manuel Jones DVM,71,ACT,Home,4944.24,23.52,Rejected,5/14/2024,3/25/2025,POL3272426,Gold,Monthly,0.9,kathy74@hotmail.com,(03).0174.0968,John Baker
+William Clark,55,WA,Life,1133.75,6999.81,Approved,1/10/2024,12/6/2024,POL3324951,Premium,Annually,0.77,graynicole@cole.biz,4283-3895,Laurie Griffin
+Natalie Duncan,51,NSW,Travel,1525.45,9878.46,Rejected,6/13/2023,6/10/2024,POL3221497,Basic,Monthly,0.39,waynekent@hotmail.com.au,(02).5276.3477,Laura Ward
+Michael Smith,61,TAS,Life,3916.6,1468.65,Approved,9/27/2023,6/17/2024,POL4351225,Gold,Monthly,0.32,rharrison@baker.biz,+61 486 077 319,Melvin Callahan Jr.
+Scott Burns,23,SA,Health,1108.05,1068.38,Rejected,2/17/2024,12/31/2024,POL3367601,Premium,Annually,0.44,danielleramirez@yahoo.com,02.9081.4736,Haley Luna
+Brandon Jones,31,VIC,Health,965.52,1640.98,Pending,2/24/2023,2/18/2025,POL5754137,Basic,Annually,0.84,kristinrowe@yahoo.com,+61 440 170 582,Gregory Cisneros
+Kayla Lopez,44,QLD,Travel,1395.06,10114.4,Approved,9/8/2023,3/1/2025,POL2671806,Gold,Annually,0.48,karenbailey@yahoo.com,+61 458 372 882,Marcia Rodriguez
+Michael Torres,64,NT,Home,1836.24,2070.57,Rejected,9/29/2022,7/26/2023,POL7208233,Standard,Monthly,0.07,lauren52@hotmail.com.au,-3283,Dawn Williams MD
+James Hays,55,SA,Car,4777.43,17861.4,Pending,8/27/2023,1/3/2024,POL5870883,Standard,Quarterly,0.44,daniel44@yahoo.com,8375-2507,Ashley Howe
+Kelly Moore,54,VIC,Health,2778.76,13293.56,Approved,6/6/2023,10/1/2024,POL8694850,Gold,Quarterly,0.94,zgraves@brown.org.au,(03) 2375 9731,Cole Morgan
+Nathan Morales,70,NT,Travel,4247.74,4741.67,Approved,7/21/2023,1/2/2024,POL3836535,Basic,Quarterly,0.55,angelicacurry@holland.net,0490.712.509,Nicholas Barker
+John Jones,46,TAS,Health,2811.13,6965.03,Approved,1/22/2023,12/29/2024,POL4361508,Gold,Annually,0.7,krystalanthony@gmail.com,-7975,Wendy Tucker
+Kristin Adams,51,WA,Travel,1475.71,3343.84,Approved,12/10/2022,11/9/2024,POL9440334,Gold,Monthly,0.82,evansallen@hotmail.com,(03)-5143-2200,Toni Baker
+Andrew Harris,32,NSW,Travel,1971.76,2866.46,Approved,9/25/2023,4/23/2024,POL2772497,Basic,Annually,0.58,greenemichael@bowen.biz,03-4302-0774,Amy Butler
+Dr. Monique Carson,72,NT,Health,4128.11,431.5,Approved,9/27/2023,6/24/2025,POL5530160,Premium,Quarterly,0.2,mooremichael@stewart.info,0485 119 436,Melissa Maddox
+Jessica Green,19,SA,Car,718.38,7213.06,Approved,7/9/2024,11/6/2024,POL4346745,Premium,Quarterly,0.6,ismith@gmail.com,+61 487 539 047,Kimberly Schmidt
+Stephen Smith,53,ACT,Home,3009.8,2487.44,Approved,3/27/2023,10/7/2023,POL3478124,Standard,Monthly,0.28,jensenrobert@schultz.biz,(08)-7255-5352,Earl Green
+Michael Mooney,40,SA,Life,1893.78,2575,Approved,4/26/2024,2/3/2025,POL5501541,Standard,Monthly,0.06,darrenthompson@hotmail.com,1455.9165,Jennifer Miller
+Kenneth Berry,51,TAS,Health,2350.43,5562.06,Approved,7/7/2023,8/27/2024,POL7794941,Basic,Annually,0.53,pauljackson@carr.org,(08) 5356 8333,Pamela Cruz
+Angela Booker,57,NSW,Life,2346.11,997.75,Approved,10/18/2023,6/13/2024,POL7337145,Standard,Quarterly,0.34,johnbrown@foley-neal.org,+61 445 164 371,Chelsea Lam
+William Johnson,52,NT,Travel,3454.49,14054.65,Pending,1/22/2023,5/12/2025,POL8893435,Standard,Quarterly,0.89,nholt@morse-butler.org,0484-013-194,Micheal Williams
+Abigail Moore,31,VIC,Home,2406.69,19826.51,Pending,11/15/2022,1/8/2024,POL8217786,Gold,Quarterly,0.62,diamondjohnson@yahoo.com,0457 168 094,Jennifer King
+Reginald Cook,57,VIC,Home,2924.81,5509.92,Pending,4/1/2024,5/26/2024,POL7425934,Gold,Monthly,0.06,laurensavage@jackson.edu,+61 429 214 441,Christopher Moore
+Dennis Hopkins,21,NT,Car,1881.44,12918.31,Approved,7/7/2024,5/11/2025,POL2772243,Premium,Monthly,0.52,xlewis@hernandez.com,(03)30609861,James Taylor MD
+Aaron Dominguez,74,QLD,Car,1741.04,13792.56,Pending,11/26/2023,11/29/2024,POL5229915,Gold,Quarterly,0.57,sloanjustin@kelly.edu,0416-009-566,Robert Wallace
+Larry Smith,32,NT,Life,1054.05,9029.02,Approved,3/26/2024,3/19/2025,POL5239078,Basic,Quarterly,0.44,gregory46@blake-marshall.net,08-1126-0582,Eileen Small
+Howard Miller,68,NT,Car,3496.4,2887.1,Rejected,3/5/2023,3/8/2023,POL5494382,Premium,Annually,0.91,jessica17@greer.info,07.6383.8058,Tamara Rivera
+John Mccann,29,NSW,Health,1390.08,10038.37,Rejected,11/15/2022,4/14/2025,POL1001900,Standard,Quarterly,0.58,lopezsara@smith.biz,+61.402.579.199,Carrie Mccarthy
+Dr. Brian Smith MD,25,QLD,Health,4534.78,2521.77,Approved,5/13/2023,4/16/2024,POL6478570,Gold,Annually,0.74,fware@martinez.edu,02 8344 4888,Ann Johnson
+Jennifer Benson,72,TAS,Home,4090.86,7555.57,Approved,11/16/2022,8/26/2023,POL3554984,Gold,Annually,0.24,krodriguez@hotmail.com,228030814,Nichole Silva
+Amber Cervantes,22,NT,Life,3840.86,19518.66,Approved,5/26/2024,3/12/2025,POL2870790,Premium,Quarterly,0.37,rebecca56@yahoo.com,0494-403-711,Melissa Briggs
+Anthony Livingston,41,WA,Travel,3809.5,5601.08,Approved,5/15/2024,6/30/2024,POL5530584,Basic,Annually,0.19,cherylcastro@gmail.com,0429 277 245,William Walton
+Wendy Hernandez,52,NSW,Life,761.55,19484.09,Approved,1/7/2024,4/25/2024,POL6978249,Premium,Annually,0.52,jasonlamb@casey-gillespie.edu.au,16598136,Timothy Riddle
+Angela Harvey,37,VIC,Health,4570.7,1311.07,Approved,11/2/2022,6/3/2023,POL9380036,Premium,Monthly,0.62,yscott@rangel-hall.info,+61.498.506.247,Angel Irwin
+Tina Ali,26,NT,Home,1497.53,1678.24,Approved,2/3/2024,5/12/2024,POL3191320,Premium,Annually,0.76,andrecollins@yahoo.com,6883.0094,Erin Morse
+Rachel Riley,66,WA,Home,452.39,8651.21,Approved,7/23/2023,2/17/2024,POL8584512,Basic,Monthly,0.14,krameramber@gmail.com,61867859580,Yvonne Hernandez
+Jessica Smith,47,ACT,Life,1817.48,5357.93,Approved,6/27/2023,5/2/2024,POL9440575,Premium,Annually,0.94,johnsontracy@saunders-butler.org.au,+61.7.3933.2153,Rhonda Jenkins
+Julia George,19,NSW,Life,4997.61,1843.47,Rejected,5/20/2024,4/17/2025,POL4430106,Gold,Quarterly,1,danamurphy@romero.edu,03 0806 5576,Kayla Thompson
+Kimberly Barnes,19,WA,Home,812.98,3232.86,Pending,3/19/2024,12/5/2024,POL3470619,Premium,Annually,0.93,sylvia71@yahoo.com,0487-734-485,Tiffany Gonzalez
+Heather Hernandez,49,QLD,Home,4951.32,14797.92,Approved,10/7/2022,2/22/2024,POL5177861,Standard,Annually,0.7,mitchelljohn@hotmail.com.au,-1827,Marissa Haynes
+Sarah Tucker,54,ACT,Health,1082.72,12476.01,Approved,11/13/2022,6/25/2025,POL5832590,Basic,Monthly,0.91,mvillegas@green.net,+61.7.1439.0945,Daniel James
+Jordan Robinson,18,NT,Home,3009.62,2274.73,Rejected,12/10/2022,3/31/2024,POL6377214,Gold,Monthly,0.38,roseheather@shaw-ramirez.com.au,76116251,Melissa Torres
+Stephen Mitchell,37,VIC,Life,1070.37,2538.68,Pending,10/7/2023,12/7/2023,POL1868400,Standard,Quarterly,0.79,ghernandez@hotmail.com,+61 404 828 884,Michelle Gould
+Patrick Gonzalez,27,WA,Life,2253.24,16928.51,Pending,1/28/2024,2/16/2025,POL9420922,Basic,Quarterly,0.48,barneserica@andrews.edu,(07)11901134,Christina Lawson
+Regina Nelson,45,SA,Home,3319.33,5139.26,Approved,5/21/2023,12/14/2023,POL8273023,Gold,Monthly,0.11,alandry@hotmail.com.au,0489 114 266,Jonathan Miller
+Brandon King,24,NT,Travel,543.35,5765.26,Approved,10/1/2023,12/8/2023,POL2552860,Basic,Quarterly,0.86,erincarter@boone.com,07-7802-4020,Regina Snyder
+Deborah Lane,39,TAS,Home,311.41,13452,Rejected,5/21/2024,7/12/2024,POL3618832,Premium,Quarterly,0.28,jonesnancy@hotmail.com.au,+61 456 256 860,Jennifer Wilkinson
+Miguel King,61,ACT,Life,629.55,2157.35,Approved,5/19/2023,6/12/2025,POL7501891,Gold,Quarterly,0.49,valerie77@miller-wise.edu.au,(02)-1589-9527,Anthony Wade
+Jordan Gonzalez,22,NSW,Travel,340.07,1000.76,Pending,8/3/2023,6/20/2024,POL4443492,Premium,Quarterly,0.16,amandarobinson@bailey.com.au,+61 445 193 756,Dana Leonard
+Megan Peterson MD,37,VIC,Home,529.63,17614.47,Approved,11/10/2022,8/4/2023,POL6213909,Basic,Annually,0.22,morganfrances@yahoo.com,03 1696 6817,George Roberts
+Sheila Ramirez,38,NSW,Health,1107.56,16793.88,Pending,8/17/2022,10/1/2022,POL3752389,Standard,Quarterly,0.76,lopezshawn@gmail.com,07-4114-7144,Evan Brown
+Luke Davis,25,SA,Life,1149.06,5155.09,Approved,10/22/2022,5/24/2025,POL3091544,Gold,Annually,0.68,shaun33@hotmail.com.au,+61.431.873.343,James Phillips
+Taylor Gutierrez,33,ACT,Travel,3079.24,3092.02,Rejected,1/29/2024,4/6/2025,POL6687587,Premium,Monthly,0.66,garciawesley@walker.org.au,(08).1001.8552,Margaret Chavez
+Sandra Howell,74,NT,Home,1703.59,12260.9,Approved,6/26/2024,1/15/2025,POL3113719,Gold,Annually,0.11,danielgreene@hotmail.com,61724980159,George Stewart
+Michael Walker,25,NSW,Life,1304.47,3454.21,Approved,1/31/2024,3/5/2025,POL1841825,Standard,Annually,0.74,williamsvickie@gmail.com,(07) 5085 6469,Richard Herrera
+Manuel Foley,51,TAS,Life,3042.59,3323.62,Approved,10/9/2022,2/29/2024,POL8607121,Premium,Annually,0.45,jarviswilliam@hotmail.com,+61 457 143 243,Diane Mcclure
+Diana Baker,50,NT,Home,2497.01,4343.12,Approved,1/2/2024,7/18/2024,POL8599934,Basic,Monthly,0.36,kristenscott@riley-murphy.biz,-14858,Nicholas Morales
+James Carroll,69,WA,Life,1913.5,962.37,Pending,12/4/2023,1/22/2025,POL4256319,Premium,Quarterly,0.07,ocobb@yahoo.com.au,(08).6727.6611,Jason Lee
+Jasmine Schmidt,71,NT,Home,1407.06,17170.23,Approved,4/21/2024,4/24/2025,POL6548205,Basic,Annually,0.8,zshaw@porter-gomez.com.au,+61 8 1006 2005,Alexis Miller
+George Burton,73,SA,Car,1317.24,19429.91,Pending,4/14/2023,12/18/2023,POL4028167,Premium,Quarterly,0.53,skaiser@hotmail.com.au,(02)-8330-8099,Michael Steele
+Yesenia Gray,46,NSW,Travel,3796.46,19509.54,Rejected,10/1/2023,10/2/2024,POL6220791,Basic,Quarterly,0.97,thomasapril@diaz.com.au,0425 119 292,Ebony Graham
+Adam Mcgee,75,NSW,Health,4179.31,5991.22,Approved,2/4/2023,5/11/2024,POL1877260,Premium,Quarterly,0.64,denisebaker@hotmail.com,-964,Melissa Yang
+Heidi Perry,57,QLD,Health,629.41,12625.04,Pending,1/11/2023,8/18/2023,POL4168037,Standard,Monthly,0.61,olewis@martin.org,0405-446-765,Jessica Gallagher
+Timothy Morales,35,TAS,Travel,2643.93,7095.23,Rejected,6/18/2024,5/12/2025,POL4563722,Gold,Monthly,0.1,kristen09@drake.net.au,(02) 1832 8879,Tammy Reed
+Joshua Potter,33,VIC,Life,2762.87,19483.54,Pending,12/17/2023,6/8/2024,POL7689924,Premium,Annually,0.69,bfoster@yahoo.com,9064-4615,Scott Lynch
+Mrs. Rebecca Johnson,23,TAS,Travel,3884.61,6980.44,Approved,3/11/2024,10/12/2024,POL6537102,Gold,Annually,0,zlyons@hensley.net.au,(07)-2985-6275,Anne Thomas
+Jason Rogers,36,VIC,Home,4048.29,15670.36,Pending,4/29/2023,8/25/2023,POL5032197,Standard,Annually,0.41,pestrada@yahoo.com.au,61263354774,Michael Daniels
+Samantha Davis,61,VIC,Home,786.13,12314.17,Pending,5/26/2024,5/27/2025,POL9533623,Premium,Quarterly,0,qbrown@hotmail.com,03-2507-1863,Kaylee Kim
+Lisa Perry,42,QLD,Home,2962.77,5103.32,Pending,5/4/2023,12/16/2023,POL8559767,Standard,Monthly,0.47,xhernandez@hotmail.com.au,6984.825,Nicole Jenkins
+Gregory Haley,74,VIC,Travel,3652,11050.47,Approved,3/29/2023,4/17/2025,POL2840897,Premium,Quarterly,0.33,keithsmith@miller.net.au,0403 857 189,Christopher Stark
+Valerie Peters,21,NSW,Home,1691.34,4106.93,Pending,3/22/2024,7/26/2024,POL2294216,Standard,Monthly,0.58,schmidtkimberly@gmail.com,07-6015-6035,Tiffany Johnson
+Matthew Smith,57,TAS,Life,2665.84,18668.41,Pending,8/20/2022,11/13/2023,POL2059659,Basic,Monthly,0.83,kevin37@adams-velazquez.com,-1247,Janet Ford
+Brittany Perkins,19,SA,Travel,4864.76,13032.68,Approved,4/11/2024,4/27/2024,POL1332112,Standard,Annually,0.57,timothydavis@salazar-davis.org.au,9918 1117,Victoria Harrell
+Douglas Vargas,33,ACT,Car,1583.35,14529.15,Approved,10/25/2022,1/19/2024,POL8113970,Premium,Quarterly,0.28,lisawilliams@martin-hall.edu,5850.0597,Caroline Walker
+Kathy Roach,42,NT,Travel,2046.12,5058.17,Approved,7/18/2024,8/19/2024,POL7111070,Gold,Annually,0.34,ibaird@yahoo.com.au,8557 9601,Patricia Santos
+Joel Cook,62,NSW,Car,1727.78,16817.59,Approved,4/7/2024,7/21/2024,POL6949019,Premium,Quarterly,0.05,tduarte@hotmail.com.au,08.8361.3419,William Figueroa
+Mr. Thomas Gonzales,38,WA,Home,2368.45,7740.26,Approved,10/4/2022,1/16/2023,POL6144286,Basic,Annually,0.41,timothy76@hotmail.com,+61 492 682 259,Raymond Richards
+Karl Johnson,75,ACT,Health,2530.03,7851.43,Approved,4/20/2024,6/2/2024,POL3276023,Basic,Monthly,0.26,yyates@goodman-grimes.com,(08)70958993,Catherine Burch
+Gregory Thompson,22,SA,Travel,4566.41,465.3,Approved,3/8/2024,8/7/2024,POL9820548,Premium,Monthly,0.44,rjohnson@warren-gates.biz,-1307,Daniel Miller
+Christina Arias,42,TAS,Car,3145.87,1016.72,Pending,6/17/2024,7/14/2025,POL4981430,Premium,Annually,0.65,wendywalker@yahoo.com,891510212,Paul Kim
+Mary Carroll,56,TAS,Car,2905.68,8092.88,Rejected,8/15/2022,9/25/2022,POL1209604,Standard,Monthly,0.98,philipryan@hotmail.com,(08).0988.1760,Emily Navarro
+Laura Sloan,39,NSW,Car,4557.82,666.86,Approved,10/21/2022,6/15/2024,POL8432474,Standard,Monthly,0.8,vrose@gill-may.org.au,7601.9335,David Cooper
+Robert Jones,66,ACT,Travel,3790.78,19416.04,Approved,9/29/2023,5/13/2024,POL3549095,Gold,Annually,0.9,abrown@hinton.edu,-8233,Tanya Carroll
+Mark Preston,20,ACT,Travel,1472.43,2056.14,Rejected,12/21/2022,4/18/2023,POL6390233,Premium,Quarterly,0.89,frankflores@singh.info,(02)-0339-2761,Mark Smith
+Paul Robinson MD,31,VIC,Health,3243.01,8029.97,Pending,11/12/2023,8/10/2024,POL8784364,Basic,Monthly,0.4,davissarah@johnson.com,07.7519.3883,Kyle Travis
+Karen Daniel,35,NSW,Health,4297.06,16253.29,Approved,6/15/2023,7/17/2024,POL6917099,Basic,Monthly,0.86,deanwarren@stone.org,(03)06226597,Kenneth Oconnor
+Katherine Clark,40,VIC,Car,3929.92,11939.38,Approved,8/10/2022,2/14/2023,POL5545779,Standard,Annually,0.35,lsmith@hotmail.com,+61 424 779 345,Kayla White
+Christine Choi,28,WA,Health,3839.5,11109.51,Approved,4/20/2023,7/18/2024,POL7386558,Premium,Annually,0.98,jgraves@yahoo.com,61343111739,Elizabeth Wilson
+Douglas Roth,73,QLD,Car,2119.59,10977.51,Approved,2/1/2023,7/30/2024,POL5677361,Premium,Quarterly,0.6,uphillips@robinson.com,+61.3.0419.0250,Meghan Baker
+Ian Sanders,73,NSW,Health,3157.35,12480.88,Rejected,7/7/2024,12/6/2024,POL9088024,Basic,Quarterly,0.27,oharris@hotmail.com.au,293308876,Kim Galvan
+Mr. Christopher Woods,22,SA,Health,1960.18,814.17,Approved,6/9/2023,8/24/2023,POL7738622,Basic,Quarterly,0.76,alexis42@johnson.edu,+61 2 6482 8909,Micheal Reeves
+Monique Lambert,43,VIC,Life,1420.44,1233.48,Approved,5/27/2023,6/13/2023,POL9645621,Standard,Quarterly,0.57,martinezanthony@price.edu,3870 1675,Steven Gregory
+Adam Anderson,58,VIC,Home,833.45,15739.23,Approved,4/21/2024,8/17/2024,POL4131966,Premium,Quarterly,0.03,uhouston@gmail.com,4720 8580,Regina Stewart
+Patricia Yates,38,ACT,Life,2132.77,1775.53,Approved,12/28/2022,7/11/2023,POL3685389,Basic,Annually,0.67,gavinlee@martin.edu.au,4898 1272,Lonnie Harris
+David Allen,31,ACT,Car,3999.39,13155.95,Approved,2/27/2023,3/30/2025,POL3878810,Premium,Quarterly,0.83,kyle94@mitchell-patrick.org,0437 631 913,Joann Potts
+Daniel Young,69,QLD,Life,2540.96,2367.74,Approved,1/8/2024,6/1/2024,POL4826933,Gold,Annually,0.82,yross@yahoo.com,(08)-8406-8110,Chelsea Hammond
+Susan Mora,20,WA,Travel,3757.56,9139.22,Pending,5/10/2024,9/24/2024,POL8339951,Premium,Annually,0.66,david26@davis-baker.org,6602-3239,Chad Sanchez
+Jonathan Mendez,47,SA,Car,3610.01,10428.47,Approved,4/24/2024,3/12/2025,POL3464067,Basic,Monthly,0.3,morrisonnicholas@gillespie.info,(02) 1999 7801,Lisa Roberts
+Steven Smith,38,SA,Car,2595.85,19146.49,Pending,11/13/2022,1/24/2025,POL2167675,Gold,Monthly,0.77,sean21@hotmail.com.au,5525-1478,Patrick Graham
+Susan Ford,24,NT,Home,1496.37,2766.68,Approved,5/12/2023,8/6/2023,POL9840784,Basic,Monthly,0.61,alloyd@yahoo.com,07-0683-8738,Sandra Howard
+Steven Aguirre,59,ACT,Home,4651.42,19792.14,Pending,5/18/2024,3/21/2025,POL1408957,Premium,Monthly,0.08,nguyensteven@brown-thompson.edu.au,(03)-7351-5634,Sarah Mccarthy
+Timothy Vasquez,59,NSW,Life,4700.89,12938.4,Approved,6/12/2023,11/15/2023,POL3809490,Basic,Quarterly,0.42,brett50@gmail.com,0429 680 413,Steve Lawson
+Mary Salas,67,ACT,Health,884.96,10631.15,Approved,10/20/2023,7/13/2025,POL8068794,Gold,Annually,0.31,adamsjeffery@hotmail.com.au,7001 3033,Natalie Perkins
+Sarah Mclean,39,SA,Car,4167.66,703.12,Rejected,3/11/2024,7/9/2024,POL3762634,Gold,Annually,0.19,melissa07@hotmail.com.au,07.7122.7011,Michael Rodriguez
+Jennifer Nguyen,60,TAS,Life,415.68,12637.51,Pending,8/17/2023,12/10/2024,POL4900381,Gold,Monthly,0.26,brownmitchell@alvarado.net,-2324,Zachary Meyer
+Gina Sanchez,41,VIC,Car,940.09,17445.65,Approved,10/17/2022,12/6/2022,POL4786882,Gold,Monthly,0.57,jeanettecarr@brown.com,7566-6600,Tracy Weber
+Brett Bullock,22,WA,Car,1671.59,9375.72,Approved,8/28/2023,1/2/2024,POL8519967,Basic,Annually,0.51,kevinmueller@brown.edu.au,-678,Carrie Alvarado
+Courtney Rodriguez,52,NSW,Health,397.09,18480.58,Rejected,11/26/2023,9/9/2024,POL2432186,Basic,Annually,0.55,pnoble@hotmail.com,07.2534.7794,Lisa Flowers
+Madison Hall,19,TAS,Health,1246.03,9386.63,Approved,8/4/2022,7/25/2024,POL9674546,Premium,Quarterly,0.17,vazquezkyle@yahoo.com,0499 413 158,Shannon Miller
+Stephanie Jones,44,QLD,Life,1330.29,18959.89,Rejected,2/17/2024,5/17/2025,POL1025471,Basic,Annually,0.94,kristopher24@smith.net.au,(03)41055203,Mary Shaw
+Victoria Raymond,36,ACT,Home,515.12,5180.73,Pending,5/5/2024,11/7/2024,POL1189637,Basic,Monthly,0.77,hdaniels@francis-phillips.info,0439 593 885,Kristin Moreno
+Penny Sanders,32,SA,Travel,723.75,2753.44,Approved,11/28/2023,12/21/2023,POL4151319,Standard,Monthly,0.38,kbrown@hotmail.com,02.2460.9617,Tiffany King
+Matthew Smith,59,VIC,Travel,866.86,13858.95,Pending,3/4/2023,11/25/2023,POL6705537,Basic,Monthly,0.16,lgonzales@gmail.com,189.4093,Matthew Ward
+Marissa Smith,52,TAS,Travel,920.66,10633.8,Approved,1/4/2024,3/26/2025,POL1955099,Gold,Quarterly,0.63,kyle22@gmail.com,+61 432 074 277,Fernando Reid
+Gerald Kim,73,VIC,Home,353.19,9552.95,Approved,3/12/2023,5/20/2025,POL3563912,Basic,Annually,0.56,william89@hotmail.com,57913713,Joshua Cunningham
+Jacob Cooper,28,SA,Life,904.22,1725.07,Rejected,4/18/2024,4/15/2025,POL5159634,Premium,Monthly,0.42,gardnersierra@gmail.com,+61.435.059.302,Melissa Huang
+Erica Bennett,63,NSW,Car,2207.33,13679.37,Pending,6/8/2023,8/2/2023,POL1750932,Premium,Annually,0.44,popechad@hotmail.com.au,(03)-6121-1527,Bethany Gilbert
+Kyle Archer,72,WA,Home,4849.33,16327.25,Approved,8/8/2023,5/10/2025,POL6649528,Standard,Monthly,0.04,wriggs@yahoo.com,+61 419 950 797,William Conrad
+Diana Douglas,46,NT,Health,1195.86,15248.99,Rejected,8/30/2023,2/6/2024,POL6940646,Standard,Quarterly,0.44,andrea07@gates.net,+61 2 8587 3919,Erin Lopez
+Mrs. Vanessa Green MD,68,QLD,Travel,4500.31,12261.96,Pending,10/27/2022,2/20/2023,POL7725111,Basic,Monthly,0.82,andrew83@yahoo.com,+61.410.443.899,Linda Mckay
+Robert Smith,51,WA,Life,1486.48,930.03,Approved,12/29/2023,1/30/2024,POL1916567,Standard,Annually,0.05,imoore@fitzgerald.org,03.3479.5300,Theresa Flores
+Patricia Watson,55,NSW,Car,4541.12,1825.84,Rejected,10/4/2023,4/12/2024,POL8515492,Gold,Annually,0.4,markcruz@hotmail.com.au,(07).1825.4454,Larry Barton
+Kathy Davis,22,QLD,Travel,4355.33,12773.75,Approved,11/20/2022,12/5/2022,POL9132117,Premium,Monthly,0.7,pluna@henderson.org,0467-348-771,Joe Torres
+Vicki Miller,56,SA,Home,4715.46,19638.22,Rejected,3/24/2023,7/22/2023,POL9515418,Gold,Annually,0.8,trevinokimberly@hernandez.edu,90794756,Sandra Reynolds
+Victor Gonzalez,61,ACT,Car,4666.64,11211.69,Rejected,10/27/2022,12/30/2022,POL8792013,Standard,Monthly,0.91,lwest@hotmail.com.au,(07).0554.0213,Derrick Flynn
+Casey White,66,NSW,Health,1199.74,1256,Approved,7/7/2023,5/4/2025,POL5603249,Basic,Annually,0.13,jamie47@yahoo.com.au,+61.428.420.190,Jeffrey Kim
+Jaime Mcneil,63,TAS,Travel,2590.05,15853.42,Approved,12/15/2023,11/5/2024,POL4896373,Premium,Monthly,0.74,omurphy@brown.info,-8856,Jessica Melton
+Kevin Wise,18,NT,Home,626.27,626.24,Pending,8/17/2022,12/16/2022,POL1735818,Gold,Monthly,0.41,ubailey@johnson.org.au,0496.169.774,Tom Galloway
+Patrick Hoffman,53,ACT,Life,3662.12,374.65,Rejected,7/29/2024,11/30/2024,POL1492859,Standard,Monthly,1,makayla78@west.biz,+61 7 5840 6506,Ashley Clark
+Victoria Smith,64,QLD,Health,4481.89,6505.74,Approved,11/15/2023,1/6/2024,POL3467733,Premium,Quarterly,0.83,halljessica@moore-martinez.edu,4595-6478,Sandra Lee
+Cassandra Hodges,27,VIC,Travel,4096.98,17541.09,Approved,12/8/2023,9/20/2024,POL3404076,Premium,Monthly,0.93,ijohnson@yahoo.com,02-7062-5113,Becky Smith
+Bob Cooper,66,TAS,Home,1234.09,19361.09,Rejected,4/28/2023,5/12/2024,POL2804940,Standard,Quarterly,0.04,zgarcia@yahoo.com,818471209,Antonio Flores
+Michelle Delgado,41,NSW,Home,3879.84,9329.11,Approved,1/19/2023,10/3/2023,POL1346398,Standard,Monthly,0.32,samantha16@thomas.net.au,8455-3320,Derrick Jones
+Mr. Alan Bolton,48,QLD,Home,3935.83,13204.73,Pending,11/25/2022,5/30/2025,POL3779443,Basic,Monthly,0.6,annette35@baker.org.au,(08)68835171,Jacqueline Swanson
+Sandra Mitchell,44,TAS,Home,969.77,11161.44,Approved,9/25/2022,8/17/2024,POL6933932,Basic,Monthly,0.4,abbottkyle@yahoo.com.au,(08)40391880,Briana Gardner
+Roberto Fisher,48,TAS,Life,2340.83,8256.98,Approved,6/2/2023,12/4/2024,POL1191388,Standard,Monthly,0.86,mcgeesandra@hotmail.com.au,0490-292-208,James Brooks
+Charles Wood Jr.,67,SA,Life,1393.58,13366.65,Approved,6/11/2023,12/25/2023,POL1061829,Standard,Monthly,0.87,patricia53@rojas.com,+61 7 7877 4469,Kayla Cunningham
+John Clayton,67,VIC,Life,1444.57,14022.13,Rejected,11/26/2023,5/14/2024,POL4281944,Standard,Monthly,0.27,mccartytimothy@yahoo.com,(02).3242.7396,Dennis Brown
+Jennifer Kline,60,TAS,Health,2596.38,15331.28,Approved,1/31/2024,5/24/2025,POL7877814,Premium,Monthly,0.05,jesparza@yahoo.com.au,102.221,Michael David
+Edward Hendrix,31,SA,Home,518.12,7124.79,Approved,9/4/2022,6/18/2023,POL2451370,Standard,Quarterly,0.06,stevendavis@gmail.com,91796286,Eric Chang
+Steven Adams,54,WA,Life,2219.8,2223.6,Rejected,5/25/2023,4/27/2024,POL3026744,Gold,Monthly,0.27,gina78@hotmail.com.au,0408 6645,Morgan Henry
+Daniel Morris MD,42,QLD,Health,2401.15,10708.56,Approved,10/31/2022,2/16/2024,POL4679845,Premium,Quarterly,0.59,shawclifford@yahoo.com.au,03 6438 4431,Kaitlyn Duran
+Debbie Moore,53,VIC,Home,1218.23,14743.14,Rejected,5/11/2023,4/19/2024,POL8774468,Gold,Quarterly,0.55,oschneider@hanson.com,(07)-4384-5563,Kelly Green
+Virginia Morris,63,ACT,Health,4769.24,10459.04,Approved,11/13/2022,6/22/2024,POL8020505,Gold,Quarterly,0.22,tammy59@gmail.com,08 1984 3872,Jeffrey Sharp
+Rachel Fuller,35,TAS,Car,4395.04,19852.9,Approved,6/25/2023,5/19/2024,POL6419148,Basic,Monthly,0.57,michael34@price-webb.com.au,0431 628 124,Martha Clark
+David Morgan,73,SA,Home,1218.18,10310.52,Approved,2/15/2023,12/22/2024,POL2873149,Premium,Monthly,0.1,brendastewart@kennedy.edu.au,0443 655 668,William Mcgee
+Jessica Powell,47,ACT,Travel,4169.82,1880.08,Approved,8/5/2022,8/31/2024,POL5376305,Premium,Monthly,0.25,fostermatthew@hotmail.com,(07)-5565-2061,Henry Watson
+Sara Thompson,62,NSW,Life,2323.1,3776.5,Pending,11/25/2023,10/9/2024,POL8079700,Basic,Annually,0.05,davisterrance@stokes.edu,9430 9955,Andrea Hernandez
+Jack Reynolds,59,QLD,Car,3145.6,10092,Approved,4/5/2024,9/30/2024,POL6766009,Basic,Annually,0.44,ztaylor@hotmail.com.au,+61.403.499.171,Edward Robinson
+Jennifer Sutton,43,TAS,Life,1046.06,3333.17,Approved,4/24/2023,9/22/2024,POL8800822,Gold,Quarterly,0.24,eric48@hotmail.com,+61 8 8328 6841,Alfred Morris
+Mrs. Danielle Stewart DDS,31,QLD,Travel,3834.62,17057.55,Approved,10/4/2023,1/13/2025,POL2419714,Premium,Monthly,0.34,rperez@gmail.com,0461-574-816,Scott Thomas
+Karen Scott,20,TAS,Health,2043.64,6131.77,Approved,12/10/2023,3/22/2025,POL9441819,Standard,Annually,0.22,jacksongerald@wells-harding.edu,+61.442.761.243,Jason Daniels
+Gary Campbell,20,TAS,Life,3646.02,275.47,Approved,9/12/2023,10/6/2024,POL7744569,Basic,Quarterly,0.26,valdezmelissa@thompson.edu.au,+61 7 3746 6557,Sheila Chen
+Dominique Alvarado,28,QLD,Health,3362.41,3545.08,Approved,12/7/2023,12/12/2024,POL2829454,Basic,Monthly,0.97,sharigreen@yahoo.com.au,(08)-8454-3299,Christine Curtis
+Kimberly Scott,60,NT,Health,4000.78,1975.36,Approved,11/13/2023,6/5/2025,POL2785518,Gold,Monthly,0.42,dennishoover@hotmail.com,2209 5498,David Fleming
+Janice Ramirez,75,ACT,Travel,4937.75,11160.26,Approved,11/1/2022,3/9/2024,POL9033143,Standard,Monthly,0.38,christine94@brown.edu,4349130,Megan Beltran
+Donna Swanson MD,31,NT,Car,552.19,13577.16,Approved,6/11/2023,5/2/2024,POL9455596,Gold,Annually,0.71,laustin@chase.net.au,7518.2668,Stephen Mills
+Christopher Castro,58,NT,Health,586.49,17854.82,Approved,1/2/2023,6/29/2023,POL2059715,Basic,Monthly,0.94,mcintyreholly@hotmail.com.au,9343.8739,Kristina Davis
+Sonya Bruce,27,SA,Travel,4122.1,19581.91,Approved,2/4/2023,10/29/2024,POL5889456,Gold,Monthly,0.7,xblair@yahoo.com,9387.2828,Stephanie Rivera
+James Williams,38,NT,Home,2272.2,10559.32,Pending,11/4/2023,12/15/2023,POL7527632,Basic,Annually,0.36,shawn85@watkins.org,828595060,Mitchell Dyer
+Craig Jones,29,WA,Travel,3907.6,7019.49,Approved,12/11/2023,2/3/2024,POL9919470,Standard,Annually,0.78,brian34@simon.com,(03).4209.0265,Anthony Mejia
+Derrick Martinez,44,NSW,Home,4820.99,9375.79,Rejected,5/5/2024,2/20/2025,POL1246469,Standard,Quarterly,0.72,morgan51@cruz-stephens.net.au,03-2634-9824,Kimberly Foster
+David Moore,56,ACT,Travel,3096.1,4495.51,Approved,4/21/2024,4/23/2025,POL2718010,Basic,Quarterly,0.32,sherrysmall@gmail.com,61782108338,Anna Li
+Rickey Smith,31,TAS,Health,4534.03,12631.21,Approved,11/7/2023,3/6/2025,POL9082798,Premium,Annually,0.95,zmurphy@bradford-wallace.net,+61 7 5277 6876,Elizabeth Hess
+Charles Flynn,35,SA,Car,3790.16,4704.1,Rejected,6/17/2024,2/10/2025,POL4324383,Standard,Monthly,0.16,schroederkimberly@yahoo.com.au,254136593,Samantha Wright
+Kerry Charles,21,TAS,Life,2545.22,18468.56,Approved,7/18/2023,9/5/2023,POL4846290,Gold,Monthly,0.5,hallsharon@lindsey-mahoney.edu.au,0479.108.737,Paul Griffin
+Tracy Butler,74,VIC,Life,832.81,18336.66,Pending,10/1/2022,2/18/2023,POL2685456,Premium,Monthly,0.83,drewhenry@hotmail.com.au,(02)-1878-7808,Nathan Suarez
+Hayden Odonnell II,60,NSW,Home,2437.6,8766.58,Rejected,2/19/2023,4/22/2024,POL7288636,Standard,Monthly,0.09,greendavid@gmail.com,4811-1945,David Henderson
+Desiree Herrera,18,QLD,Life,4278.16,108.46,Pending,1/26/2023,10/25/2024,POL8538960,Gold,Quarterly,0.57,sarahbooker@yahoo.com,-1683,Sophia Anderson
+James Washington,31,VIC,Home,534.74,18533.71,Approved,1/9/2024,4/20/2025,POL9955554,Gold,Quarterly,0.03,craig40@hotmail.com,(08) 9899 0398,Marcus Wilson
+Susan Reyes,36,QLD,Car,2754.66,11508.36,Pending,7/16/2023,12/8/2024,POL7789273,Standard,Annually,0.75,sellersvirginia@padilla.edu.au,+61 446 947 834,Eric Walker
+Brianna Woodward,45,ACT,Life,4768.56,7063.97,Approved,6/22/2024,5/30/2025,POL7735051,Standard,Quarterly,0.65,garciachristine@hoover.net.au,(08)-2119-0131,Richard Johnson
+Dylan Walker,68,ACT,Travel,1712.22,19342.62,Rejected,6/22/2024,10/19/2024,POL3237263,Premium,Quarterly,0.17,drakesamantha@golden.org,+61.3.5881.1750,Brooke Henry
+Sarah Hartman,59,TAS,Health,759.17,5492.07,Approved,7/18/2023,3/16/2024,POL5741313,Premium,Annually,0.29,jodi05@hale-burke.net.au,0278 3714,Dana Thomas
+Jeffrey Smith,57,NSW,Health,2945.82,1830.88,Approved,3/3/2023,11/4/2023,POL8732263,Basic,Monthly,0.89,jessica21@yahoo.com,+61 438 716 143,Gary Gill
+Lisa Moore,51,WA,Home,3499.88,675.25,Approved,8/10/2022,4/2/2025,POL9671382,Standard,Quarterly,0.6,andrewking@elliott.org.au,-12175,Denise Mahoney
+Theresa Watts,51,NT,Health,471.27,11772.43,Approved,3/22/2023,2/3/2024,POL8431025,Basic,Monthly,0.1,dennis45@buckley.net,(07) 6434 6013,Peter Wilson
+Andrea Willis,64,VIC,Life,3682.07,3908.39,Pending,9/24/2022,2/7/2024,POL4836420,Basic,Quarterly,0.9,shafferjoy@gmail.com,(02)99310978,Christopher Howell
+Crystal Miller,52,NSW,Health,3363.64,15317.54,Pending,12/10/2022,10/29/2024,POL2465644,Standard,Monthly,0.1,barnesmichael@nunez.edu,3401 6308,Anthony Conway
+Christopher Rosales,33,ACT,Home,3354,1770.44,Approved,3/14/2023,4/10/2025,POL6913130,Basic,Quarterly,0.27,bethpaul@walters-brooks.biz,9918 4669,Christina Mejia
+Nicholas Wilson,43,TAS,Home,2186.53,9356.14,Approved,10/18/2023,3/6/2025,POL3875647,Basic,Monthly,0.71,donaldmiller@barton.org,+61 8 2089 1043,Hannah Mcclain
+Daniel Miller,61,ACT,Travel,669.62,5617.11,Rejected,6/14/2023,6/22/2023,POL3561298,Gold,Monthly,0.66,ariel88@miles-norman.net.au,+61.404.188.286,Nancy Alvarez
+Jamie Wood,45,NSW,Life,4594.9,12496.99,Approved,12/14/2023,12/24/2023,POL5476227,Premium,Monthly,0.25,karen05@hotmail.com,-1423,Renee Garner
+Charles Ward,23,VIC,Car,365.78,13421.26,Approved,4/3/2023,7/18/2023,POL8016430,Premium,Annually,0.73,leah40@hotmail.com,791572941,Ronald Mcdaniel
+Christopher Lee,53,NSW,Travel,4208.84,18301.6,Approved,8/12/2022,11/29/2023,POL2557231,Gold,Annually,0.8,utaylor@rodriguez-clarke.info,6832-5015,Andrea Strickland
+Tiffany Murphy,24,VIC,Health,737.65,4545.82,Approved,2/22/2023,8/16/2024,POL7592217,Gold,Monthly,0.2,amanda32@yahoo.com.au,61737669021,Mrs. Kayla Young
+Joseph Mckee,48,QLD,Car,1343.64,285.5,Rejected,5/9/2023,1/22/2025,POL3618895,Gold,Annually,0.07,robert63@gmail.com,02 4138 0315,Jamie Clark
+Brian Shaw,57,QLD,Travel,2537.36,15090.47,Approved,7/15/2023,6/6/2024,POL5486084,Standard,Quarterly,0.96,denise81@byrd.org,(03)-3723-1160,Brittany Williams
+Caroline Jones,19,SA,Home,2634.52,8818.28,Approved,8/19/2023,7/29/2025,POL3725492,Premium,Monthly,0.68,patricia11@yahoo.com,(08).5595.6892,Charles Warren
+Amanda Ray,33,ACT,Life,2804.25,6980.14,Approved,8/5/2023,7/16/2024,POL9131561,Basic,Quarterly,0.54,jodiwood@gmail.com,-1424,Jacqueline Adkins
+Daniel Sanford MD,38,NT,Health,3641.78,9962.57,Approved,1/5/2023,4/26/2024,POL3689937,Gold,Annually,0.82,nyates@smith-weber.com.au,0420.473.652,Erica Pearson
+Kyle Blake,19,TAS,Health,1042.61,15793.13,Rejected,11/26/2022,4/14/2023,POL5699257,Standard,Annually,0.7,ncase@lopez.biz,07 4422 9182,Megan Richardson
+Barbara Sparks,53,NSW,Travel,748,12480.95,Approved,8/24/2022,2/19/2025,POL7378709,Gold,Annually,0.95,ramosrichard@watson-adams.edu,+61.455.870.502,Javier Gardner
+Kristi Vasquez,51,SA,Home,4504.49,1429.94,Approved,4/12/2023,10/8/2024,POL4096483,Standard,Monthly,0.69,cstone@gallagher.edu,-1342,Andrea Phillips
+Latoya Duncan,32,ACT,Home,4060.35,15528.52,Approved,12/21/2022,6/27/2024,POL3062412,Premium,Monthly,0.96,imaldonado@burns.com,02 0125 2961,Hannah Torres
+Travis Taylor,60,TAS,Health,985.96,953.88,Pending,9/26/2023,12/28/2024,POL5979755,Gold,Monthly,0.61,phillipsnoah@short-brown.org,(08).5453.5949,Anthony Johnson
+Stephanie Willis,58,TAS,Health,3885.29,9680.89,Approved,9/12/2022,12/27/2023,POL8689571,Premium,Annually,0.23,daviddennis@smith.com.au,-1087,Evan Lewis
+Glenn Galloway,27,TAS,Health,790.5,725.09,Approved,12/6/2022,5/2/2025,POL2599717,Standard,Monthly,0.91,selenasmith@yahoo.com,(08)-8813-2801,Steven Sanford
+Laura Welch,50,NSW,Car,4676.65,5693.6,Approved,11/20/2023,6/21/2024,POL7216109,Standard,Annually,0.85,sylviaandrews@hotmail.com,07 7541 0042,Brent Gibbs
+Lindsey Jones,41,NT,Life,3422.6,7760.79,Approved,1/29/2023,3/4/2024,POL8901569,Standard,Annually,0.99,fwalls@alvarez-thomas.edu.au,0494-511-440,Miguel Moss
+Cynthia Hernandez,32,ACT,Home,3771.06,2285.53,Approved,10/25/2023,9/2/2024,POL4693261,Standard,Quarterly,0.06,lisapham@hotmail.com,02.7357.5917,Kendra West
+Stephanie Wolfe,60,TAS,Home,3356.99,18419.96,Rejected,9/10/2022,11/20/2024,POL6812114,Gold,Annually,0.13,zmolina@lowery.com,03.4494.7655,Jasmine Poole
+Bethany Cummings,20,QLD,Car,3929.31,5504.34,Approved,3/29/2023,3/25/2025,POL8298673,Premium,Quarterly,0.58,reynoldskevin@christensen.org,19412606,Ralph Collins
+Kevin Ferguson,45,WA,Home,4714.71,7667.41,Pending,12/28/2022,8/25/2023,POL8307379,Standard,Quarterly,0.42,gibsonrachel@hotmail.com,-11574,Nicholas Hernandez
+Nicholas Moss,21,QLD,Life,2016.61,10421.27,Pending,5/10/2023,5/14/2024,POL3378312,Gold,Monthly,0.54,smithkimberly@moore.info,-8996,Garrett Fields
+Jimmy Bailey,59,NT,Home,490.13,6345.06,Pending,12/3/2023,5/24/2024,POL7268631,Basic,Quarterly,0.21,carolhuerta@garza.biz,0450 260 657,Henry Berry
+Lisa Whitehead,29,TAS,Home,1141.76,275.69,Approved,5/8/2023,7/22/2025,POL7525249,Gold,Annually,0.26,robert03@hotmail.com,+61 411 039 018,Jonathan Cunningham
+Norman Hebert,33,SA,Health,2946.03,14884.73,Pending,7/9/2024,9/3/2024,POL5260178,Basic,Quarterly,0.21,tbowman@gmail.com,02.7912.8650,Amy Rivas
+Nicole Cameron,18,NT,Health,625.42,8270.21,Approved,2/5/2023,11/5/2024,POL6982614,Basic,Annually,0.91,hallpaul@gmail.com,61895360291,James Dominguez
+Jeffery Sims,72,VIC,Home,801.56,8276.3,Pending,6/8/2024,2/26/2025,POL4359246,Basic,Annually,0.89,shawnthomas@gibson.com.au,0424.050.963,Jessica Williams
+Andrew Hill,30,QLD,Life,3204.17,7446.88,Approved,1/18/2023,6/29/2025,POL6085355,Basic,Annually,0.62,wharvey@watkins-hoffman.net,849823593,Justin Robinson
+Michael Miller,48,SA,Life,4052.45,4600.57,Approved,2/26/2024,1/27/2025,POL9134854,Premium,Annually,0.41,chavezdavid@hotmail.com,-1904,Savannah Myers
+Thomas Jones,37,NT,Life,3987.09,1426.13,Pending,6/11/2023,10/11/2023,POL2916362,Basic,Quarterly,0.84,hudsonjenna@hotmail.com.au,+61.478.000.752,Pamela Hogan
+Heather Ballard,34,WA,Home,3864.09,1255.2,Approved,12/14/2022,1/13/2024,POL8770972,Standard,Quarterly,0.44,jreyes@yahoo.com.au,0423-906-990,Chelsea Daugherty
+Benjamin Reed,35,WA,Travel,1797.16,13730.55,Approved,11/21/2023,8/13/2024,POL6045213,Standard,Quarterly,0.86,cookjennifer@yahoo.com.au,-15202,Zachary Cooper
+Miss Jordan Gutierrez PhD,52,ACT,Health,2786.8,12921.59,Approved,1/2/2024,1/3/2025,POL9202376,Standard,Quarterly,0.66,annjackson@yahoo.com,(07).6838.5624,Joseph Mcfarland
+David Mcknight,56,SA,Travel,2927.66,14854.89,Approved,7/28/2023,8/21/2023,POL8181574,Gold,Annually,0.33,plopez@craig-baird.org.au,8198 9382,Cheryl Turner
+Ashley Randall,61,ACT,Car,2402.38,3893.69,Approved,1/17/2023,2/15/2024,POL6144777,Gold,Quarterly,0.34,fmay@hart.com,+61.498.787.141,William Jones
+Craig Joseph DDS,45,NSW,Life,2746.56,3714.98,Approved,5/23/2024,8/3/2024,POL4909143,Standard,Annually,0.62,stevenparker@santiago-mills.org.au,-707,Vicki Hale
+Danielle Walker,47,QLD,Car,2729.17,16093.94,Pending,1/9/2024,8/4/2024,POL7349810,Basic,Annually,0.4,michaelherrera@price.net.au,0495-718-451,Veronica Ward
+Paul Baird,34,ACT,Life,2434.55,3051.42,Approved,9/19/2022,9/26/2024,POL1572450,Premium,Quarterly,0.24,zmiller@hotmail.com,08.3976.6943,Richard Carpenter Jr.
+Gregory Mercado,73,NSW,Health,1667.77,13952.56,Approved,10/22/2023,2/14/2025,POL7773548,Basic,Annually,0.01,jeffrey36@yahoo.com,51406389,Tara Day
+Matthew Brown,53,NSW,Travel,3791.47,19257.36,Pending,4/25/2024,7/7/2024,POL6411907,Premium,Annually,0.07,angela45@paul.org.au,+61.8.8158.6837,Jack Lynch
+David Schroeder,29,ACT,Life,1073.17,9549.98,Approved,9/28/2022,7/26/2023,POL8607223,Gold,Quarterly,0.51,destiny35@yahoo.com,0679-5169,Timothy Osborne
+Sean Jacobson,21,TAS,Home,1450.81,12604.9,Approved,6/3/2023,9/25/2024,POL3060569,Standard,Monthly,0.96,parkerjoshua@garcia-aguilar.biz,2775 1962,Stephanie Juarez
+Jennifer Cook,54,WA,Health,652.72,6361.14,Pending,4/6/2023,9/10/2024,POL2696736,Premium,Monthly,0.74,edwardallen@yahoo.com.au,+61 476 004 016,Lori Chapman
+Audrey Vasquez,61,ACT,Travel,1929.55,1534.18,Approved,12/31/2022,7/25/2025,POL8304953,Gold,Quarterly,0.63,romeromegan@gmail.com,(08)47820123,Brent Torres MD
+Kiara Saunders,33,NSW,Life,3530.96,5465.29,Approved,11/5/2022,8/19/2024,POL7953592,Premium,Monthly,0.35,michaelwatson@hotmail.com,0409.579.799,David Pierce
+Christine Pena,58,VIC,Car,626.96,4859.75,Approved,12/5/2022,2/14/2023,POL4413191,Gold,Monthly,0.57,jerryrhodes@rodriguez.com,869347996,Anna Martinez
+Rachel Davies,56,TAS,Life,2822.79,14605.61,Approved,8/26/2023,1/30/2025,POL7386267,Standard,Annually,0.73,clementsvictoria@webster-ramos.com.au,0496 821 847,Brian Pham
+Megan Strickland,21,QLD,Car,4458.74,17452.06,Approved,2/6/2024,7/29/2025,POL8880074,Premium,Monthly,0.52,proctorjoseph@brown.org,4455 3518,Jennifer Graham
+Margaret Stevens,35,VIC,Car,1860.18,3567.29,Approved,11/29/2023,5/13/2024,POL6115518,Premium,Annually,0.61,shiggins@salas-sampson.net,719293307,Ronnie Stevens
+Angela Williams DVM,22,NSW,Health,801.96,12926.6,Rejected,6/13/2024,3/31/2025,POL6225233,Standard,Annually,0.47,kim86@merritt.net,806654086,Patricia Kelly
+Todd Chase,38,QLD,Life,2562.49,7639.04,Rejected,11/8/2022,9/4/2023,POL6292223,Gold,Quarterly,0.34,julian13@hotmail.com,-1479,Scott Middleton
+Joseph Schroeder,36,NT,Life,2196.2,7064.8,Rejected,9/21/2023,10/20/2023,POL6776272,Standard,Annually,0.21,bfrank@yahoo.com,07 9835 4558,Jason Scott
+Michael Garrison,48,VIC,Life,2840.23,10847.16,Approved,8/11/2022,7/30/2023,POL8023794,Basic,Monthly,0.68,zroberts@white-ross.net.au,-6608,Brian Baker
+David Phillips,73,VIC,Health,4718.38,4943.28,Approved,12/12/2022,12/18/2022,POL2485040,Standard,Annually,0.5,stacyvilla@yahoo.com.au,(07)-1292-6367,Mrs. Monica Hernandez
+Cynthia Humphrey,36,VIC,Home,4424.71,26.52,Rejected,5/27/2024,8/19/2024,POL6114365,Basic,Annually,0.8,moyercody@yahoo.com.au,752422638,Thomas Murphy
+Charles Jacobs,20,TAS,Health,2606.49,2031.67,Pending,11/18/2022,11/7/2023,POL9914174,Premium,Monthly,0.39,tammy39@simmons.edu,84069790,Richard Williams
+Jacqueline Esparza,56,TAS,Life,4837.5,11082.65,Approved,5/6/2023,2/5/2024,POL2957037,Premium,Monthly,0.72,anita03@gmail.com,+61.8.0112.7765,Ryan Torres
+Mrs. Diane Marquez MD,46,VIC,Car,949.91,10414.43,Approved,7/5/2023,8/10/2023,POL5731459,Premium,Annually,0.89,traceygilbert@smith.edu,5828.2925,Taylor Simon
+Mrs. Heather Mathews,34,ACT,Car,412.73,9950.12,Pending,8/17/2022,9/22/2023,POL4832688,Basic,Quarterly,0.37,yhernandez@howe-white.edu,07-2925-3204,Albert Wood
+Joshua Hutchinson,58,NT,Health,2194.12,19506.83,Rejected,3/27/2024,6/22/2024,POL2401927,Gold,Monthly,0.87,marioanderson@hotmail.com.au,(08)66638817,Cynthia Johnson
+Mrs. Victoria Moyer,30,QLD,Health,1696.34,3503.48,Approved,11/15/2022,3/28/2024,POL1387996,Gold,Annually,0.97,valentinejeffery@yahoo.com.au,859340222,Whitney Peters
+Brittany Fletcher,23,VIC,Life,1564.87,15152.82,Approved,12/28/2022,12/23/2023,POL7411625,Standard,Monthly,0.29,lewisnicholas@gmail.com,03-9860-8133,Lee Aguilar
+Leonard Wilson,67,NT,Travel,2121.2,12717.51,Rejected,12/22/2022,6/6/2023,POL2172507,Basic,Quarterly,0.68,cummingsheidi@yahoo.com,+61 402 272 871,Donna Clark
+Sarah Barry,52,VIC,Travel,2770.18,5765.41,Rejected,4/4/2024,7/24/2025,POL5893570,Basic,Monthly,0.78,holly22@hotmail.com,07-6158-3826,Michelle Wilson
+Kevin Green,43,VIC,Home,851.53,13911.22,Approved,7/4/2024,8/20/2024,POL5619864,Basic,Annually,0.34,colejason@yahoo.com.au,0413-365-773,Priscilla Haynes
+Robin Day,63,QLD,Car,2104.57,1900.04,Approved,5/12/2023,1/8/2025,POL3465372,Basic,Monthly,0.05,montoyaselena@hotmail.com,575.7458,Noah Allen
+Matthew Sanders,25,NT,Car,3880.22,3627.49,Approved,4/15/2024,7/20/2024,POL7178320,Gold,Monthly,0.51,lhale@yahoo.com.au,824403709,Pamela Thomas
+Andrew Moreno,39,WA,Home,4966.03,5161.34,Approved,3/25/2023,2/7/2025,POL3264039,Basic,Monthly,0.84,bonniemoore@stevens.edu.au,+61.499.243.357,Jennifer Summers
+Kevin Bryant,30,NT,Health,1371.11,5743.73,Approved,11/25/2022,12/8/2024,POL3729094,Standard,Monthly,0.91,michael79@yahoo.com,-8554,Laura Allison
+Alicia Lee,40,NSW,Life,1126.57,7417.05,Approved,10/19/2023,7/5/2025,POL6699380,Basic,Monthly,0.94,matawilliam@yahoo.com,08 2619 2541,Donna Hoover
+Kristopher Miller,58,NT,Travel,4133.58,13194.81,Approved,4/18/2023,12/23/2023,POL8518060,Basic,Monthly,0.91,uanderson@hotmail.com,-1472,Robert Bean
+Elizabeth Mitchell,68,TAS,Health,4447.74,6057.34,Approved,9/10/2022,6/30/2025,POL2561241,Basic,Monthly,0.11,lewistravis@santana.edu.au,395906414,Briana Armstrong
+Dr. April Douglas,41,NSW,Home,1444.83,894.47,Pending,1/15/2023,1/18/2025,POL8633994,Basic,Quarterly,0.4,mariafields@gill.org,07-6925-9840,Robert Reid
+Amanda Owen,19,NT,Health,3869.55,7304.5,Approved,11/13/2022,7/18/2023,POL5998770,Standard,Quarterly,0.87,joneswilliam@lee.info,632.2291,Melvin Hernandez
+John Murphy,75,TAS,Life,1463.66,11156.82,Approved,7/19/2023,1/5/2025,POL2759242,Basic,Annually,0.36,karen33@yahoo.com,10556552,Morgan Davis
+Timothy Luna,19,QLD,Car,834.25,14504.64,Approved,7/28/2024,4/19/2025,POL5749708,Premium,Monthly,0.71,dudleysteven@burton.edu,07 1757 9792,Kevin Mitchell
+Thomas Saunders,74,TAS,Travel,2105.96,217.81,Approved,4/13/2023,10/29/2024,POL8589248,Premium,Annually,0.86,kellymoore@hotmail.com.au,(08)33174259,Corey Kaiser
+Monica Faulkner,23,NT,Car,1581.25,12135.55,Rejected,3/23/2023,4/7/2024,POL3094390,Standard,Quarterly,0.18,trevor59@yahoo.com.au,61751930879,Keith Clark
+Laura Boone,68,TAS,Travel,4531.63,795.91,Rejected,2/18/2023,2/10/2025,POL7997679,Standard,Quarterly,0.29,gregoryhannah@hotmail.com,812440486,Alan Dillon
+Joseph Newman,62,ACT,Health,2182.46,3797.42,Approved,3/23/2023,2/16/2025,POL1517396,Gold,Monthly,0.97,mrichards@gmail.com,(03) 3235 0221,Megan Navarro
+Elizabeth Osborn,58,NSW,Health,4241.93,10313.49,Approved,5/5/2023,5/6/2025,POL1071338,Gold,Monthly,0.21,erin87@gmail.com,61295110967,Jamie Le
+Mr. Kenneth Bishop,39,TAS,Travel,2085.42,6305.41,Rejected,10/5/2022,6/2/2024,POL2021798,Basic,Quarterly,0.8,kkelley@gmail.com,07-5986-3641,Ryan Cantu
+Anne Coleman,68,WA,Home,2534,13288.33,Approved,5/15/2024,2/2/2025,POL9646118,Standard,Monthly,0.55,susanquinn@yahoo.com,(03)-8383-1279,Randall Douglas
+James Hill,61,SA,Health,4095.48,2181.84,Rejected,1/24/2024,6/14/2025,POL9793207,Basic,Quarterly,0.84,dcarter@martinez.net.au,(02).9973.6925,Holly Edwards
+Valerie Mckee,50,VIC,Life,2581.25,4676.63,Rejected,11/19/2023,6/11/2024,POL5161431,Gold,Quarterly,0.28,fgregory@arroyo-turner.info,(08)-0699-2314,Scott Rowland
+Mary Villanueva,65,VIC,Health,488.51,7859.78,Approved,4/12/2024,11/3/2024,POL4932028,Standard,Quarterly,0.88,qthomas@brown.info,7043-4001,Margaret Benson
+Sarah Stewart,38,NSW,Travel,2915.04,16010.67,Rejected,12/22/2023,7/5/2025,POL8930674,Standard,Quarterly,0.94,alison74@price.info,-7732,Daniel Rasmussen
+Ashley Lindsey,54,QLD,Travel,801.52,9202.3,Approved,2/20/2024,4/19/2025,POL8872087,Basic,Quarterly,0.46,lisacannon@gmail.com,07.9501.2544,Becky Dorsey
+Miguel Wright,59,SA,Car,2240.11,7732.77,Pending,5/27/2023,6/23/2023,POL6321209,Gold,Quarterly,0.89,amyanderson@gmail.com,03.0603.9879,Steven Smith
+Robert Young,67,NSW,Life,1850.7,5321.79,Approved,3/1/2024,3/2/2024,POL4251437,Standard,Quarterly,0.89,benjaminshirley@snyder-rowland.org.au,0400-245-323,Lisa Hamilton
+Phillip Brown,49,NT,Travel,4329.29,14262.58,Rejected,1/26/2024,10/20/2024,POL1887629,Basic,Quarterly,0.1,angela07@hotmail.com.au,297397920,Kristina Gonzalez MD
+Donald Dunn,25,QLD,Car,2850.82,6036.03,Approved,5/6/2024,4/22/2025,POL4609754,Gold,Monthly,0.28,stephanie91@gmail.com,61760937238,Rebecca Ross
+Lindsey Hudson,63,NT,Travel,4542.64,9127.12,Pending,10/20/2023,3/4/2025,POL5826649,Basic,Monthly,0.26,colemansusan@hotmail.com,(03).2200.4371,Ronald Anderson
+Bryan Davis,43,NSW,Car,2533.81,12220.34,Pending,6/2/2024,8/23/2024,POL4891625,Premium,Monthly,0.01,adamjarvis@guzman-bridges.com,+61 479 818 268,Patrick Bell
+Kristin Chavez,18,VIC,Life,1242.22,16421.03,Approved,6/12/2023,8/5/2024,POL1512119,Basic,Quarterly,0.69,jason08@yahoo.com.au,(08) 6201 0023,James Vasquez
+David Caldwell,64,VIC,Car,2657.68,6722.98,Approved,8/28/2022,9/29/2022,POL4446246,Gold,Quarterly,0.35,masonjohn@gmail.com,4422 2708,Linda Ortiz
+Linda Russell,54,QLD,Travel,3420.77,5093.69,Approved,5/13/2024,7/23/2024,POL4347080,Gold,Quarterly,0.64,garnerjasmine@hotmail.com,-742,Samantha Patton
+Renee Reese,56,VIC,Life,678.55,16736.53,Rejected,6/7/2024,6/19/2025,POL7463774,Gold,Annually,0.92,tcaldwell@lloyd-harrison.info,0495.520.746,Alexander Holder
+Adam Sanchez,26,QLD,Travel,1824.02,18759.87,Pending,7/28/2023,5/23/2025,POL6222899,Premium,Quarterly,0.76,mary97@wilson-turner.org,6555.4564,Amanda Smith
+Bonnie Santiago,43,NSW,Life,2000.17,14416.75,Rejected,6/23/2024,3/6/2025,POL2439383,Premium,Monthly,0.75,leedanny@yahoo.com,68347591,Jennifer Ingram
+Brittany Martinez,46,NT,Home,2248.59,15341.73,Approved,4/24/2023,9/25/2024,POL2900803,Basic,Monthly,0.19,allisonromero@smith-acosta.edu.au,0499-478-946,Robert Park
+Kendra Diaz,33,QLD,Home,698.03,3363.41,Pending,2/19/2024,8/1/2024,POL2081858,Premium,Annually,0.5,phyllis71@hotmail.com,3944 9841,Mark Baker
+Tanya Hall,32,SA,Life,3978.94,12878.96,Approved,7/10/2023,5/31/2024,POL8488725,Basic,Monthly,0.05,mcknightjimmy@adams-fitzpatrick.org.au,(03).6166.4374,Yvonne Terry
+Erica Daniel,20,WA,Car,1927.62,12205.94,Pending,7/6/2024,1/21/2025,POL1619424,Gold,Annually,0.43,donna16@hotmail.com,(03)-2799-9006,Joyce Gilbert
+James Wilson,72,NT,Health,2047.01,4622.55,Pending,6/12/2023,8/20/2023,POL5333578,Standard,Quarterly,0.55,pamela86@garcia.org.au,-4547,Steven Edwards
+Jon Smith,66,WA,Home,2745.74,19911.76,Approved,1/9/2023,10/21/2024,POL7852309,Basic,Monthly,0.91,caitlinblair@rose.net,0451 605 637,Amanda Madden
+Jared Hancock,34,TAS,Life,3458.79,15273.29,Rejected,8/5/2022,11/8/2023,POL9566534,Gold,Annually,0.19,joshuawilliamson@miller.com.au,07.6336.7343,Robert Garrison
+Stephen Lyons,23,WA,Home,1741.93,13037.21,Rejected,9/22/2022,8/30/2023,POL9957199,Standard,Annually,0.77,hdrake@gmail.com,08.3823.3249,Matthew Stone
+Kristina Mckee,59,WA,Travel,2292.04,15425.59,Approved,9/29/2023,6/10/2025,POL7329868,Gold,Monthly,0.38,colekayla@mcgee.com.au,306930804,Brittany Young
+Larry Hogan,50,TAS,Health,1199.27,12804.01,Approved,9/1/2023,7/7/2025,POL7003371,Basic,Annually,0.72,cortezneil@yahoo.com,-872,Randall Gray
+Jose Morton,75,ACT,Home,4050.04,18276.61,Approved,1/14/2023,4/23/2023,POL8345815,Premium,Annually,0.24,scottweiss@hotmail.com,-7583,Kayla Campbell
+Dr. Gerald Mccann,49,WA,Car,1927.01,227.78,Approved,12/23/2022,9/18/2023,POL8174294,Basic,Annually,0.18,brownvalerie@yahoo.com,235138558,Carolyn Shea
+Joseph Buchanan,21,NT,Home,4090.22,838.06,Approved,5/14/2023,5/29/2023,POL8628049,Premium,Quarterly,0.77,phillipsthomas@gmail.com,3777.135,Sarah Webb
+Meghan Taylor,75,ACT,Home,2885.79,19060.27,Pending,10/1/2023,12/17/2023,POL3715319,Basic,Annually,0.41,hillbrad@armstrong-herman.net,08 8082 0191,Jeffrey Potter
+Jill Garcia,61,ACT,Home,984.75,13118.49,Approved,6/11/2023,7/23/2025,POL8184799,Basic,Monthly,0.84,karenmurphy@yahoo.com.au,852679482,Matthew Pearson
+Heather Sherman,33,TAS,Health,757.51,2512.43,Approved,6/22/2023,12/11/2023,POL9329579,Premium,Annually,0.93,popezachary@robinson-lopez.net,(02)-5358-0385,Nicole Shields
+Wanda Richardson,29,ACT,Travel,2561.02,13943.14,Approved,6/20/2024,11/9/2024,POL7828370,Gold,Annually,0.44,tsuarez@martin.com,88256658,Benjamin Cook
+Eduardo West,53,NT,Home,4878.1,11433.27,Approved,6/26/2024,8/4/2024,POL1430494,Gold,Annually,0.18,xlong@harris.biz,765375809,Leslie Mckinney
+Deborah Williams,35,ACT,Life,1792.12,13043.94,Approved,6/27/2023,7/11/2023,POL2559890,Standard,Annually,0.9,qpalmer@bullock.org.au,0440.473.122,Haley Mercado
+Elizabeth Parks,27,SA,Life,1191.5,11074.41,Approved,10/21/2023,7/20/2025,POL7879145,Standard,Monthly,0.05,cobbbrian@price.org,(03) 4150 0029,Charles Ross
+Dawn Wheeler,34,NSW,Car,4639.85,5215.36,Approved,4/20/2023,1/2/2025,POL3460356,Premium,Quarterly,0.27,egarcia@yahoo.com,-6638,Jose Moore
+Brianna Johnston,31,TAS,Life,3852.43,16761.27,Pending,12/24/2022,12/13/2023,POL9027994,Premium,Quarterly,0.42,cynthiareed@hotmail.com.au,0459 582 971,Jennifer Allison
+Jeff Vance,21,VIC,Car,440.81,321.94,Approved,4/9/2023,7/22/2023,POL8940539,Premium,Quarterly,0.27,shelly24@ortega.com.au,38569004,Julia Clark
+Tina Allison,31,VIC,Home,985.38,18878.34,Approved,12/9/2022,7/1/2025,POL9287715,Premium,Annually,0.5,myerschristopher@chandler.net,0448.561.746,Rebecca Stewart
+Timothy Hunter,64,NT,Car,2037.38,6804.71,Approved,4/25/2023,2/12/2024,POL7720580,Gold,Monthly,0.84,whitekelsey@york-arias.edu,(08)-9283-0169,Amy Gonzalez
+Charles Bullock,30,NSW,Health,455.84,15338.11,Pending,7/24/2023,11/15/2024,POL8829964,Standard,Quarterly,0.48,lydia56@kelly-stevens.net,0475 019 939,Brent Taylor
+Andrew Robinson,48,ACT,Health,4540.61,239.47,Approved,5/27/2023,12/19/2024,POL4918335,Standard,Monthly,0.26,mdavidson@bradford.info,823014479,Donna Reeves
+Cindy Cruz,72,TAS,Car,3593.21,14748.91,Pending,6/8/2024,7/5/2025,POL6534710,Gold,Monthly,0.8,elewis@yahoo.com,-1463,Steven Hunt
+Christopher Gillespie,46,NT,Life,4682.12,8457.5,Pending,1/26/2023,12/27/2023,POL2398590,Basic,Quarterly,0.97,gjones@hotmail.com,7642.946,Natalie Dixon
+Nicholas Harvey,71,ACT,Health,4390.56,4833.32,Rejected,11/26/2022,4/7/2023,POL8956702,Premium,Annually,0.99,christinemccarty@yahoo.com.au,-1017,Caroline Hopkins
+Samantha Cook,29,ACT,Health,3192.69,19302.58,Pending,10/14/2023,3/18/2025,POL8596419,Basic,Quarterly,0.25,zrichardson@yahoo.com.au,0449-674-203,Garrett Brandt
+Amanda Edwards,40,NSW,Car,643.67,9185.48,Pending,5/8/2023,5/6/2024,POL8098660,Premium,Annually,0.83,dana47@washington.info,61788730808,Erik Brown
+Jeffrey Carpenter,26,SA,Home,4972.02,13389.81,Approved,10/25/2022,2/17/2023,POL3926159,Gold,Annually,0.16,moniquewalsh@yahoo.com,+61.7.4979.2135,Pamela Hampton
+Brenda Trujillo,60,VIC,Travel,3490.81,14534.69,Pending,2/12/2023,9/20/2024,POL6067703,Standard,Annually,0.32,thomasjeffrey@robertson.org.au,61852046215,Mary Ross
+Jesus Fox,60,SA,Car,3794.71,2704.98,Approved,6/3/2024,6/18/2025,POL9027015,Basic,Monthly,0.68,youngelijah@price.info,+61 446 064 441,Timothy Moody
+Charles Evans,46,ACT,Life,4108.73,8835.03,Approved,8/6/2022,3/28/2025,POL6109431,Premium,Annually,0.57,angelaharris@yahoo.com,03.3500.0644,John Martinez
+Ronald Bishop,47,WA,Health,3693.13,6469.16,Rejected,11/15/2023,12/10/2023,POL4679894,Basic,Annually,0.25,michaeljohnson@yahoo.com.au,(08).3796.6354,Paula Padilla
+Garrett Hobbs,68,QLD,Life,517.44,5007.65,Approved,12/18/2023,7/18/2024,POL8199877,Premium,Annually,0.42,woodtammy@hotmail.com.au,0484-5448,Sean Lin
+Mary Hunter,67,TAS,Health,4936.81,10434.15,Approved,12/2/2023,4/9/2024,POL4687769,Premium,Annually,0.24,patricia20@hotmail.com,0429 542 825,Melissa Rhodes
+Christopher Lawson,23,NT,Life,2270.95,2159.69,Approved,6/9/2024,6/17/2025,POL8893137,Premium,Monthly,0.8,hannah41@roy.edu,0444-099-212,Victoria Zuniga
+Megan Morgan,56,QLD,Life,2043.48,15343.09,Approved,6/1/2024,8/12/2024,POL4298911,Premium,Monthly,0.76,gail14@miller-watson.net,0492-292-465,Francisco Gray
+Michael Grimes,35,NSW,Car,3679.72,17345.11,Pending,4/12/2023,2/21/2024,POL2285390,Basic,Monthly,0.23,gdixon@gmail.com,-7120,Tracy Williams
+Dana Malone,56,NSW,Life,4909.86,18910.38,Approved,3/31/2023,4/1/2023,POL7196622,Gold,Annually,0.26,youngmichelle@vega.com,7852099,Donald Ferguson
+Rose Contreras,57,ACT,Travel,4135.72,16165.73,Approved,3/18/2024,11/25/2024,POL8445534,Premium,Annually,0.55,heather05@gmail.com,(03)-8199-2653,Renee Ramos
+Natalie Sloan,39,NT,Health,3778.93,6952.02,Approved,3/26/2024,1/3/2025,POL3903130,Basic,Monthly,0.91,lmartin@yahoo.com.au,(08) 3523 6564,David Wallace
+Marcus Martinez,54,ACT,Life,4966.31,3462.51,Approved,6/9/2024,7/26/2025,POL7707330,Gold,Monthly,0.08,langjacob@gmail.com,-12658,Katherine Patel
+Casey Valencia,27,WA,Car,2476.89,4130.78,Approved,11/2/2022,1/24/2023,POL6569313,Standard,Quarterly,0.21,thompsonlynn@yahoo.com.au,+61.435.399.704,Jacob Saunders
+Ryan Farmer,34,ACT,Home,1542.14,4924.48,Approved,4/15/2023,3/14/2025,POL9409949,Gold,Annually,0.12,wmaxwell@gmail.com,71908076,Cody Smith
+April Hoffman,49,VIC,Health,2677.34,19207.4,Approved,1/24/2024,3/16/2024,POL3531253,Standard,Annually,0.91,rweber@gmail.com,(03)-9396-3400,Sydney Stephens
+David Ramsey,55,NSW,Travel,321.28,16173.4,Approved,5/9/2024,1/24/2025,POL3545986,Premium,Monthly,0.28,campostammy@gmail.com,+61 436 608 996,Michelle Fisher
+James Johnson PhD,72,QLD,Health,320.21,15211.87,Approved,6/12/2024,7/15/2025,POL4693632,Premium,Monthly,0.37,bakeranthony@hotmail.com.au,+61.427.564.404,Melanie Gomez
+Jacob Mccarthy,50,TAS,Home,3212.17,14970.25,Approved,1/25/2024,2/27/2024,POL2833700,Basic,Annually,0.2,nicole59@yahoo.com.au,0421-254-049,Jody Brown
+Eugene Arroyo,67,VIC,Life,1502.69,1899.52,Approved,7/30/2024,1/24/2025,POL3879044,Gold,Annually,0.42,browndavid@alexander-hill.com,+61.8.8202.9255,Jeremy Mendoza
+Tara Nelson,74,SA,Car,4598.78,16319.28,Approved,6/14/2024,7/1/2024,POL3780165,Gold,Annually,0.98,michelle09@thompson.org.au,0473.184.910,Douglas Benitez
+Adam Roberts,48,TAS,Health,3156.08,19147.41,Approved,1/9/2024,9/27/2024,POL7846560,Standard,Quarterly,0.63,mgeorge@hill-harmon.info,61383210334,Ashley Hammond
+Francisco Murphy,65,NSW,Life,4239.39,15360.46,Pending,1/6/2024,3/21/2025,POL3094895,Basic,Annually,0.36,ronaldhorton@yahoo.com,(03)95883610,Patricia Choi
+Crystal Reed,34,VIC,Home,374.35,7039.44,Approved,3/17/2023,12/4/2023,POL6996911,Basic,Quarterly,0.14,wthompson@hotmail.com,08 6946 0523,Wanda Bradshaw
+Tamara Brewer,59,VIC,Home,4897.51,4181.87,Rejected,1/5/2024,7/8/2024,POL7015933,Basic,Quarterly,0.72,kellischwartz@robbins-larson.org,61840247232,Paul Williamson
+Sarah Ross,57,WA,Life,2298.26,3664.39,Approved,2/12/2024,5/11/2025,POL1650806,Gold,Monthly,0.3,lkim@ryan-lynch.edu.au,61314931324,Abigail Stuart
+Andrew Mclean,69,ACT,Travel,1255.47,8876.67,Pending,5/17/2024,5/28/2025,POL8502783,Gold,Annually,0.99,ygarcia@gmail.com,(03)73277270,Jordan Hensley
+Aaron Eaton,67,VIC,Travel,2738.08,15816.59,Approved,4/13/2023,4/11/2025,POL1474553,Gold,Quarterly,0.46,rmassey@padilla.net,+61 2 1449 2523,Brenda Becker
+Mckenzie Wolfe,54,ACT,Life,1829.77,17848.03,Approved,4/27/2024,4/3/2025,POL4976599,Standard,Annually,0.52,psmith@thompson-hess.org,9531-4813,Melissa Holland
+Debra Garcia,44,WA,Life,1641.53,10470.02,Rejected,2/25/2023,12/9/2024,POL1663742,Gold,Annually,0.36,vsingh@lopez.biz,07-0907-6140,Erica Ross
+Julian Strickland,28,NSW,Life,3322.43,13664.59,Pending,9/21/2022,2/20/2023,POL4566541,Basic,Quarterly,0.25,stephensrobert@hotmail.com.au,+61 3 9347 8895,Theresa Fowler
+Leah Elliott,26,VIC,Life,3005.67,16292.86,Pending,7/3/2023,4/8/2025,POL9914738,Basic,Quarterly,0.79,flowersheidi@williams.net,9695 3332,Katrina Gomez
+Jackie Johnson,42,ACT,Car,731.18,18575.48,Pending,1/30/2023,2/15/2023,POL2016227,Basic,Quarterly,0.73,scottstacie@allen.com.au,+61 8 7437 2680,Justin Romero
+Devin Robles,27,ACT,Home,2545.93,1859.87,Approved,9/19/2023,11/15/2023,POL6817067,Gold,Monthly,0.03,jamesroth@gallegos.com,+61.432.774.455,Kevin Jordan
+Cynthia Joseph,66,SA,Travel,1899.23,15302.12,Approved,5/24/2024,4/5/2025,POL1980976,Gold,Quarterly,0.98,scott92@tate.org,-9683,Susan Lin
+Beth Mcclain,51,NSW,Car,1728.06,3900.71,Rejected,5/7/2024,11/18/2024,POL7748894,Basic,Annually,0.85,tinarobbins@hotmail.com.au,(07).2715.0700,Phillip Hernandez
+Louis Davis,47,WA,Travel,988.14,17386.21,Rejected,8/29/2023,7/12/2025,POL2861360,Basic,Annually,0.88,alicia63@hotmail.com,61751951506,Stacy Schwartz
+Tracy Kelly,49,SA,Travel,1051.07,3971.22,Approved,8/16/2023,2/5/2025,POL1386081,Standard,Quarterly,0.12,ksmith@morgan.net.au,7175.3151,Ian Watkins
+Dean Wong,21,QLD,Life,2707.93,2693.67,Rejected,8/18/2022,7/6/2024,POL9302343,Standard,Quarterly,0.74,elizabethsoto@hotmail.com.au,(03)28030430,Nicole Padilla
+Misty Vaughn DDS,28,VIC,Life,1125.79,18099.04,Pending,2/7/2024,8/24/2024,POL3522133,Basic,Quarterly,0.15,brittanytorres@gmail.com,0409 800 268,Melissa Foster
+Katherine Chavez,66,WA,Travel,2199.45,7281.68,Rejected,4/12/2023,5/11/2025,POL3521785,Standard,Monthly,0.95,stephaniefriedman@hotmail.com.au,0424 745 118,Mr. Troy Martin
+Kathy Watkins,49,NT,Life,2462.94,19883.6,Approved,11/1/2023,5/12/2025,POL9942758,Standard,Annually,0.67,phillipsbradley@yahoo.com,324703925,Tyler Carter
+Dawn Brown,45,NT,Travel,4774.56,7807.24,Approved,7/1/2023,11/8/2023,POL8776567,Gold,Quarterly,0.96,angela01@armstrong.edu.au,238335864,Gabriela Mclaughlin
+Lawrence Padilla,51,SA,Travel,2095.52,3767.1,Approved,9/13/2023,8/17/2024,POL5760369,Gold,Annually,0.13,udennis@christensen-baxter.info,-5040,Dr. Paul Fischer MD
+Stephen Hernandez,57,WA,Car,3678.29,13335.28,Rejected,1/24/2023,6/20/2025,POL9135413,Standard,Annually,0.57,cheryl03@hotmail.com,(07) 5349 4455,Donald Mitchell
+Jose Mcdonald,26,NSW,Car,4752.4,6246.66,Approved,9/12/2023,11/19/2024,POL4061230,Premium,Monthly,0.42,mark45@valdez.net.au,0427.719.204,Garrett Wall
+Ann Chen,30,SA,Life,529.57,6193.97,Approved,10/7/2022,3/26/2025,POL1550762,Premium,Annually,0.36,lisabrock@baker.com,3235-0140,David Walker
+Lisa Flores,33,NSW,Home,3990.43,7659.66,Pending,10/4/2022,3/5/2025,POL9363848,Standard,Quarterly,0.26,zdurham@williams-thompson.biz,(02).8609.3947,Susan Johnson
+Crystal Miller,26,NT,Health,2522.18,14698.83,Pending,12/20/2022,2/20/2025,POL1319853,Gold,Annually,0.99,tsanders@yahoo.com.au,0428.762.049,Jose Vasquez
+Gregory Novak,55,QLD,Home,332.6,11956.35,Rejected,7/22/2023,9/15/2024,POL2730396,Premium,Annually,0.56,pattersonjoseph@ramirez.edu.au,(08).7055.4907,Heidi Cook
+Megan Mendez,55,VIC,Health,2178.68,1428.16,Pending,12/8/2022,8/4/2023,POL1325991,Standard,Annually,0.91,jameswilson@bell-mendoza.org.au,(08)-9630-5009,Suzanne Butler
+Amanda Davis,48,NT,Car,594.82,5115.73,Pending,3/25/2024,8/27/2024,POL3729233,Standard,Quarterly,0.33,kayla00@yahoo.com.au,+61 7 1660 6990,George Velasquez
+Darryl Carey,66,VIC,Life,3708.55,9296.73,Approved,7/10/2024,10/27/2024,POL2094792,Standard,Annually,0.05,hodgesalexander@gmail.com,(03)-3517-4640,Jeremy Barnes
+David Kelly,25,NSW,Travel,1904.13,7286.17,Pending,11/5/2022,4/5/2023,POL7769468,Premium,Monthly,0.8,yallen@garcia.com,0463-061-764,Kenneth Alvarado
+Isaac Martin,27,SA,Life,2154.64,13898.31,Approved,6/16/2023,1/16/2025,POL9260094,Premium,Monthly,0.35,isimpson@boone-nguyen.com,+61.441.033.113,Alexander Smith
+Alicia Caldwell,35,WA,Life,3779.16,15038.42,Approved,9/21/2023,4/21/2025,POL8780442,Premium,Monthly,0.54,trowland@gmail.com,-16248,Brian Smith
+Robert Simpson,63,NT,Travel,537.84,96.63,Approved,3/10/2024,8/6/2024,POL1915901,Premium,Quarterly,0.66,stephaniewaters@hotmail.com.au,07 1050 5291,Christopher Brewer
+Patrick Wilson,59,WA,Health,906.88,5106.79,Approved,2/1/2024,2/6/2025,POL5903548,Premium,Annually,0.38,ggraham@roberts.biz,(03).8527.5335,Bradley Vargas
+Tyler Holder,72,ACT,Home,915.45,11501.46,Approved,5/13/2024,6/7/2025,POL1043437,Premium,Annually,0.07,amanda70@yahoo.com,+61 3 5735 8449,Julie Wells
+Timothy Love,18,NSW,Car,1071.72,11906.93,Approved,7/23/2024,12/8/2024,POL5369383,Premium,Monthly,0.14,alexisramirez@wilkins.com.au,+61.435.367.643,Sara Becker
+Mary Carter,35,NSW,Car,2451.45,6967.55,Pending,5/7/2024,11/24/2024,POL1365131,Basic,Monthly,0.7,marieanderson@hotmail.com.au,61769994836,John Chung
+Laurie Jefferson,34,VIC,Travel,4923.79,5254.69,Approved,2/9/2023,8/25/2024,POL3912768,Basic,Annually,0.97,jonesbenjamin@johnson.edu.au,+61 7 4336 6334,James Nelson
+Michele Hamilton,50,SA,Life,3331.9,12129.4,Approved,9/19/2023,6/4/2025,POL1373884,Standard,Annually,0.95,laurafox@white.org,9204-1950,Michelle Moore
+Heather Lawrence,54,NSW,Travel,758.07,18111.41,Rejected,9/3/2022,4/12/2023,POL5778034,Premium,Annually,0.14,smithwillie@bartlett-ford.net,-1631,Michelle Lloyd
+Sarah Griffin,58,WA,Health,2392.37,17722.27,Rejected,11/12/2023,5/16/2025,POL1931592,Basic,Monthly,0.11,jeremy53@yahoo.com.au,08-3008-8171,John Moore
+Lauren Morse,31,NSW,Car,2052.76,11369.15,Pending,1/24/2023,10/8/2024,POL7115697,Gold,Monthly,0.81,arnoldcarlos@yahoo.com,5244-5476,Sandy Hernandez
+Taylor Dominguez,46,QLD,Car,3780.29,2689.83,Rejected,4/24/2024,9/28/2024,POL1396875,Standard,Monthly,0.48,zshaw@williams.net.au,-1946,Kaitlyn Ruiz
+Karen Patton,71,SA,Travel,4553.2,7728.65,Pending,12/8/2022,10/22/2023,POL5169544,Premium,Quarterly,0.71,catherinekim@hotmail.com.au,(03).5105.1998,Karen Cox
+David Morris,28,NSW,Home,3586.92,2418.27,Approved,11/24/2023,1/1/2025,POL6757248,Gold,Quarterly,0.65,uporter@gmail.com,02 9427 4029,Angel Nguyen
+Michael Howard,49,VIC,Car,956.02,10877.33,Pending,8/8/2022,11/10/2023,POL6383937,Standard,Monthly,0.04,gilmoreashley@yahoo.com,+61.466.966.144,Stuart Miller
+Linda Baxter,55,NT,Life,2732.12,4665.41,Approved,12/9/2023,1/7/2025,POL9881652,Gold,Monthly,0.16,krivera@hotmail.com,-3761,Leslie Jordan
+Noah Pruitt,57,QLD,Home,4268.41,14025.67,Pending,4/29/2023,9/23/2024,POL1668627,Basic,Annually,0.55,kerry33@black.org.au,-1348,Suzanne Perry
+Ashley Cole PhD,46,NT,Life,3394.85,11435.35,Rejected,6/30/2024,6/25/2025,POL3500596,Gold,Annually,0.19,millerrobert@forbes-martin.info,(07)-8588-0050,Jennifer Thomas
+Katherine Sullivan,23,WA,Home,3322.85,6167.7,Approved,3/20/2024,3/25/2025,POL4232758,Basic,Monthly,0.94,ojones@ross.com.au,08 1478 3335,Dustin Kim
+Deanna Riley,36,WA,Car,1471.55,1847.96,Approved,4/11/2024,4/1/2025,POL2745011,Standard,Annually,0.45,cjohnson@miller-gibson.org,+61.2.8223.7887,Desiree Barrett
+Jesus Taylor,21,QLD,Health,3198.3,10992.77,Approved,9/15/2022,3/22/2025,POL9390750,Gold,Quarterly,0.95,kellerkaren@lambert-garcia.org.au,61209234207,Alyssa Marsh
+Mr. Bradley Salas PhD,36,VIC,Life,4730.84,305.93,Approved,5/3/2024,8/19/2024,POL9734307,Standard,Annually,0.54,estradanicholas@kane.net,-1256,Lisa Cunningham
+Alexandra Shepard,27,VIC,Car,4834.63,16577.81,Rejected,5/5/2024,7/12/2024,POL7222050,Premium,Annually,0.94,vlewis@hotmail.com,03.7462.4142,Harold Harrison
+Ashley Guzman,63,SA,Health,3016.57,723.52,Approved,10/7/2022,10/11/2023,POL3881692,Gold,Monthly,0.17,hernandezlogan@adkins.com,795444768,Samantha Fuentes
+Erin Powell,62,ACT,Life,1538.28,19539.6,Pending,6/11/2023,4/16/2025,POL9411451,Premium,Monthly,0.8,mccluremegan@wiley-bradley.net.au,(03)81672088,Mrs. Emily Ross
+Christopher Travis,75,ACT,Travel,2695.84,6071.87,Approved,6/22/2024,10/29/2024,POL4066943,Standard,Monthly,0.57,debra24@hotmail.com,4248074,Tammy Pope
+Donald Turner,21,WA,Health,769.45,8816.48,Approved,4/12/2023,4/5/2025,POL5069887,Gold,Monthly,0.79,bbaldwin@combs.org,03 7421 3728,Jose Hutchinson
+Savannah Mckinney,27,VIC,Car,4421.23,922.07,Rejected,1/31/2024,10/6/2024,POL2698257,Basic,Annually,0.74,angelabrown@cummings.com.au,07.0601.7050,Victor Pope
+Donna Torres,56,SA,Health,4801.79,5354.9,Pending,3/2/2023,5/10/2023,POL2673037,Premium,Annually,0.81,hermanmichael@mayer-griffin.edu.au,(08)64850486,Peter Warren
+Samantha Delgado,44,TAS,Health,903.52,3403.4,Approved,12/22/2022,8/5/2023,POL2569895,Premium,Monthly,0.38,rogersjennifer@bolton-wells.com,0487-171-616,Alexander Calderon
+Alexander Ayala,51,NT,Travel,1688.42,12913.25,Approved,12/19/2023,2/2/2025,POL7968727,Gold,Annually,0.66,debra42@hotmail.com,+61 2 5724 4456,Scott Williams
+Tanner Wiley,67,SA,Car,3211.38,12367.19,Approved,9/27/2023,6/10/2025,POL2304417,Standard,Monthly,0.56,eileen85@green.edu,+61.420.023.262,Sandy Miller
+Ethan Stewart,30,SA,Car,1648.04,7425.98,Approved,10/6/2022,5/9/2023,POL6945402,Standard,Annually,0.56,ruizrachel@yahoo.com.au,-1728,Ryan Howard
+Shelly Mitchell,47,ACT,Health,4450.79,16644.48,Pending,6/22/2023,11/30/2023,POL8710584,Premium,Monthly,0.28,quinnsteven@ward-garcia.org.au,(07) 2900 1952,Zachary Smith
+James Williams,26,VIC,Health,3661.79,10139.87,Approved,11/28/2022,5/6/2025,POL9072979,Standard,Quarterly,0.38,joyce73@sellers-schneider.info,887833855,Heather Dillon
+Phillip Stephens,48,VIC,Home,1397.87,8380.28,Approved,10/21/2023,12/16/2023,POL3418659,Gold,Monthly,0.65,raven84@hotmail.com.au,6272.1548,Omar Moreno
+Shawn Sellers,31,SA,Health,4322.56,8817.29,Pending,10/3/2022,12/30/2022,POL7823173,Premium,Monthly,0.23,iorozco@gmail.com,61884090457,Justin Vasquez
+Bonnie Oneill,18,SA,Home,3729.12,9714.52,Pending,2/19/2024,4/1/2024,POL8668278,Standard,Quarterly,0,courtneylewis@lee.org,372857730,Allen Price
+David Combs,73,TAS,Health,3319.43,19713.58,Approved,5/17/2024,6/17/2025,POL6722664,Gold,Annually,0.65,adixon@yahoo.com,(02)72090278,Timothy Rhodes
+Linda Park,46,WA,Life,1253.73,18980.68,Pending,3/27/2023,10/24/2023,POL6953521,Basic,Quarterly,0.05,michaelfisher@yahoo.com.au,08-6731-0466,Lauren Powers
+Matthew Carrillo,40,NT,Travel,2177.81,11130.35,Pending,10/17/2023,3/19/2024,POL1908834,Basic,Monthly,0.14,jparker@simpson.edu.au,0406 357 403,Kathryn Patterson
+Carrie Bishop,39,WA,Travel,347.15,9616.04,Approved,5/29/2024,7/20/2025,POL3444485,Standard,Quarterly,0.29,gilbertallen@gmail.com,-11069,Amanda White DVM
+Jamie Weaver,54,ACT,Life,4344.88,6122.07,Approved,2/9/2023,3/10/2024,POL3501439,Standard,Monthly,0.44,rhopkins@gmail.com,0428-657-191,Erica Nelson
+Brandon Thomas PhD,55,VIC,Travel,1654.06,2241.47,Approved,9/14/2022,11/21/2023,POL2122479,Gold,Quarterly,0.2,jordanedwin@frey.net,(08)96005779,Marco Chambers
+Ryan Scott,75,NSW,Home,3678.17,3832.65,Pending,8/30/2022,6/20/2023,POL9517725,Basic,Annually,0.16,smithjoseph@gmail.com,4758 3803,Candace Golden
+Courtney Miller,63,ACT,Travel,3443.3,13597.99,Pending,12/28/2023,5/21/2024,POL4028001,Standard,Annually,0.44,reedjoyce@gmail.com,+61.448.818.375,Erin Ruiz
+Rachel Gonzales,50,QLD,Car,4568.42,11486.15,Approved,7/4/2024,6/16/2025,POL6355772,Premium,Annually,0.09,sharongarcia@yahoo.com,03 8458 0800,Deborah Dean
+Joshua Davis,48,WA,Travel,2049.54,10875.97,Approved,6/22/2023,3/17/2025,POL9237312,Basic,Monthly,0.09,derek76@townsend.com.au,5459.39,Lindsay Miller
+Crystal Montoya,74,WA,Life,3195.91,15279.25,Approved,11/15/2022,12/20/2023,POL3259472,Standard,Monthly,0.58,avilatodd@yahoo.com,+61 7 7740 6941,Robin Armstrong
+Nicole Mills,65,VIC,Life,3965.54,13677.78,Approved,4/27/2023,5/17/2024,POL3677620,Standard,Monthly,0.67,hhopkins@dougherty-nguyen.edu.au,226170497,Michelle Buckley
+Jodi Ryan,38,ACT,Health,1211.34,17011.22,Pending,6/25/2024,1/4/2025,POL3177785,Gold,Annually,0.95,owilson@hotmail.com.au,-8507,Regina Rowe
+Brian Eaton,55,WA,Car,3064.76,8989.34,Approved,10/20/2022,8/27/2024,POL3175769,Premium,Monthly,0.34,laura47@thomas-torres.edu.au,0441 841 102,Shelly Lynch
+Jason Tucker,71,NSW,Travel,3530.23,9411.61,Approved,2/15/2023,8/19/2024,POL9815658,Premium,Annually,0.15,vcooper@gmail.com,+61 2 0311 4674,Stephanie Owen
+Gwendolyn Jones,43,QLD,Home,1410.38,12635.72,Rejected,2/4/2023,4/6/2025,POL7898774,Basic,Quarterly,0.95,mary28@graves-reilly.info,02 3534 0357,Natalie Adkins
+Suzanne Reyes,45,ACT,Life,1643.28,18087.49,Approved,9/1/2023,2/1/2025,POL3394306,Gold,Monthly,0.79,sarahzavala@gmail.com,03.8805.5268,Becky Coleman
+Daniel Bond,20,NT,Home,4983.63,17419.57,Pending,10/18/2022,10/22/2023,POL6127989,Gold,Monthly,0.42,kimdanny@pham.net.au,0442-873-798,Jennifer Walker
+Jacqueline Cardenas,40,QLD,Car,2279.26,10.43,Rejected,7/14/2024,11/4/2024,POL3613288,Basic,Annually,0.63,csmith@simmons.biz,0716 7546,Brian Meyers
+Dr. Riley Meadows,20,NT,Life,4757.75,18717.46,Approved,4/9/2023,5/31/2025,POL5708932,Premium,Monthly,0.21,victoria82@hotmail.com,+61.3.0349.6927,Nicholas Turner DVM
+Lori Johnson,33,WA,Home,3812.79,2994.88,Pending,4/13/2023,2/17/2025,POL6355479,Premium,Quarterly,0.41,gstewart@ross.edu,08-0220-7646,David Murphy
+James Chavez,45,WA,Health,1300.53,17992.57,Approved,12/20/2023,3/14/2025,POL6924280,Premium,Annually,0.28,garycaldwell@cameron-meza.org.au,(03).0185.3343,William Rodriguez
+Ronald Higgins DDS,63,WA,Health,2596.22,12452.82,Approved,11/24/2022,8/2/2023,POL4938519,Premium,Monthly,0.32,florescaitlin@yahoo.com.au,0418.797.683,Tasha Hill
+Christopher Ford,29,SA,Home,4707.79,17242.3,Approved,5/1/2024,4/15/2025,POL5938793,Standard,Monthly,0.63,avazquez@hotmail.com.au,-6133,Jordan Lopez
+Douglas Moore,53,SA,Home,3551.09,2975.63,Rejected,8/2/2022,2/24/2023,POL2983518,Premium,Annually,0.94,wjones@ewing.edu.au,(08)33346690,Julie Rice
+Marie Rivera,20,NSW,Life,553.75,1220.33,Approved,3/13/2024,10/3/2024,POL3496713,Standard,Quarterly,0.08,hbutler@floyd-taylor.org,+61 7 3958 2840,Caroline Hoffman
+Charles Hayes,50,ACT,Travel,1884.08,4096.71,Approved,11/14/2023,5/20/2024,POL8051913,Standard,Monthly,0.44,erivera@byrd.edu.au,228499985,Amber Jackson
+James Perry,68,VIC,Home,3564.78,9804.6,Rejected,12/6/2023,5/7/2024,POL9181656,Standard,Annually,0.05,georgeburton@yahoo.com.au,(07)-3146-3375,Charles Rivera
+Larry Martinez,62,SA,Car,578.56,17959.36,Approved,6/21/2024,8/7/2024,POL6034556,Premium,Annually,0.96,sandrarogers@yahoo.com.au,308.4467,Charlotte Grant
+Mark Turner,37,SA,Car,4322.27,15067.39,Pending,10/8/2022,6/25/2023,POL1399787,Standard,Quarterly,0.52,turnerrobert@mccall-valdez.org.au,0418 941 784,Patricia Lynch
+Marie Thompson,21,ACT,Home,4218.5,6914.24,Approved,8/19/2023,8/13/2024,POL4512027,Standard,Annually,0.19,vmills@hotmail.com,-1967,Edwin Cohen
+Joseph Bryant,58,SA,Travel,2064.39,5038.35,Approved,3/8/2023,2/29/2024,POL2185384,Gold,Annually,0.59,taylor17@hotmail.com.au,+61 487 190 766,Kenneth Williams
+Michelle Williams,57,SA,Life,1373.98,6399.11,Approved,12/3/2022,5/20/2025,POL4022910,Basic,Quarterly,0.94,kimvalerie@harrison.org,(08)78743531,Dakota Mcguire
+Mark Moore,38,SA,Life,3594.54,4157.23,Approved,7/18/2023,10/8/2023,POL8117207,Basic,Quarterly,0.16,dustin00@benson-garcia.net.au,+61 409 529 624,Eric Caldwell
+Danielle Meyer MD,70,NT,Travel,669.9,10377.27,Approved,7/12/2024,3/18/2025,POL5887188,Gold,Monthly,0.74,jasonwade@yahoo.com.au,(02).1459.2163,Veronica Ballard
+John Wise,69,WA,Health,319.68,11000.65,Approved,4/9/2023,1/2/2025,POL9752878,Gold,Quarterly,0.94,otaylor@hotmail.com,61369859873,Russell Graves
+Stephanie Campbell,55,NSW,Travel,1331.99,9363.68,Approved,7/2/2024,10/9/2024,POL6200157,Standard,Annually,0.72,floressteven@miller.org,(02)-3416-0684,Lisa Garcia
+Donald Bryant,47,QLD,Life,1941.9,12323.06,Approved,8/31/2022,4/5/2025,POL2422072,Premium,Monthly,0.19,joanne38@hotmail.com,+61 2 4560 3957,Mr. Zachary Moss
+Laurie Wiggins,50,NT,Travel,403.65,9333.21,Pending,1/21/2023,6/28/2023,POL4142793,Basic,Monthly,0.65,christopherkirk@murphy.org,-3780,Joshua Peterson
+Troy Martin,51,NT,Health,1487.02,5744.87,Pending,2/10/2023,11/8/2024,POL5968220,Premium,Annually,0.98,michael86@hotmail.com,08-8784-2515,Aimee Collier
+Joshua Wagner,39,ACT,Life,1437.49,12717.42,Approved,11/28/2023,10/22/2024,POL8718236,Premium,Quarterly,0.44,fbenson@hotmail.com.au,742354288,Kenneth Holland
+Keith Hunter,55,NSW,Home,2069.68,16078.45,Approved,11/9/2022,11/3/2024,POL7490694,Premium,Monthly,0.14,onorris@hotmail.com.au,7833-1875,Elizabeth Wright
+Sara Richard,64,SA,Health,1595.1,358.28,Rejected,6/5/2024,6/1/2025,POL3485484,Standard,Quarterly,0.32,ywhite@yahoo.com,-1354,Stacey Roth
+Robert Bradley,43,TAS,Travel,3077.19,13667.9,Rejected,4/3/2024,2/11/2025,POL8378460,Gold,Annually,0.47,msheppard@yahoo.com.au,6278 4207,Jacob Jackson
+Mackenzie Bryan,49,NT,Travel,3605.77,6389.53,Approved,11/9/2023,9/9/2024,POL8776383,Premium,Quarterly,0.09,lfrey@hotmail.com,0443 007 143,Randy Flores
+Jesse Brown,53,VIC,Health,517.58,11019.36,Approved,2/17/2024,7/29/2025,POL3484196,Gold,Monthly,0.89,lbyrd@pierce.com.au,(02) 1982 1331,Debbie Guerrero
+Adam Padilla,45,ACT,Travel,2639.24,742.87,Approved,1/21/2024,5/7/2025,POL1845511,Basic,Monthly,0.65,ashleyhoward@miller-craig.biz,2168-5820,Kevin Garcia
+Linda Mckinney,37,VIC,Home,3608.31,13905.11,Rejected,9/23/2023,6/14/2025,POL6934731,Standard,Monthly,0.48,blackrobin@hernandez.org,89426564,Amanda Davis
+Amanda Kennedy,66,WA,Home,2505.61,3744.71,Pending,6/3/2023,7/24/2023,POL6061577,Gold,Quarterly,0.16,jasminfrederick@yahoo.com.au,888878677,Chad Williams
+Tony Atkins,27,VIC,Home,2681.81,8535.52,Approved,10/9/2022,2/22/2024,POL7125553,Gold,Monthly,0.85,diane84@hotmail.com,-1711,Paul Carr
+Kara Welch,44,NT,Home,1684.46,9808.05,Approved,4/20/2023,9/18/2024,POL2277453,Premium,Quarterly,0.3,davidsonlindsey@sullivan.com.au,4437 3572,Natalie Case
+David Barajas,21,SA,Travel,1379.02,10764.43,Pending,9/21/2023,10/28/2023,POL2012261,Gold,Monthly,0.17,bridget74@yahoo.com,9379-8287,Tammy Key
+Nathan Holland,31,ACT,Travel,659.1,15727.43,Approved,4/25/2024,1/9/2025,POL4814576,Basic,Monthly,0.06,samantha16@baker.org,+61.451.363.652,Brian Sanchez
+Howard Duncan,31,QLD,Travel,4624.37,463.01,Rejected,4/26/2024,8/4/2024,POL8896436,Basic,Quarterly,0.12,desiree15@robertson-clements.net,03-6245-1177,Rebecca Ramirez
+Vickie Levy,65,NSW,Home,2790.62,15590.53,Rejected,8/19/2022,9/8/2024,POL7333853,Basic,Quarterly,0.66,amyhughes@thompson.com,0475-425-443,Judith Green
+Daniel Jennings,72,TAS,Home,2450.58,5791.15,Rejected,6/20/2023,6/5/2025,POL6024757,Basic,Annually,0.34,fclark@johnson.info,+61.3.4110.0444,Hector Smith
+Tom Williams,19,QLD,Life,2738.6,11559.06,Approved,2/13/2023,3/17/2023,POL1765433,Gold,Quarterly,0.78,ejackson@hotmail.com.au,336267905,Courtney Yu
+Kenneth Bailey,19,VIC,Car,2997.7,9764.13,Approved,12/26/2023,2/14/2024,POL6117690,Premium,Annually,0.81,angela17@weaver.com.au,61340573803,Michael Hill PhD
+Brian Brady,75,QLD,Car,2250.36,9907.55,Approved,10/21/2022,3/2/2023,POL5150660,Gold,Quarterly,0.88,jhernandez@yahoo.com.au,(03) 2845 4436,Matthew Holden
+Martha Gomez,18,NT,Health,4485.79,3806.29,Approved,5/22/2023,6/27/2024,POL7575030,Standard,Quarterly,0.61,richardlong@hotmail.com.au,02-8644-3978,Melinda Jackson
+Matthew Garner,65,WA,Travel,1447.07,14675.53,Rejected,6/30/2024,2/7/2025,POL7232046,Basic,Annually,0.27,baxterbilly@yahoo.com.au,07.8316.2603,Heather Adams
+Pamela Howe,32,NT,Health,2377.68,3764.47,Rejected,5/18/2023,2/4/2024,POL4681262,Gold,Annually,0.41,marthaallen@hotmail.com.au,07 8212 3616,Shannon Thornton
+Keith Phillips,43,NT,Car,472.42,3501.67,Approved,3/6/2023,5/20/2025,POL5268488,Premium,Monthly,0.67,pamela03@walls.org.au,357308712,Robert Smith V
+Anthony Morales,39,SA,Travel,1300.82,1248.86,Approved,5/5/2024,9/11/2024,POL2370112,Standard,Quarterly,0.67,mark87@hotmail.com.au,-3193,Molly Watts
+Dr. Robert Lamb,38,QLD,Car,4941.84,8807.43,Approved,4/15/2024,7/29/2024,POL2805660,Standard,Quarterly,0.77,moniqueturner@moss-johnson.com.au,841908747,Brian Clark
+Jessica Baker,50,ACT,Car,932.04,749.74,Approved,5/29/2023,10/12/2023,POL5367051,Gold,Annually,0.35,mahoneynicholas@smith.info,374636455,Rachel Collins
+James Bates,41,SA,Car,1296.89,19315.86,Rejected,11/20/2023,4/6/2024,POL6509534,Gold,Annually,0.84,qdavis@ortiz-cook.org,8509.7857,Lucas Cox
+Valerie Jackson,69,NT,Life,3168.93,7265.82,Approved,1/2/2024,6/11/2024,POL7894403,Basic,Quarterly,0.06,jasonenglish@hotmail.com,2113.9789,John Fisher
+Blake Campbell,34,TAS,Car,2587.33,10811.39,Pending,8/14/2022,2/15/2025,POL3278085,Gold,Monthly,1,moorenicole@andrews.edu,0414-499-077,Brittany Johnson
+Joseph Page,21,VIC,Life,1779.21,5618.48,Rejected,6/12/2023,10/20/2024,POL3948147,Premium,Annually,0.34,swood@hotmail.com,(08).6154.6441,Troy Brady
+Joshua Palmer,65,NSW,Life,343.59,9734.14,Approved,2/24/2024,4/5/2025,POL3203841,Gold,Annually,0.11,woodmarcus@hotmail.com,1372 5776,George Gray
+Donna Nash,28,NT,Life,3864.15,5825.45,Approved,3/24/2023,10/1/2024,POL7959057,Basic,Quarterly,0.6,dalehernandez@hotmail.com.au,03.3674.1138,Tammy Miller
+Alexander Huffman,26,NT,Life,4301.3,17057.41,Approved,4/24/2024,12/25/2024,POL7785232,Basic,Monthly,0.51,richarderic@clark.org,0434.422.768,Joshua White
+Mitchell Thompson,48,VIC,Car,4538.81,4250.4,Approved,2/22/2024,1/14/2025,POL6037635,Basic,Annually,0.43,kelly90@hotmail.com,8558 9865,Denise White
+Cindy Moore,38,VIC,Health,3507.55,18739.64,Rejected,5/15/2024,7/27/2024,POL3906150,Gold,Quarterly,0.31,williamssusan@ramirez.com,+61 406 393 974,Caitlin Crosby
+Kimberly Hayes,60,WA,Home,4186.9,9943.97,Approved,1/7/2024,3/23/2024,POL5918702,Premium,Annually,0.64,kimberlyhodges@gmail.com,0423.376.265,George Munoz
+Alex Collins,68,ACT,Health,2344.61,10701.42,Pending,4/6/2024,10/15/2024,POL8796638,Basic,Monthly,0.24,michelepowers@yahoo.com.au,-1721,April Krause
+Emily Johnson,49,NT,Travel,1780.21,14443.73,Pending,8/5/2023,5/30/2025,POL6373225,Gold,Quarterly,0.18,qbecker@wang-francis.com,61222349295,Hannah Mcdowell
+Collin Lester,48,TAS,Home,3743.43,8758.21,Pending,5/18/2024,6/8/2025,POL1469829,Basic,Annually,0.64,zachary62@yahoo.com,9969 9858,Robert Adkins
+Tommy Moss,74,ACT,Home,3444.77,10638.45,Rejected,10/5/2022,3/31/2025,POL6913296,Standard,Monthly,0.1,stevenshaffer@lyons.net,08-4588-9077,Mr. Matthew Henson
+Manuel Barnett,46,WA,Health,4026.27,16673.91,Pending,3/14/2024,10/25/2024,POL1520669,Premium,Monthly,0.44,travisgarcia@becker.biz,(08)35369244,Karen Shelton
+Charles Kennedy,68,NT,Home,721.78,14816,Approved,12/8/2022,10/26/2023,POL2892036,Gold,Monthly,0.03,james09@hotmail.com.au,+61.417.024.439,Cory Jackson
+Maxwell Cunningham,62,ACT,Home,3012.11,15162.21,Pending,3/2/2024,2/22/2025,POL7665462,Basic,Monthly,0.96,brightjeremy@hotmail.com,61829995146,Mrs. Emily Hayes
+James Johnson,58,NSW,Travel,1079.64,3147.39,Approved,3/18/2024,10/23/2024,POL9070750,Premium,Annually,0.82,jamesrobinson@kemp-williams.com,9252 3310,Sara Wolf
+Michelle Buchanan,46,TAS,Car,4124.99,13571.42,Approved,3/4/2024,1/17/2025,POL6314122,Basic,Quarterly,0.38,cbruce@yahoo.com.au,(02) 6294 5761,Tiffany Carpenter
+Cynthia Oconnell,47,WA,Travel,1405.41,11724.31,Pending,10/14/2023,1/21/2025,POL9819556,Premium,Quarterly,0.7,clementsdana@hotmail.com.au,+61 8 2061 6595,Daryl Thompson
+Julie Lam,60,TAS,Health,3720.67,13152.39,Approved,11/14/2022,5/30/2024,POL2713944,Basic,Annually,0.89,stephenskinner@yahoo.com.au,6038.4674,Angela Simmons
+Miss Brittney Norton,20,NT,Life,2989.46,6884.93,Approved,7/28/2023,7/6/2025,POL1571203,Gold,Monthly,0.87,gdickerson@sosa-gutierrez.info,302915011,Lisa Smith
+James Mccormick,30,QLD,Car,2986.97,389.27,Approved,5/24/2024,3/18/2025,POL8006629,Standard,Quarterly,0.72,oconnormanuel@yahoo.com,(08)99594345,Louis Burgess
+Laura Santos,55,QLD,Health,2664.71,13895.3,Approved,2/16/2023,6/18/2023,POL4388160,Standard,Annually,0.49,justin67@castro-adams.com,(02).2928.7063,Corey Carter
+Peggy Leon,38,ACT,Life,3096.57,10394.68,Approved,11/10/2022,2/13/2025,POL5535547,Basic,Monthly,0.27,gloriastevenson@yahoo.com.au,61762416342,Sheri Keith
+David Blankenship,24,QLD,Health,3587.32,10660.89,Pending,1/15/2024,6/18/2025,POL7731936,Standard,Monthly,0.95,millerdaniel@yahoo.com.au,0497.084.373,Samantha Donaldson
+Steven Moore,74,VIC,Home,4616.59,16721.22,Approved,5/12/2024,10/8/2024,POL6799603,Gold,Annually,0.77,morganrenee@gmail.com,-1416,Rhonda Morgan
+Rachel Lane,49,NT,Life,1245.97,19868.02,Approved,9/21/2022,9/11/2023,POL9039577,Gold,Annually,0.65,normanangela@yahoo.com.au,3681 3380,Matthew Chen
+Eric Burke,35,QLD,Car,3239.27,17513.06,Approved,1/26/2023,7/6/2023,POL5199141,Gold,Annually,0.83,jbrandt@guzman.com,(03)46955810,Dawn Thomas
+Susan Ramsey,74,SA,Health,2262.63,19021.06,Approved,4/13/2024,7/1/2024,POL8782469,Standard,Monthly,0.68,evansrebecca@anderson.edu,(02)02690691,Brittany Davidson
+Daisy Flowers,68,SA,Life,306.74,19394.78,Approved,5/19/2023,12/20/2023,POL3340041,Standard,Annually,0.61,mooreerin@yahoo.com,0431-816-482,Cameron Charles
+Brenda Lowe,69,VIC,Life,3846.87,946.83,Approved,1/17/2023,5/4/2023,POL2323199,Premium,Monthly,0.75,william12@yahoo.com.au,08 8816 6069,Andrew Nichols
+Felicia Adams,73,SA,Home,4215.54,15755.22,Approved,2/15/2023,12/26/2023,POL7659747,Gold,Monthly,0.02,alexa43@yahoo.com.au,(03).5084.2085,Andrew Romero
+Monica Hawkins,72,VIC,Car,4582.91,473.34,Pending,9/17/2023,10/16/2023,POL5177107,Standard,Monthly,0.08,vgallegos@clark-simmons.org,+61.441.766.985,Susan Chen
+William Herrera,37,QLD,Travel,797.04,17809.11,Pending,5/6/2024,7/14/2024,POL6851959,Premium,Annually,0.75,jonesmarissa@parks-frank.net,-10960,Theodore Delacruz
+Patricia Roberts,47,NT,Travel,1216.29,18821.69,Approved,7/8/2023,4/1/2024,POL4707808,Basic,Monthly,0.8,stevenwilliams@yahoo.com,+61 2 5033 0622,Brian Beck MD
+Sarah Monroe,36,TAS,Health,2140.59,410.1,Approved,12/25/2022,1/10/2025,POL8822761,Standard,Monthly,0.89,klinetroy@gmail.com,07 4239 8050,Joshua Hawkins
+Craig Peterson,18,NT,Car,3049.17,18810.81,Pending,11/9/2023,7/15/2024,POL7018626,Premium,Annually,0.12,oknox@yahoo.com,2222.3903,Brittany Fitzgerald
+Thomas Warren,71,SA,Car,3752.93,6346.81,Approved,8/8/2023,7/15/2024,POL6234194,Basic,Annually,0.54,rosetracy@roberts-mcpherson.com,+61 8 5571 3131,Christopher Hester
+Thomas Wright,70,VIC,Travel,525.45,18793.77,Rejected,7/14/2023,4/6/2024,POL6266218,Basic,Monthly,0.72,grivers@santiago.biz,08.0676.2266,Michael Oneal
+Clinton Harper,23,ACT,Health,3621.12,515.71,Approved,2/11/2024,8/24/2024,POL7131998,Standard,Quarterly,0.06,sgeorge@gmail.com,(08)29321323,Nancy Ward
+David Gonzales,39,SA,Life,513.58,14684.96,Rejected,2/12/2024,7/31/2024,POL9627414,Basic,Annually,0.82,madisonjohnson@riley.edu.au,(02).3767.3589,Don Davis
+Donald Wright,36,NSW,Home,4911.19,8771.12,Approved,12/16/2023,5/7/2025,POL4957241,Premium,Monthly,0.45,sarahcole@wood.com,+61.433.934.639,April Dorsey
+Jessica Norris,20,SA,Life,2310.06,12758.23,Approved,3/19/2024,5/31/2024,POL4758831,Premium,Quarterly,0.38,bradshawkimberly@hotmail.com,(02)91258132,Jessica Mcdonald
+Donald Murphy,68,VIC,Health,4857.17,12700.83,Rejected,1/31/2024,7/1/2025,POL1224971,Standard,Quarterly,0.84,mandy53@middleton.biz,-13901,Connie Humphrey
+Sergio Snyder,38,ACT,Home,4473.57,2086.91,Approved,11/7/2022,1/28/2025,POL7263214,Premium,Monthly,0.76,kimberlybell@yahoo.com.au,+61.3.0164.6631,Janice Cobb
+James Jones,44,NT,Travel,797.07,760.27,Pending,1/12/2024,9/4/2024,POL2914758,Basic,Quarterly,0.71,zacharyfrazier@rose.info,0465-083-169,Whitney Nelson
+Timothy Brown,75,TAS,Travel,2496.76,7523.49,Approved,4/27/2024,7/26/2024,POL6356964,Standard,Monthly,0.08,leekrystal@woodard-beck.org,-796,Shawn Stewart
+Eric Hernandez,32,ACT,Travel,2508.12,15842.09,Pending,2/22/2024,2/5/2025,POL1826191,Basic,Monthly,0.49,bweeks@hotmail.com.au,+61 405 255 046,Tyler Banks
+Andre Clark,45,SA,Travel,1915.35,5687.8,Approved,2/21/2023,4/3/2025,POL2094007,Premium,Quarterly,0.84,qadams@kemp.org,61297296729,Daniel Davis
+Shirley Torres,66,VIC,Health,2887.48,2583.56,Approved,8/11/2023,2/5/2025,POL4681716,Premium,Annually,0.91,chelseajackson@hotmail.com,08.7776.5910,Shannon Shaw

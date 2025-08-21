@@ -1,0 +1,2026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://admin.privatehealth.gov.au/ws/Schemas"
+  xmlns:ph="http://admin.privatehealth.gov.au/ws/Schemas"
+  targetNamespace="http://admin.privatehealth.gov.au/ws/Schemas"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema-datatypes"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+  elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+      This schema will be meaningless without reference to the Legislation and
+      Regulations in relation to Private Health Insurance.
+    </xs:documentation>
+    <xs:documentation>
+      CHANGE HISTORY
+      The PHOLSchema-V3.1.xsd released in the 3rd quarter of 2021 contains some enhancements to support the changes introduced by the
+      Private Health Insurance (Complying Product) (Age of Dependants) Amendment Rules 2021.
+      Specifically, the Fund element contains an additional, optional, FundDependants sub-element that allows Funds to describe the types of dependants they cover and any associated age limits.
+      The Product element now allows a choice of how a Fund may specify who is covered by a particular product. Either by using the existing Scale element or instead by providing a new WhoIsCovered element.
+      This latter allows a more precise definition of coverage. All products have been converted to use the new WhoIsCovered element in time for the 1 April 2022 rate rise.
+      March 2022  typeFund.Email element made minOccurs=0
+      April 2023  typeHospitalCover.AccommodationText added as a new optional element to capture additional text about the Hospital Accommodation for a product
+      April 2023  typeHospitalCover.ProductKnownGapCover added as a new optional element. Supports capture of no gap and known gap arrangements at the Product level to override that set at the Fund level.
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:include schemaLocation="PHOL-Lists-V3.1.xsd">
+    <xs:annotation>
+      <xs:documentation>Lists the enumerated types</xs:documentation>
+    </xs:annotation>
+  </xs:include>
+
+  <!-- Product-related Elements -->
+  <xs:element name="Product" type="typeProduct"/>
+  <xs:element name="Products" type="typeProductList"/>
+  <xs:element name="Fund" type="typeFund"/>
+  <xs:element name="Funds" type="typeFundList"/>
+  
+  <!-- Primary complex types -->
+  <xs:complexType name="typeProduct">
+    <xs:annotation>
+      <xs:documentation>
+        There is a one-to-one correspondence between product records and PHISs on the
+        PrivateHealth.gov.au website. Every combination of Product Prefix, Jurisdiction, Policy code and Scale (no of adults and
+        dependents) that has a different premium must have a unique PHIS. In addition, even variants within the above combinations
+        that have         identical premiums must have separate PHISs if they are to be discoverable on the PrivateHealth.gov.au website.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FundCode" type="typeFundCode">
+        <xs:annotation>
+          <xs:documentation>Three-letter fund reporting code for the parent fund</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ProductGroupCode" type="typeProductGroupCode">
+        <xs:annotation>
+          <xs:documentation>ProductGroup code for this product - as defined in the Fund document</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Name" type="typeName">
+        <xs:annotation>
+          <xs:documentation>
+            Fund's title for this product.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ProductType" type="typeProductType">
+        <xs:annotation>
+          <xs:documentation>
+            Hospital only, General Treatment only or Combined product
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ProductURL" type="typeURLorEmpty" default="" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Link to product overview on Fund's website</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PHISURL" type="typeURL" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Link to Fund's own detailed summary for the specific product</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="FundsProductCode" type="typeFundsProductCode" default="" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Unique code supplied and used by the Fund to identify this specific
+            product or PHIS.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ProductStatus" type="typeProductStatus" default="Open"/>
+      <xs:element name="Corporate">
+        <xs:complexType>
+          <xs:sequence minOccurs="0">
+            <xs:element name="CorporateInfo" type="typeCorporateInfo">
+              <xs:annotation>
+                <xs:documentation>
+                  CorporateInfo variant allows for embedded list of organisations to
+                  whom corporate products have been sold, so that policyholders can discover their
+                  PHIS using organisation name. See type definition for further details.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="IsCorporate" type="xs:boolean" default="false"> </xs:attribute>
+          <xs:attribute name="Atomic" type="xs:boolean" fixed="true"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OnlyAvailableWith" type="typeRelatedProducts"/>
+      <xs:element name="DateValidFrom" type="xs:date" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Available for purchase in the CMS - DateValidFrom and the related dates can be provided for new content,
+            subject to the condition that (DateIssued .LE. DateValidFrom .LT. DateValidTo). <br/>
+            For updates, the same rule applies, with the addition that no date can be updated if its
+            current value is in the past.<br/> Setting DateIssued will ensure the product isn't
+            visible until that date; if this date is not present the product will be visible from
+            the date of approval. <br/> Setting DateValidFrom ensures that PHIS will report
+            "Available from:" until that date; if this date is not present, no "Available from:"
+            will appear on the PHIS. <br/> Setting DateValidTo will schedule a withdrawal of the
+            product on that date.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DateValidTo" type="xs:date" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Remove from public site in CMS - See annotation on DateValidFrom for usage of this element
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DateIssued" type="xs:date" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Release date in CMS - See annotation on DateValidFrom for usage of this element
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="State" type="typeProductState">
+        <xs:annotation>
+          <xs:documentation>
+            State for which this product is valid. "ALL" if same throughout Australia.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:element name="Scale" type="typeScale">
+          <xs:annotation>
+            <xs:documentation>
+              Coded specification of number of adults and dependents covered by this policy. See PHOL-Lists for details of coding.
+              Use of this element will be phased out over time with details instead being specified using the WhoIsCovered element.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="WhoIsCovered" type="typeWhoIsCovered">
+          <xs:annotation>
+            <xs:documentation>
+              Specification of number of adults and dependent types covered by this policy.
+              Note that dependent-specific age limits are specified at the Fund level and cannot be varied across Products.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+      <xs:element name="Excesses" type="typeExcesses"/>
+      <xs:element name="CoPayments" type="typeCoPayments"/>
+      <xs:element name="MedicareLevySurchargeExempt" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            Set "true" if product exempts policyholder from Medicare Levy Surcharge,
+            false otherwise.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PremiumNoRebate" type="typeDollarsCents">
+        <xs:annotation>
+          <xs:documentation>
+            Monthly premium as specified for PHIS - this is the full 100%
+            premium
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PremiumHospitalComponent" type="typeDollarsCents" default="0">
+        <xs:annotation>
+          <xs:documentation>
+            That part of the monthly premium that applies to the Hospital cover
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AddOns" type="typeProductAddOns">
+        <xs:annotation>
+          <xs:documentation>
+            The Fund Addons used by the product
+          </xs:documentation>
+        </xs:annotation>
+        <xs:unique name="ProductAddOnsConstraint">
+          <xs:selector xpath="ShortName"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="Brands" type="typeProductBrands" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Brand codes, if any, associated with this Product. Brand names and codes will need to have been pre-defined in the Fund.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HospitalCover" type="typeHospitalCover" minOccurs="0"/>
+      <xs:element name="GeneralHealthCover" type="typeGeneralHealthCover" minOccurs="0"/>
+      <xs:element name="ProductAmbulance" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If the UseFund attribute is true the Fund document is deemed to contain the Ambulance cover for this Product.
+            If the UseFund attribute is false the Ambulance element is deemed to contain the Ambulance cover for this Product.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="0">
+            <xs:element name="Ambulance" type="typeAmbulanceService"/>
+          </xs:sequence>
+          <xs:attribute name="UseFund" type="xs:boolean"></xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ProductCode" type="typeProductCode">
+      <xs:annotation>
+        <xs:documentation>
+          Format: [ProductGroup code]/[StateLetter][3 or 4 random chars unique to
+          Fund][Adults][Dependants] . StateLetter: 1st letter of state, except for NT which is "D"
+          (mnemonic- Darwin). Adults: Number of adults covered by this policy (0, 1, 2,
+          3).Dependants: 0 (no dependants) ot "D" for dependant cover.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ProductItemID" type="typeIDString">
+      <xs:annotation>
+        <xs:documentation>
+          Assigned by the CMS for new products. Common to all versions of a product.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ProductID" type="typeIDString">
+      <xs:annotation>
+        <xs:documentation>
+          Assigned by the CMS for new products. Unique to each version of a product.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="FundItemID" type="typeIDString">
+      <xs:annotation>
+        <xs:documentation>
+          Fund Item ID - common to all versions of a Fund document. Used to associate the product with a fund.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="ControlAttributes">
+      <xs:annotation>
+        <xs:documentation>Assigned/updated by the CMS on each status change</xs:documentation>
+      </xs:annotation>
+    </xs:attributeGroup>
+  </xs:complexType>
+  <xs:complexType name="typeProductList">
+    <xs:sequence>
+      <xs:element name="Product" type="typeProduct" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="Count" type="xs:positiveInteger"/>
+  </xs:complexType>
+  <xs:complexType name="typeFundList">
+    <xs:sequence>
+      <xs:element name="Fund" type="typeFund" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="Count" type="xs:positiveInteger"/>
+  </xs:complexType>
+  <xs:complexType name="typeFund">
+    <xs:annotation>
+      <xs:documentation>
+        One Fund record exists for each insurer with products on the
+        PrivateHealth.gov.au website. Each registered insurer must have a separate 3-letter reporting code, which is used as the Fund identifier in the
+        products.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FundCode" type="typeFundCode">
+        <xs:annotation>
+          <xs:documentation>The three-letter reporting code for this insurer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FundName" type="typeName">
+        <xs:annotation>
+          <xs:documentation>The name of this fund. Must be unique.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FundDescription" type="typeTextOrXHTML">
+        <xs:annotation>
+          <xs:documentation>
+            Source of the fund's description paragraph on the fund page of the
+            PrivateHealth.gov.au website
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RelatedBrandNames" type="typeRelatedBrands" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            A list of other brand names that this fund may sell products under.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Phone" type="typePhone">
+        <xs:annotation>
+          <xs:documentation>
+            The phone number, email address, website and address are the primary
+            public contact points for the insurer represented by this fund record.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Email" type="typeEmail" minOccurs="0"/>
+      <xs:element name="Website" type="typeURLorEmpty"/>
+      <xs:element name="Address" type="typeAddress"/>
+      <xs:element name="FundContacts" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Names and contact information for two people within Fund nominated to
+            receive formal notices from PHIO. Postal address is presumed to be that of the Fund
+            registered office.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Contact" maxOccurs="2">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ContactName" type="typeName"/>
+                  <xs:element name="ContactEmail" type="typeEmail"/>
+                  <xs:element name="ContactPhone" type="typePhone"/>
+                  <xs:element name="ContactPosition" type="typeName"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FundType" type="typeFundType">
+        <xs:annotation>
+          <xs:documentation>Restricted or Open</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Restrictions" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Restrictions is only present if FundType="Restricted" It describes at
+            three levels of detail the conditions for entry to the fund.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RestrictionHint" type="typeName">
+              <xs:annotation>
+                <xs:documentation>Used in lists next to fund's name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="RestrictionParagraph" type="typeParagraph300">
+              <xs:annotation>
+                <xs:documentation>To be used as rollover text on fund's name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="RestrictionDetails" type="typeTextOrXHTML">
+              <xs:annotation>
+                <xs:documentation>Used on fund's page</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WebsiteLinks">
+        <xs:annotation>
+          <xs:documentation>
+            Provides for links to Branches page, no-gap doctors, etc. See PHOL-Lists
+            for details of the Link names
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Link" type="typeFundWebsiteLink" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="FundWebsiteLinksConstraint">
+          <xs:selector xpath="Link"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="FundOptionalCoverage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Coverage" type="typeFundOptionalCoverage" minOccurs="0"
+              maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  Contains links to Fund web page for details of various types of
+                  optional coverage. See PHOL-Lists for details of the coverage types names.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="FundOptionalCoverageConstraint">
+          <xs:selector xpath="Coverage"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="FundPolicyOptions" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Used to capture the additional fund-level attributes. Currently used for:
+            KnownGapCover: true or false - default false if absent
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Option" type="typeFundPolicyOption" minOccurs="0"
+              maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="FundPolicyOptionsConstraint">
+          <xs:selector xpath="Option"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="States">
+        <xs:annotation>
+          <xs:documentation>
+            States in which funds sell products. Allows "ALL" (All States) as an
+            option where the same SIS applies in every state.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="State" type="typeProductState" maxOccurs="8"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="FundStatesConstraint">
+          <xs:selector xpath="State"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="PreferredProviderServices" type="typePreferredProviderServices" >
+        <xs:annotation>
+          <xs:documentation>
+            Provides the source of the "Preferred service provider arrangements".
+            For an 'ALL' State product the value of the 'ALL' State element will always be used.
+            For any other State the element corresponding to that State will be inspected. If it has Specified='true' that element will be used.
+            If it has Specified ='false' and the 'All' State element has Specified = 'true' the value of the 'ALL' State element will be used.
+            Thus the 'ALL' state element can be used to set a default value that my be optionally overridden on a state by state basis.
+            Preferred Provider arrangements may be overridden at the Product level.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:unique name="FundPreferredProviders">
+          <xs:selector xpath="PreferredProvider"/>
+          <xs:field xpath="@State"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="ProductGroups" type="typeProductGroupList">
+        <xs:annotation>
+          <xs:documentation>
+            List of the ProductGroup names, codes and product types approved for use by this fund
+          </xs:documentation>
+        </xs:annotation>
+        <xs:unique name="ProductGroupListConstraint">
+          <xs:selector xpath="ProductGroup"/>
+          <xs:field xpath="ProductGroupCode"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="AgreementHospitals" type="typeAgreementHospitals">
+        <xs:annotation>
+          <xs:documentation>
+            List of hospitals (day and overnight) that have agreements with this
+            fund. List is of provider numbers - hospital names and locations are separately
+            maintained.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CorporateStructure" type="typeParagraph225">
+        <xs:annotation>
+          <xs:documentation>
+            Brief description of the profit/not-for-profit basis of the Fund and,
+            where appropriate, a description of a Fund's parent entity.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FundReport" type="typeFundReport" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Selected data as obtained from the State of the Health Funds report for
+            this Fund.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FundAddOns" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            An Addon may be used to define special features text for a suite of products
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="0">
+            <xs:element name="AddOn" type="typeFundAddOns" minOccurs="1" maxOccurs="unbounded">
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="FundAddOnsConstraint">
+          <xs:selector xpath="AddOn/ShortName"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="Ambulance" type="typeAmbulanceService">
+        <xs:annotation>
+          <xs:documentation>
+            Used to provide the default ambulance coverage for the Fund.
+            May be overridden at the individual Product level.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FundDependants" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Used to capture dependant age-limits, some of which may be defined by the Fund, and, if applicable, the fund-specific definition of NonClassifiedDependants.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DependantLimits" >
+              <xs:annotation>
+                <xs:documentation>
+                  Used to define the Dependant age limits for the Fund.
+                  Note that a Fund can only specify their own age limits for some of the student and nonstudent dependant types.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension base="typeDependantAgeLimits">
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+              <xs:unique name="DependantAgeLimitsConstraint">
+                <xs:selector xpath="DependantLimit"/>
+                <xs:field xpath="@Title"/>
+              </xs:unique>
+            </xs:element>
+            <xs:element name="NonClassifiedDependantDescription" type="typeParagraph300" >
+              <xs:annotation>
+                <xs:documentation>
+                  If applicable, may be used by the Fund to provide a description of their support for a non-classified dependent person under the age of 25 that is not a dependent student or a dependent non-student by the rules of the insurer.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="FundItemID" type="typeIDString">
+      <xs:annotation>
+        <xs:documentation>
+          Assigned by the CMS for new funds. Common to all versions of a fund.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="FundID" type="typeIDString">
+      <xs:annotation>
+        <xs:documentation>
+          Assigned by the CMS for new funds. Unique to each version of a fund.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="ControlAttributes"/>
+  </xs:complexType>
+
+  <!-- Fund and Product-related complex types (alphabetic order) -->
+  <xs:complexType name="typeAgeBasedDiscount">
+    <xs:annotation>
+      <xs:documentation>
+        If Available is true this policy provides an age-based discount. As per Private Health Insurance (Reforms) Amendment Rules 2018.
+        If Available is true a sequence of 1 up to a maximum of 4 non-contiguous age-ranges between the ages of 18 to 29 inclusive must be specified.
+        For example a range of 18-19 and 20-21 would be deemed contiguous (and equivalent to 18-21).
+        As such, maximum possible ranges would be 18-19, 21-22, 24-25, 27-28.
+        If Available is true and AvailableForTransferee is true the policy is deemed to a "retained age-based discount policy" and as such provides
+        that if a person transfers from another age-based discount policy (the old policy) to the policy,
+        the person is entitled to retain the age-based discount (if any) they were receiving under the old policy .
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0" maxOccurs="4">
+      <xs:element name="AgeRange" type="typeDiscountAgeRange"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="Available" type="xs:boolean" use="required"/>
+    <xs:attribute name="AvailableForTransferee" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="typeAgreementHospitals">
+    <xs:annotation>
+      <xs:documentation>
+        Information about agreements with hospitals - states and individual
+        hospitals
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AgreementHospitalStates">
+        <xs:annotation>
+          <xs:documentation>States in which funds have hospital agreements</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="State" type="typeShortState" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="AgreementHospitalStatesConstraint">
+          <xs:selector xpath="State"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="AgreementHospitalsList">
+        <xs:annotation>
+          <xs:documentation>
+            List of all hospitals (day and overnight) with which the fund has an
+            agreement
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Provider" type="typeProviderCode" minOccurs="0" maxOccurs="unbounded"
+            />
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="AgreementHospitalProvidersConstraint">
+          <xs:selector xpath="Provider"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeAmbulanceServiceLimit">
+    <xs:annotation>
+      <xs:documentation>
+        The limits are subject to the condition that (LimitPerPerson .LE.
+        LimitPerService .LE.LimitPerPolicy .LE. LifetimeLimit) Note that all limits
+        are annual.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:element name="LimitPerPerson" type="typeDollars" minOccurs="0"/>
+      <xs:element name="LimitPerService" type="typeDollars" minOccurs="0"/>
+      <xs:element name="LimitPerPolicy" type="typeDollars" minOccurs="0"/>
+      <xs:element name="LifetimeLimit" type="typeDollars" minOccurs="0"/>
+      <xs:element name="ServiceCountLimit" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ServiceCount" type="xs:positiveInteger"/>
+            <xs:element name="ServiceCountYears" type="xs:positiveInteger" default="1"/>
+          </xs:sequence>
+          <xs:attribute name="ServiceLimitType" type="typeServiceLimitType" fixed="Service"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="NoAmbulanceLimit" type="xs:boolean" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          True if there is no actual Ambulance benefit limit.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="typeAmbulanceOtherProviderBenefitDetail">
+    <xs:simpleContent>
+      <xs:extension base="typeParagraph100Words">
+        <xs:attribute name="State" type="typeProductState" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="typeAmbulanceService">
+    <xs:annotation>
+      <xs:documentation>
+        Ambulance service for any policy; only one allowed for Combined policies based on
+        an existing Hospital and General treatment policy.
+        OtherProviderBenefit elements are used to provide more detail about the nature of the ambulance cover provided.
+        One element for each state (including an All State item). Text will be rendered on the Insurance Statement according to the State at which for policy is targeted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:element name="WaitingPeriodEmergency" type="typePeriod"/>
+      <xs:element name="WaitingPeriodNonEmergency" type="typePeriod" minOccurs="0"/>
+      <xs:element name="WaitingPeriodPreExisting" type="typePeriod" />
+      <xs:element name="AmbulanceServiceLimitEmergency" type="typeAmbulanceServiceLimit"/>
+      <xs:element name="AmbulanceServiceLimitNonEmergency" type="typeAmbulanceServiceLimit" minOccurs="0"/>
+      <xs:element name="AmbulanceOtherProviderBenefit">
+        <xs:annotation>
+          <xs:documentation>
+            OtherProviderBenefit elements are used to provide more detail about the nature of the ambulance cover provided.
+            Should describe if ambulance cover were to be provided by a person other than the insurer - whether the policy would provide a benefit for that cover.
+            One element for each state at which a policy may be targeted.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="8" maxOccurs="8">
+            <xs:element name="Detail" type="typeAmbulanceOtherProviderBenefitDetail"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="AmbulanceOtherProviderBenefitConstraint">
+          <xs:selector xpath="Detail"/>
+          <xs:field xpath="@State"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="CallOutFees" type="xs:boolean" use="required"/>
+    <xs:attribute name="Cover" type="typeAmbulanceCover" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="typeBenefitLimit">
+    <xs:annotation>
+      <xs:documentation>Benefit limit(s) for one or more General Health Services </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:element name="ServicesCombined">
+        <xs:annotation>
+          <xs:documentation>
+            The list of General Health Services that share this benefit limit
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Service" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="typeGeneralHealthServiceTitle">
+                    <xs:attribute name="SubLimitsApply" type="xs:boolean" use="required">
+                      <xs:annotation>
+                        <xs:documentation>
+                          True if "Sub-limits" annotation is required for this
+                          service within the group.
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="IndLifetimeLimit" type="typeDollars" >
+                      <xs:annotation>
+                        <xs:documentation>
+                          Can specify an individual value for life time limit.
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="IncludesOtherUnlisted" type="xs:boolean" use="required">
+            <xs:annotation>
+              <xs:documentation>
+                True if "other services..." annotation is required in this group
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="Atomic" type="xs:boolean" fixed="true"/>
+        </xs:complexType>
+        <xs:unique name="ServicesCombinedConstraint">
+          <xs:selector xpath="Service"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="LimitPerPerson" type="typeDollars" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            The limits are subject to the condition that (LimitPerPerson .LE.
+            LimitPerService .LE.LimitPerPolicy .LE. LifetimeLimit) Note that all limits are annual
+            unless otherwise stated. When present, this value will be used for Single policies with
+            wording '$nnn per policy'.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LimitPerService" type="typeDollars" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            The limits are subject to the condition that (LimitPerPerson .LE.
+            LimitPerService .LE.LimitPerPolicy .LE. LifetimeLimit)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LimitPerPolicy" type="typeDollars" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            The limits are subject to the condition that (LimitPerPerson .LE.
+            LimitPerService .LE.LimitPerPolicy .LE. LifetimeLimit). For a Single policy when there
+            is no LimitPerPerson, half of this value will be used with wording '$nnn per
+            policy'.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AnnualLimit" type="typeZero" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Used only to describe "No annual limit"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LifetimeLimit" type="typeDollars" minOccurs="0"/>
+      <xs:element name="ServiceCountLimit" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ServiceCount" type="xs:positiveInteger"/>
+            <xs:element name="ServiceCountYears" type="xs:positiveInteger" default="1"/>
+          </xs:sequence>
+          <xs:attribute name="ServiceLimitType" type="typeServiceLimitType" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FreeTextLimit" type="typeParagraph20WordsNonEmpty" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            May be used to provide a textual description of the benefit limits pertaining for this group. Limited to 20 words.
+            NOTE: By convention, if this element contains any text, all other benefit limit fields will be ignored and just the contents of this element will be output on the PHIS.
+            Also, if this element contains any text, this Benefit Limit group will be unconditionally assigned a 'Low' comparative Limits rank.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Title" type="typeGeneralHealthServiceTitle" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Title normally gets the value of the first service (in PHIS page order)
+          that is mentioned in the ServicesCombined list.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="NoBenefitLimits" type="xs:boolean" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          True if there is no actual BenefitLimit s in this element. (Easier than
+          testing for an empty element at the output schema and also allows us to have a one-member
+          ServicesCombined list even when no limits apply.)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="typeCoPayments">
+    <xs:sequence minOccurs="0">
+      <xs:element name="Shared" type="typeDollars"/>
+      <xs:element name="SharedMax" type="typeDollars" minOccurs="0"/>
+      <xs:element name="Private" type="typeDollars"/>
+      <xs:element name="PrivateMax" type="typeDollars" minOccurs="0"/>
+      <xs:element name="DaySurgery" type="typeDollars"/>
+      <xs:element name="AnnualMax" type="typeDollars" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="CoPaymentType" type="typeCoPaymentType" use="required"/>
+    <xs:attribute name="Atomic" type="xs:boolean" fixed="true"/>
+  </xs:complexType>
+  <xs:complexType name="typeCorporateInfo">
+    <xs:annotation>
+      <xs:documentation>
+        CorporateInfo is one variant of the information about corporate products It
+        allows for an embedded list of organisations to whom corporate products have been sold, so
+        that policyholders can discover their PHIS using organisation name.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CorporateText" type="typeParagraph100">
+        <xs:annotation>
+          <xs:documentation>
+            The content of this text must conform to the "Corporate products"
+            section of the permitted content rules.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Organisations" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Provides discovery information for corporate products, searching on the
+            name of the corporate clients This information is not revealed on the
+            PrivateHelath.gov.au website; it is only used for indexing
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Organisation" type="typeName" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="CorporateOrganisationsConstraint">
+          <xs:selector xpath="Organisation"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeExcesses">
+    <xs:sequence minOccurs="0">
+      <xs:annotation>
+        <xs:documentation>
+          Content depends on ExcessType: <br/> If ExcessType="None" the sequence is
+          not present at all.<br/> For all others, ExcessWaivers is present if it contains at least
+          one Waiver.<br/> In addition:<br/> If ExcessType="PerAdmissionOnly": ExcessPerAdmission is
+          present;<br/> If ExcessType="LimitedPerYear": ExcessPerAdmission and ExcessPerPolicy are
+          present;<br/> If ExcessType="LimitedPerPerson": ExcessPerAdmission andExcessPerPerson are
+          present;<br/> if ExcessType="LimitedPerPersonPerPolicy": ExcessPerAdmission,
+          ExcessPerPerson and ExcessPerPolicy are all present. ExcessPerAdmission can be zero except where ExcessType='PerAdmissionOnly".
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name="ExcessPerAdmission" type="typeDollars"/>
+      <xs:element name="ExcessPerPerson" type="typeDollars" minOccurs="0"/>
+      <xs:element name="ExcessPerPolicy" type="typeDollars" minOccurs="0"/>
+      <xs:element name="ExcessWaivers" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            provides for "No excess for [blah]" text on SIS, where [blah] is one or
+            more of the Waiver values
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Waiver" type="typeExcessWaiver" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="ExcessWaiversConstraint">
+          <xs:selector xpath="Waiver"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ExcessType" type="typeExcessType" use="required"/>
+    <xs:attribute name="Atomic" type="xs:boolean" fixed="true"/>
+  </xs:complexType>
+
+  <xs:simpleType name="typeNumAdults">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="typeDependants">
+    <xs:sequence>
+      <xs:element name="DependantCover" minOccurs="6" maxOccurs="6">
+        <xs:complexType>
+          <xs:attribute name="Title" type="typeDependantType" use="required"/>
+          <xs:attribute name="Covered" type="xs:boolean" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="NumberOfAdults" type="typeNumAdults" />
+  </xs:complexType>
+
+  <xs:complexType name="typeWhoIsCovered">
+    <xs:annotation>
+      <xs:documentation>
+        NOTE: If the OnlyOnePerson attribute is set to true the values of the NumberOfAdults and DependantCoverage elements will be ignored if present
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Coverage" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+            Used to define the cover for the various Dependant types. Note that age limits for Dependants are defined at the Fund level.
+            By convention, NumberOfAdults will required if the Coverage element is present.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="typeDependants">
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+        <xs:unique name="DependantCoverConstraint">
+          <xs:selector xpath="DependantCover"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="OnlyOnePerson" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>The number of Adults covered by this policy, if any</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="typeFundAddOns">
+    <xs:sequence minOccurs="0">
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="ShortName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OtherFeaturesText" type="typeTextOrXHTML300"/>
+    </xs:sequence>
+    <xs:attribute name="IsHospital" type="xs:boolean" use="required"/>
+    <xs:attribute name="IsGeneralHealth" type="xs:boolean"  use="required"/>
+  </xs:complexType>
+  <xs:complexType name="typeFundOptionalCoverage">
+    <xs:sequence>
+      <xs:element name="Link" type="typeURLorEmpty" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="Title" type="typeFundOptionalCoverageTitle" use="required"/>
+    <xs:attribute name="Covered" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="typeFundPolicyOption">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Title" type="typeFundPolicyOptionTitle" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="typeFundReport">
+    <xs:sequence>
+      <xs:element name="BenefitComplaints" type="typePercentDecimalOptional"/>
+      <xs:element name="ServiceComplaints" type="typePercentDecimalOptional"/>
+      <xs:element name="AllComplaints" type="typePercentDecimalOptional"/>
+      <xs:element name="Investigations" type="typePercentDecimalOptional"/>
+      <xs:element name="FundMarketShare" type="typeRequiredText"/>
+      <xs:element name="FundData" type="typeReportData" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="IndustryData" type="typeReportData" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="Year" type="typeReportYear" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The year to which this State of the Funds report data
+          refers
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="typeFundWebsiteLink">
+    <xs:simpleContent>
+      <xs:extension base="typeURLorEmpty">
+        <xs:attribute name="Title" type="typeFundWebsiteLinkTitle" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="typeGeneralHealthCover">
+    <xs:sequence minOccurs="0">
+      <xs:element name="ProductPreferredProviderServices" >
+        <xs:annotation>
+          <xs:documentation>
+            If the UseFund attribute is true the Fund document is deemed to contain the Preferred service provider arrangements for this Product.
+            If the UseFund attribute is false the PreferredProviderServices element is deemed to contain the Preferred service provider arrangements for this Product.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="0">
+            <xs:element name="PreferredProviderServices" type="typePreferredProviderServices" >
+              <xs:annotation>
+                <xs:documentation>
+                  Provides the source of the "Preferred service provider arrangements".
+                  For an 'ALL' State product the value of the 'ALL' State element will always be used.
+                  For any other State the element corresponding to that State will be inspected. If it has Specified='true' that element will be used.
+                  If it has Specified ='false' and the 'All' State element has Specified = 'true' the value of the 'ALL' State element will be used.
+                  Thus the 'ALL' state element can be used to set a default value that my be optionally overridden on a state by state basis.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:unique name="ProductPreferredProviders">
+                <xs:selector xpath="PreferredProvider"/>
+                <xs:field xpath="@State"/>
+              </xs:unique>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="UseFund" type="xs:boolean"></xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GeneralHealthServices">
+        <xs:annotation>
+          <xs:documentation>
+            lists the services that are covered and the benefits for each
+            service
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GeneralHealthService" type="typeGeneralHealthService" minOccurs="27"
+              maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  All services must occur. Unbounded "Occurs" is to allow for
+                  content spec to vary without requiring a schema change
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherServices" type="xs:string" default="" nillable="true">
+              <xs:annotation>
+                <xs:documentation>
+                  May be used to identify the name, limits and benefits of any other general health service covered by the policy and not yet present in the list of pre-defined general health services.
+                  Services identified here will not be readily searchable and will not be included in any comparative ranking of a policy benefits and limits.
+                  It is expected any such item listed here will be incorporated into the pre-defined list of general health services in due course. At that time this text entry should be 
+                  removed and the policy changed to instead reference the pre-defined service. 
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="AllStatesHaveSameBenefits" type="xs:boolean" use="required"/>
+          <xs:attribute name="OptionalServicesProduct" type="typeOptionalServiceProduct" default="NotSpecified">
+            <xs:annotation>
+              <xs:documentation>
+                Used to specify whether a product includes optional services marked as special. 
+                Such products typically require the user to choose, for example, 3 out of the 6 services marked as special they wish to be covered for, in addition to any other services
+                the product covers.
+              </xs:documentation>
+            </xs:annotation>
+         </xs:attribute>
+         <xs:attribute name="MaxServicesCovered" type="xs:int" default="0">
+            <xs:annotation>
+              <xs:documentation>
+                Used to specify the maximum number of services for a which a user will be covered on a GeneralHealth product that includes special services.
+                For example some products may cover a user for 2 services and require the user to choose another 3 out of 6 services marked as special they wish to be covered for.
+                In this case the MaxServicesCovered attribute should be set to 5.
+                The value of this attribute may used in comparative ranking calculations for GeneralHealth products if, and only if, the OptionalServicesProduct attribute is set to Yes.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+        <xs:unique name="GeneralHealthServicesConstraint">
+          <xs:selector xpath="GeneralHealthService"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="BenefitLimits" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Lists the benefit limits on services. This is separate from the list of
+            services and the benefits to allow for grouping of limits. Each BenefitLimit is a group
+            of (one or more) limits.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="BenefitLimit" type="typeBenefitLimit" maxOccurs="unbounded"/>
+            <xs:element name="NoLimitOnPreventativeDental" type="xs:boolean" default="false"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="BenefitLimitsConstraint">
+          <xs:selector xpath="BenefitLimit"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="OtherProductFeatures" type="typeParagraph100Words" default="" nillable="true"/>
+
+      <xs:element name="SpecialFeatures" type="typeParagraph100Words" default="" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            The contents of the SpecialFeatures element will be output on the PHIS if
+            any one GeneralHealthService has both Covered and HasSpecialFeatures set to
+            true
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
+    <xs:attribute name="BasedOnID" type="typeIDString" use="required">
+      <xs:annotation>
+        <xs:documentation>If specified denotes this products inherits its GeneralHealth cover from the item identifed by the supplied ID and the rest of the element must be empty</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="typeGeneralHealthService">
+    <xs:annotation>
+      <xs:documentation>
+        General Health Services , with example payments, etc. Benefit limits are
+        separately described (to enable grouping)
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:annotation>
+        <xs:documentation>
+          Occurs if service is covered The parent element occurs whether or not the
+          service is covered; "@Covered" tells the story.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name="WaitingPeriod" type="typePeriod" />
+      <xs:element name="BenefitsList" maxOccurs="8">
+        <xs:annotation>
+          <xs:documentation>one or more example benefits in each service</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Benefit" maxOccurs="unbounded" nillable="true">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="typeDollarsOrPercent">
+                    <xs:attribute name="Item" type="typeItem"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="State" type="typeProductState" use="required"/>
+          <xs:attribute name="Atomic" type="xs:boolean" fixed="true"/>
+        </xs:complexType>
+        <xs:unique name="BenefitListConstraint">
+          <xs:selector xpath="Benefit"/>
+          <xs:field xpath="@Item"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Title" type="typeGeneralHealthServiceTitle" use="required"/>
+    <xs:attribute name="Covered" type="xs:boolean" use="required"/>
+
+    <xs:attribute name="HasSpecialFeatures" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          If both Covered and HasSpecialfeatures are true, this GeneralHealthService
+          will display with an asterisk in the Cover column of the PHIS rather than a tick.
+          Additionally, if any one GeneralHealthService has both Covered and HasSpecialFeatures set
+          to true, the contents of the SpecialFeatures element will be output on the PHIS
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+
+    <xs:attribute name="Atomic" type="xs:boolean" fixed="true"/>
+  </xs:complexType>
+  <xs:complexType name="typeHospitalCover">
+    <xs:sequence minOccurs="0">
+      <xs:element name="HospitalTier" type="typeTierHospital">
+        <xs:annotation>
+          <xs:documentation>level of cover</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AgeBasedDiscount" type="typeAgeBasedDiscount">
+        <xs:annotation>
+          <xs:documentation>
+            If Available is true this policy provides an age-based discount. As per Private Health Insurance (Reforms) Amendment Rules 2018.
+            If Available is true a sequence of 1 up to a maximum of 4 non-contiguous age-ranges between the ages of 18 to 29 inclusive must be specified.
+            For example a range of 18-19 and 20-21 would be deemed contiguous (and equivalent to 18-21).
+            As such, maximum possible ranges would be 18-19, 21-22, 24-25, 27-28.
+            If Available is true and AvailableForTransferee is true the policy is deemed to a "retained age-based discount policy" and as such provides
+            that if a person transfers from another age-based discount policy (the old policy) to the policy,
+            the person is entitled to retain the age-based discount (if any) they were receiving under the old policy .
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Accommodation" type="typeAccommodation"/>
+      <xs:element name="AccommodationText" type="typeParagraph100Words" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            An optional textual explanation of the Accommodation available
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ProductKnownGapCover" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            If this element is not present, or it is present and the UseFund attribute is true,  the Fund document is deemed to contain the KnownGapCover data for this Product - in the optional FundPolicyOptions element with a FundPolicyOptionTitle of 'KnownGapCover'.
+            In this case the value of the KnownGapCover attribute of this element is ignored.
+            If this element is present and the UseFund attribute is false the KnownGapCover attribute of this element is used.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="UseFund" type="xs:boolean" use="required"></xs:attribute>
+          <xs:attribute name="KnownGapCover" type="xs:boolean" use="required"></xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HospitalPercent" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            The "[number]% of charge for hospital… " part of the "What’s covered if
+            I have to go to hospital?" section
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="typePercent">
+            <xs:maxInclusive value="90"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="LimitHospitalDays" type="typeDays" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            The "limited to [number] days per year" part of the "What’s covered if I
+            have to go to hospital?" section
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--
+      <xs:element name="HospitalAmbulance" type="typeAmbulanceCover"/>
+      -->
+      <xs:element name="MedicalServices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MedicalService" type="typeMedicalService" minOccurs="38" 
+              maxOccurs="38">
+              <xs:annotation>
+                <xs:documentation>
+                  See documentation for details of these services.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+          <!--
+          <xs:attribute name="OtherExclusions" type="xs:boolean" use="required"/>
+          <xs:attribute name="OtherRestrictions" type="xs:boolean" use="required"/>
+          -->
+        </xs:complexType>
+        <xs:unique name="MedicalServicesConstraint">
+          <xs:selector xpath="MedicalService"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+
+      <xs:element name="WaitingPeriods" nillable="true">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="typeWaitingPeriods">
+              <xs:attribute name="Atomic" type="xs:boolean"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+        <xs:unique name="WaitingPeriodsConstraint">
+          <xs:selector xpath="WaitingPeriod"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="OtherProductFeatures" type="typeParagraph100Words" default="" nillable="true"/>
+    </xs:sequence>
+    <xs:attribute name="AccidentCover" type="xs:boolean" default="false">
+      <xs:annotation>
+        <xs:documentation>Whether this policy includes accident cover.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="TravelOrAccommodationBenefits" type="xs:boolean"  default="false">
+      <xs:annotation>
+        <xs:documentation>Whether this policy includes benefits for travel or accommodation.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+
+
+
+    <!--
+    <xs:attribute name="GapCoverProvided" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation> GapCoverProvided must be present if BasedOnID is empty, and must be missing if BasedOnID is not empty.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    -->
+    <!--
+    <xs:attribute name="LimitedProduct" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>If true then a limited number of services are covered. Both GapCoverProvided and LimitedProduct must be present if BasedOnID is empty, and both must be missing if BasedOnID is not empty.</xs:documentation>
+        <xs:documentation> LimitedProduct must be present if BasedOnID is empty, and must be missing if BasedOnID is not empty.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    -->
+    <xs:attribute name="BasedOnID" type="typeIDString" use="required">
+      <xs:annotation>
+        <xs:documentation>If specified denotes this products inherits its Hospital Cover from the item identifed by the supplied ID and the rest of the element must be empty. Must be empty if GapCoverProvided and LimitedProduct are specified.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="typeMedicalService">
+    <xs:attribute name="Title" type="typeMedicalServiceTitle" use="required"/>
+    <xs:attribute name="Cover" type="typeMedicalServiceCover" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="typePreferredProviderServices">
+    <xs:annotation>
+      <xs:documentation>
+        Provides the source of the "Preferred service provider arrangements".
+        For an 'ALL' State product the value of the 'ALL' State element will always be used.
+        For any other State the element corresponding to that State will be inspected. If it has Specified='true' that element will be used.
+        If it has Specified ='false' and the 'All' State element has Specified = 'true' the value of the 'ALL' State element will be used.
+        Thus the 'ALL' state element can be used to set a default value that my be optionally overridden on a state by state basis.
+      </xs:documentation>
+    </xs:annotation>
+      <xs:sequence>
+        <xs:element name="PreferredProvider" type="typePreferredProvider" minOccurs="8" maxOccurs="8"/>
+      </xs:sequence>
+    <xs:attribute name="Atomic" type="xs:boolean" fixed="true"/>
+  </xs:complexType>
+  <xs:complexType name="typePreferredProvider">
+    <xs:annotation>
+      <xs:documentation>
+        Provides the content for the "Preferred Service Provider Arrangements".
+        If Covered = 'NotSpecified' Preferred provider arrangements for the State are not described here. (They may be specified on the 'ALL' State element).
+        If Covered = 'Covered'  Preferred provider arrangements for the State are described by this element and the type of the arrangement will be as described by the choice.
+        If Covered = 'NotCovered' no Preferred Provider arrangements are deemed to exist for the State.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:element name="FreeText" type="typeParagraph225" />
+      <xs:element name="ManyAlliedHealth" type="typeEmpty">
+        <xs:annotation>
+          <xs:documentation>
+            Just the presence of this element is sufficient to invoke the "many
+            allied health" phrase.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="List">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Service" type="typeGeneralHealthServicePreferredTitle"
+              maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="PreferredProviderServicesListConstraint">
+          <xs:selector xpath="Service"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+      </xs:element>
+    </xs:choice>
+    <xs:attribute name="State" type="typeProductState" use="required"/>
+    <xs:attribute name="Covered" type="typePreferredProviderCover" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="typeProductAddOns">
+    <xs:sequence minOccurs="0" maxOccurs="5">
+      <xs:element name="ShortName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeProductBrands">
+    <xs:sequence>
+      <xs:element name="BrandCode" type="typeBrandCode" minOccurs="0" maxOccurs="5"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeProductGroupList">
+    <xs:sequence>
+      <xs:element name="ProductGroup" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ProductGroupCode" type="typeProductGroupCode"/>
+            <xs:element name="ProductGroupName" type="typeName"/>
+            <xs:element name="ProductGroupType" type="typeProductType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeRelatedBrands">
+    <xs:sequence>
+      <xs:element name="Brand" minOccurs="0" maxOccurs="99">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>
+              if UseToBrandPHIS=true the PHIS for any products associated with this Brand will be generated using the contact details etc as supplied for the Brand.
+              if UseToBrandPHIS=false the PHIS for any products associated with this Brand will be generated using the contact details etc as supplied for the Insurer.
+              In addition, it is anticipated a webService method will be supplied to allow a PHIS to be generated for a product associated with a Brand using the contact details etc as supplied for the Brand
+              regardless of the setting of the UseToBrandPHIS attribute.
+              If any of the optional elements (minOccurs=0) are missing data specified at the Insurer level will be used on the PHIS.
+              If any of the optional elements (minOccurs=0) are present the data, if any, as specified at the brand level will be used on the PHIS.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:element name="BrandName" type="xs:string"/>
+            <xs:element name="BrandCode" type="typeBrandCode"/>
+            <xs:element name="BrandPhone" type="typePhone" minOccurs="0"/>
+            <xs:element name="BrandEmail" type="typeEmail" minOccurs="0"/>
+            <xs:element name="BrandWebsite" type="typeURLorEmpty" minOccurs="0"/>
+            <xs:element name="BrandWebsiteLinks" minOccurs="0"  >
+              <xs:annotation>
+                <xs:documentation>
+                  Provides for links to Branches page, no-gap doctors, etc. See PHOL-Lists
+                  for details of the Link names
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Link" type="typeFundWebsiteLink" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+              <xs:unique name="BrandWebsiteLinksConstraint">
+                <xs:selector xpath="Link"/>
+                <xs:field xpath="@Title"/>
+              </xs:unique>
+            </xs:element>            
+          </xs:sequence>
+          <xs:attribute name="UseToBrandPHIS" type="xs:boolean" default="false"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeRelatedProducts">
+    <xs:annotation>
+      <xs:documentation>
+        can be a list of ProductPrefixes of the fund, or one of the special terms
+        "AnyHospital" or "AnyGeneralHealth"
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice maxOccurs="1">
+      <xs:element name="NotApplicable" type="typeEmpty" nillable="true"/>
+      <xs:element name="AnyHospital" type="typeEmpty" nillable="true"/>
+      <xs:element name="AnyGeneralHealth" type="typeEmpty" nillable="true"/>
+      <xs:element name="Products" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This consists of a ";" separated list of ProductPrefixes. If the
+            product is Hospital, the codes should only be General ProductGroups and vice versa.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+    <xs:attribute name="Atomic" type="xs:boolean" fixed="true"/>
+  </xs:complexType>
+  <xs:complexType name="typeReportData">
+    <xs:sequence>
+      <xs:element name="BenefitsContributions" type="typePercentDecimalOpen"/>
+      <xs:element name="ManagementExpenses" type="typePercentDecimal"/>
+      <xs:element name="ManagementExpensesAVG" type="typeDollars"/>
+      <xs:element name="Surplus" type="typePercentDecimalNegative"/>
+      <xs:element name="MemberRetention" type="typePercentDecimal"/>
+      <xs:element name="HospitalCharges" type="typeStateDataPercent">
+        <xs:unique name="HospitalChargesConstraint">
+          <xs:selector xpath="State"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="MedicalServices_NoGap" type="typeStateDataPercent">
+        <xs:unique name="MedicalServices_NoGapConstraint">
+          <xs:selector xpath="State"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="MedicalServices_NoOrKnownGap" type="typeStateDataPercent">
+        <xs:unique name="MedicalServices_NoOrKnownGapConstraint">
+          <xs:selector xpath="State"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="ExtrasCovered" type="typeStateDataPercent">
+        <xs:unique name="ExtrasCoveredConstraint">
+          <xs:selector xpath="State"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="PrivateHospitalAgreements" type="typeStateDataInteger">
+        <xs:unique name="PrivateHospitalAgreementsConstraint">
+          <xs:selector xpath="State"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="DayHospitalAgreements" type="typeStateDataInteger">
+        <xs:unique name="DayHospitalAgreementsConstraint">
+          <xs:selector xpath="State"/>
+          <xs:field xpath="@Title"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeStateDataPercent">
+    <xs:sequence>
+      <xs:element name="State" minOccurs="8" maxOccurs="9">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="Title" type="typeReportState" use="required"/>
+              <xs:attribute name="Covered" type="xs:boolean" use="required"/>
+              <xs:attribute name="Value" type="typePercentDecimal"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeStateDataDollar">
+    <xs:sequence>
+      <xs:element name="State" minOccurs="8" maxOccurs="9">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="Title" type="typeReportState" use="required"/>
+              <xs:attribute name="Covered" type="xs:boolean" use="required"/>
+              <xs:attribute name="Value" type="typeDollars"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeStateDataInteger">
+    <xs:sequence>
+      <xs:element name="State" minOccurs="8" maxOccurs="9">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="Title" type="typeReportState" use="required"/>
+              <xs:attribute name="Covered" type="xs:boolean" use="required"/>
+              <xs:attribute name="Value" type="xs:nonNegativeInteger"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeWaitingPeriods">
+    <xs:annotation>
+      <xs:documentation>
+        Three of the four are always required. PregnancyBirthNeonates is only required if the service is covered.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="WaitingPeriod" minOccurs="3" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="typePeriod">
+              <xs:attribute name="Title" type="typeWaitingPeriodTitle" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+
+  <!-- General simple-ish types -->
+  <xs:simpleType name="typeStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New"/>
+      <xs:enumeration value="InProgress"/>
+      <!-- not used - for temporary backward compatability only-->
+      <xs:enumeration value="Submitted"/>
+      <xs:enumeration value="Approved"/>
+      <xs:enumeration value="Published"/>
+      <xs:enumeration value="Rejected"/>
+      <xs:enumeration value="Suspended"/>
+      <xs:enumeration value="Withdrawn"/>
+      <xs:enumeration value="Undefined"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeURLorEmpty">
+    <xs:union memberTypes="typeURL typeEmpty"/>
+  </xs:simpleType>
+  <xs:simpleType name="typeEmpty">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="typeDollarsOrPercent">
+    <xs:simpleContent>
+      <xs:extension base="typeDollarsOrPercentNumber">
+        <xs:attribute name="Type">
+          <xs:annotation>
+            <xs:documentation>If Type is not specified, it defaults to Dollars</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Dollars"/>
+              <xs:enumeration value="Percent"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="typeDollarsOrPercentNumber">
+    <xs:union memberTypes="typeDollarsCents typePercent"/>
+  </xs:simpleType>
+  <xs:complexType name="typePeriod">
+    <xs:simpleContent>
+      <xs:extension base="typeDaysOrMonths">
+        <xs:attribute name="Unit" type="typePeriodUnits">
+          <xs:annotation>
+            <xs:documentation>Default unit is Month if none is given</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Atomic" type="xs:boolean" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="typeTextOrXHTML" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:any namespace="##any" processContents="skip"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="typeTextOrXHTML225" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        The maximum length of elements of this type is 225 characters, not
+        including any XHTML markup, eg a URI in an anchor tags.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:any namespace="##any" processContents="skip"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="typeTextOrXHTML300" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        The maximum length of elements of this type is 300 characters, not including
+        any XHTML markup, eg a URI in an anchor tags.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:any namespace="##any" processContents="skip"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="typeTextOrXHTML500" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        The maximum length of elements of this type is 500 characters, not including
+        any XHTML markup, eg a URI in an anchor tags.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:any namespace="##any" processContents="skip"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- Addresses and their components -->
+  <xs:complexType name="typeAddress">
+    <xs:sequence>
+      <xs:element name="AddressLine1" type="typeAddressLine"/>
+      <xs:element name="AddressLine2" type="typeAddressLine" minOccurs="0"/>
+      <xs:element name="AddressLine3" type="typeAddressLine" minOccurs="0"/>
+      <xs:element name="Town" type="typeAddressLine" minOccurs="0"/>
+      <xs:element name="State" type="typeShortState"/>
+      <xs:element name="Postcode" type="typePostcode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="typeAddressLine">
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="collapse"/>
+      <xs:maxLength value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typePostcode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4"/>
+      <xs:pattern value="[0-9]{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typePhone">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20"/>
+      <!--xs:pattern value="\(0[2-9]\) [0-9]{4} [0-9]{4} etc"/-->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeContactIdentifier">
+    <xs:restriction base="xs:anyURI"/>
+    <!--could change this to base="xs:string" if necessary to prevent conformance problems-->
+  </xs:simpleType>
+  <xs:simpleType name="typeURL">
+    <xs:restriction base="xs:anyURI">
+      <xs:pattern value="http://\S*"/>
+      <xs:pattern value="https://\S*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeEmail">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([^@]+@[^\.]+\..+)|()"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Pattern String types-->
+  <xs:simpleType name="typeFundCode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3"/>
+      <xs:pattern value="[A-Z]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeProductCode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20"/>
+      <xs:minLength value="0"/>
+      <xs:pattern value="[0-9|A-Z|\-|/]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeProductGroupCode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4"/>
+      <xs:pattern value="[A-Z,0-9]{2,4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeIDString">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="40"/>
+      <xs:minLength value="0"/>
+      <xs:pattern value="[0-9|a-z|A-Z|\-]*"/>
+      <xs:pattern value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeBrandCode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="typeProviderCode">
+    <xs:annotation>
+      <xs:documentation>Medicare providers' codes</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8"/>
+      <xs:minLength value="8"/>
+      <xs:pattern value="([0-9]){7}[A-Z]"/>
+      <xs:pattern value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Simple String types-->
+  <xs:simpleType name="typeFundsProductCode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeName">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeParagraph100">
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="preserve"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeParagraph150">
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="preserve"/>
+      <xs:maxLength value="150"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeParagraph225">
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="preserve"/>
+      <xs:maxLength value="225"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeParagraph300">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="300"/>
+      <xs:whiteSpace value="preserve"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeParagraph500">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="500"/>
+      <xs:whiteSpace value="preserve"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeParagraph1000">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1000"/>
+      <xs:whiteSpace value="preserve"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeParagraph20Words">
+    <xs:annotation>
+      <xs:documentation>
+        The maximum length of elements of this type will be limited to 20 words - as enforced by the system.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="preserve"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeParagraph20WordsNonEmpty">
+    <xs:annotation>
+      <xs:documentation>
+        The maximum length of elements of this type will be limited to 20 words - as enforced by the system.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="collapse"/>
+      <xs:minLength value="2"></xs:minLength>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="typeParagraph100Words">
+    <xs:annotation>
+      <xs:documentation>
+        The maximum length of elements of this type will be limited to 100 words - as enforced by the system.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="preserve"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeRequiredText">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Numeric types-->
+  <xs:simpleType name="typeDollarsCents">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+      <xs:minInclusive value="0.00"/>
+      <xs:maxInclusive value="10000.00"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeDollars">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeDollars_Min1">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="100000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeMonths">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeDays">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="185"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeDaysOrMonths">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="366"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typePercent">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typePercentOpen">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typePercentDecimal">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+      <xs:minInclusive value="0.00"/>
+      <xs:maxInclusive value="100.00"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typePercentDecimalOpen">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+      <xs:minInclusive value="0.00"/>
+      <xs:maxInclusive value="200.00"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typePercentDecimalNegative">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+      <xs:minInclusive value="-100.00"/>
+      <xs:maxInclusive value="100.00"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="typePercentDecimalOptional">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Covered" type="xs:boolean" use="required"/>
+        <xs:attribute name="Value" type="typePercentDecimal"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="typeZero">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeReportYear">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:minInclusive value="2010"/>
+      <xs:maxInclusive value="2024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Age ranges (e.g. for age-based discounts) -->
+  <xs:complexType name="typeDiscountAgeRange">
+    <xs:sequence>
+    <xs:element name="MinAge">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="18"/>
+          <xs:maxInclusive value="29"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:element>
+      <xs:element name="MaxAge">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="18"/>
+            <xs:maxInclusive value="29"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+   </xs:complexType>
+
+  <xs:complexType name="typeDependantAgeLimits">
+    <xs:sequence>
+      <xs:element name="DependantLimit" minOccurs="6" maxOccurs="6">
+        <xs:complexType>
+          <xs:attribute name="Title" type="typeDependantType" use="required"/>
+          <xs:attribute name="Supported" type="xs:boolean" use="required">
+            <xs:annotation>
+              <xs:documentation>
+                If true the Fund may issue policies that include cover for this type of dependant.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="MinAge" type="xs:int" use="required" />
+          <xs:attribute name="MaxAge" type="xs:int" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Common Attributes -->
+  <xs:attributeGroup name="ControlAttributes">
+    <xs:annotation>
+      <xs:documentation>Created and maintained by CMS</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Status" type="typeStatus" default="Undefined"/>
+    <xs:attribute name="StatusDate" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="DateModified" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="DateCreated" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="DateApproved" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="DateWithdrawn" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="PublishDate" type="xs:string" use="optional"/>
+    <xs:attribute name="SchemaVersion" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Defaults to the most current version if not set</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+</xs:schema>
