@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
+import axios from "axios";
 
 const Login = ({ onLogin }) => {
   const [activeTab, setActiveTab] = useState('applicant');
@@ -30,22 +31,61 @@ const Login = ({ onLogin }) => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
     if (isRegistering) {
-      // Registration logic would go here
-      console.log('Registering as', activeTab, { email, password, name });
-      if (activeTab === 'underwriter') {
-        console.log('Underwriter details:', { yearsExperience, region, insuranceTypes });
+      if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+      }
+
+      // Prepare payload
+      const payload = {
+        name,
+        email,
+        password,
+        role: activeTab, // "applicant" or "underwriter"
+      };
+
+      // If underwriter, add extra fields
+      if (activeTab === "underwriter") {
+        payload.yearsExperience = yearsExperience;
+        payload.region = region;
+        payload.insuranceTypes = insuranceTypes;
+      }
+
+      // Call register API
+      const res = await axios.post("http://localhost:5000/api/auth/register", payload);
+
+      if (res.data.success) {
+        alert("Account created successfully! Please login.");
+        setIsRegistering(false);
       }
     } else {
-      // Login logic
-      console.log('Logging in as', activeTab, { email, password });
-      // Call the onLogin prop with the user type
-      onLogin(activeTab);
+      // Login
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
+        password,
+      });
+
+      if (res.data.success) {
+        // Save token & user info in localStorage
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("role", res.data.role);
+        localStorage.setItem("userId", res.data.userId);
+
+        // Redirect to dashboard
+        onLogin(res.data.role);
+      }
     }
-  };
+  } catch (error) {
+    console.error(error);
+    alert(error.response?.data?.message || "Something went wrong");
+  }
+};
+
 
   return (
     <div className="login-container">

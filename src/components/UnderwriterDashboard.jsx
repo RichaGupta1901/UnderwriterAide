@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 // Import routing components from react-router-dom
 import { Routes, Route, NavLink, useParams } from 'react-router-dom';
 import './UnderwriterDashboard.css';
@@ -12,17 +13,18 @@ import ComplianceAnalysis from './ComplianceAnalysis';
 
 // All the logic for the main underwriting workflow is moved into its own component.
 const WorkflowView = () => {
-  const { status } = useParams(); // Gets the status ('in-review', 'completed') from the URL
+  const { status: routeStatus } = useParams(); // Gets the status from the URL
+  const [applications, setApplications] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedApplication, setSelectedApplication] = useState(null);
+  
+  // State from HEAD version
   const [riskScore, setRiskScore] = useState(null);
   const [complianceResults, setComplianceResults] = useState(null);
   const [premiumAdjustment, setPremiumAdjustment] = useState(0);
-
   const [locationInput, setLocationInput] = useState('');
   const [isAssessing, setIsAssessing] = useState(false);
   const [complianceAnalysisData, setComplianceAnalysisData] = useState(null);
-
-  // Risk Analysis Dashboard state
   const [assessmentData, setAssessmentData] = useState({
     risk_score: null,
     risk_level: 'Not assessed',
@@ -35,31 +37,43 @@ const WorkflowView = () => {
     alert_count: 0,
     last_updated: null,
   });
-
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Mock data for applications
-  const applications = [
-    { id: 201, type: 'Life Insurance', applicant: 'Robert Chen', date: '2023-07-15', status: 'Pending', coverageAmount: 500000, policyTerm: 20, assetDetails: 'Term life insurance policy for family protection', location: 'Melbourne, VIC' },
-    { id: 202, type: 'Property Insurance', applicant: 'Lisa Wong', date: '2023-07-18', status: 'In Review', coverageAmount: 750000, policyTerm: 5, assetDetails: 'Residential property in Sydney CBD, 3 bedroom apartment', location: 'Sydney, NSW' },
-    { id: 203, type: 'Auto Insurance', applicant: 'James Miller', date: '2023-07-20', status: 'Pending', coverageAmount: 35000, policyTerm: 1, assetDetails: '2022 Tesla Model 3, primarily used for commuting', location: 'Brisbane, QLD' },
-  ];
-  const completedApplications = [
-    { id: 195, type: 'Health Insurance', applicant: 'Emily Johnson', date: '2023-07-01', status: 'Completed', riskScore: 65, premium: 450, notes: 'Standard health coverage with dental add-on', location: 'Perth, WA' },
-    { id: 196, type: 'Business Insurance', applicant: 'Mark Davis', date: '2023-07-05', status: 'Completed', riskScore: 72, premium: 1200, notes: 'Small business liability coverage with cyber protection', location: 'Adelaide, SA' },
-  ];
+  const API_BASE_URL = 'http://localhost:5000/api';
+  const underwriterId = localStorage.getItem("userId"); 
+
+  useEffect(() => {
+    fetchUnderwriterApplications();
+  }, [underwriterId]);
+
+  const fetchUnderwriterApplications = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await axios.get(`${API_BASE_URL}/applications/underwriter/${underwriterId}`);
+      if (response.data.success) {
+        setApplications(response.data.applications);
+      } else {
+        setError('Failed to fetch applications: ' + response.data.message);
+        console.error('Failed to fetch applications:', response.data.message);
+      }
+    } catch (err) {
+      setError('An error occurred while fetching applications.');
+      console.error('Error fetching applications:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSelectApplication = (application) => {
     setSelectedApplication(application);
+    // Reset assessment states
     setRiskScore(null);
     setComplianceResults(null);
     setComplianceAnalysisData(null);
     setPremiumAdjustment(0);
-    setLocationInput(application.location || '');
+    setLocationInput(application.personalInfo?.address || '');
     setError(null);
-
     setAssessmentData({
       risk_score: null,
       risk_level: 'Not assessed',
@@ -73,6 +87,9 @@ const WorkflowView = () => {
       last_updated: null,
     });
   };
+
+  // --- Start of Mock/Simulated handlers from HEAD ---
+  // In a real application, these would become API calls.
 
   const handleLocationRiskAssessment = async () => {
     if (!locationInput.trim()) {
@@ -80,220 +97,128 @@ const WorkflowView = () => {
       return;
     }
     setIsAssessing(true);
-    // Simulate API call to assess location-based risks
     setTimeout(() => {
       const mockAssessment = {
         risk_score: Math.floor(Math.random() * 40) + 40,
         risk_level: Math.random() > 0.5 ? 'Medium Risk' : 'Low Risk',
         location: locationInput,
-        weather: {
-          description: 'Clear skies, low precipitation risk',
-          temperature: '22°C',
-          conditions: 'Stable'
-        },
-        hazard_alerts: [
-          'Bushfire season approaching - elevated risk',
-          'Flood zone classification: Low risk',
-        ],
-        financial_alerts: [
-          'Property values stable in area',
-          'Insurance claims in region below average'
-        ],
+        weather: { description: 'Clear skies, low precipitation risk', temperature: '22°C', conditions: 'Stable' },
+        hazard_alerts: ['Bushfire season approaching - elevated risk', 'Flood zone classification: Low risk'],
+        financial_alerts: ['Property values stable in area', 'Insurance claims in region below average'],
         financial_alert_count: 2,
         alert_count: 2,
         last_updated: new Date().toISOString()
       };
-      setAssessmentData({
-        ...mockAssessment,
-        total_alert_count: mockAssessment.alert_count + mockAssessment.financial_alert_count
-      });
+      setAssessmentData({ ...mockAssessment, total_alert_count: mockAssessment.alert_count + mockAssessment.financial_alert_count });
       setIsAssessing(false);
     }, 2000);
   };
 
   const handleRunRiskAssessment = () => {
     setTimeout(() => {
-      const mockRiskScore = {
+      setRiskScore({
         overall: Math.floor(Math.random() * 30) + 50,
-        breakdown: {
-          financial: Math.floor(Math.random() * 30) + 50,
-          operational: Math.floor(Math.random() * 30) + 50,
-          compliance: Math.floor(Math.random() * 30) + 50,
-          market: Math.floor(Math.random() * 30) + 50,
-        },
-        factors: [
-          'Asset location in high-risk area',
-          'Limited financial history',
-          'Previous claims history',
-        ]
-      };
-      setRiskScore(mockRiskScore);
+        breakdown: { financial: Math.floor(Math.random() * 30) + 50, operational: Math.floor(Math.random() * 30) + 50, compliance: Math.floor(Math.random() * 30) + 50, market: Math.floor(Math.random() * 30) + 50 },
+        factors: ['Asset location in high-risk area', 'Limited financial history', 'Previous claims history']
+      });
     }, 1500);
   };
 
   const handleRunComplianceCheck = () => {
     setTimeout(() => {
-      const mockComplianceResults = {
+      setComplianceResults({
         status: Math.random() > 0.3 ? 'Pass' : 'Warning',
-        regulations: [
-          { name: 'APRA Prudential Standard CPS 220', status: 'Compliant' },
-          { name: 'Insurance Contracts Act', status: 'Compliant' },
-          { name: 'Privacy Act 1988', status: Math.random() > 0.3 ? 'Compliant' : 'Warning' },
-        ],
+        regulations: [{ name: 'APRA Prudential Standard CPS 220', status: 'Compliant' }, { name: 'Insurance Contracts Act', status: 'Compliant' }, { name: 'Privacy Act 1988', status: Math.random() > 0.3 ? 'Compliant' : 'Warning' }],
         notes: 'Application generally complies with regulatory requirements with minor concerns.'
-      };
-      setComplianceResults(mockComplianceResults);
+      });
     }, 1500);
   };
 
-  const handleComplianceAnalysis = async (file) => {
-    // Simulate compliance analysis API call
+  const handleComplianceAnalysis = async () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         const mockComplianceData = {
-          overall_compliance_score: Math.floor(Math.random() * 20) + 75,
-          summary: {
-            compliant: Math.floor(Math.random() * 8) + 5,
-            partially_compliant: Math.floor(Math.random() * 3) + 1,
-            non_compliant: Math.floor(Math.random() * 2)
-          },
-          compliance_results: [
-            {
-              requirement_id: "APRA CPS 220",
-              requirement_text: "Risk Management Framework Requirements",
-              status: "Compliant",
-              risk_level: "Low",
-              evidence: "Risk management policy clearly defined with governance structure",
-              gaps_identified: [],
-              recommendations: [],
-              notes: "Well documented risk management processes"
-            },
-            {
-              requirement_id: "APRA CPS 232",
-              requirement_text: "Business Continuity Management",
-              status: "Partially Compliant",
-              risk_level: "Medium",
-              evidence: "Basic continuity plans identified",
-              gaps_identified: ["Missing detailed recovery procedures", "No testing schedule defined"],
-              recommendations: ["Implement comprehensive BCP testing", "Define clear RTO/RPO metrics"],
-              notes: "Requires enhancement of existing procedures"
-            }
-          ],
-          analysis_metadata: {
-            timestamp: new Date().toISOString(),
-            text_length: 15000,
-            checklist_version: "2024.1",
-            analysis_model: "APRA-GPT-4"
-          }
+            overall_compliance_score: Math.floor(Math.random() * 20) + 75,
+            summary: { compliant: Math.floor(Math.random() * 8) + 5, partially_compliant: Math.floor(Math.random() * 3) + 1, non_compliant: Math.floor(Math.random() * 2) },
+            compliance_results: [
+                { requirement_id: "APRA CPS 220", requirement_text: "Risk Management Framework", status: "Compliant", risk_level: "Low", evidence: "Risk management policy clearly defined.", gaps_identified: [], recommendations: [], notes: "Well documented processes" },
+                { requirement_id: "APRA CPS 232", requirement_text: "Business Continuity Management", status: "Partially Compliant", risk_level: "Medium", evidence: "Basic continuity plans identified", gaps_identified: ["Missing detailed recovery procedures"], recommendations: ["Implement comprehensive BCP testing"], notes: "Requires enhancement" }
+            ],
+            analysis_metadata: { timestamp: new Date().toISOString(), text_length: 15000, checklist_version: "2024.1", analysis_model: "APRA-GPT-4" }
         };
         setComplianceAnalysisData(mockComplianceData);
         resolve(mockComplianceData);
       }, 3000);
     });
   };
-
+  
   const handleAdjustPremium = (adjustment) => setPremiumAdjustment(adjustment);
 
   const handleGenerateReport = () => {
     alert('Report generated and sent to applicant');
-    setSelectedApplication(null);
-    setRiskScore(null);
-    setComplianceResults(null);
-    setPremiumAdjustment(0);
+    setSelectedApplication(null); // Deselect after action
   };
+  // --- End of Mock/Simulated handlers ---
 
-  const calculateBasePremium = (application) => {
-    if (!application || !application.coverageAmount) return 0;
-    let basePremium = 0;
-    switch (application.type) {
-      case 'Life Insurance': basePremium = (application.coverageAmount * 0.001) / 12; break;
-      case 'Health Insurance': basePremium = 400; break;
-      case 'Property Insurance': basePremium = (application.coverageAmount * 0.0015) / 12; break;
-      case 'Auto Insurance': basePremium = (application.coverageAmount * 0.02) / 12; break;
-      case 'Business Insurance': basePremium = (application.coverageAmount * 0.002) / 12; break;
-      default: basePremium = (application.coverageAmount * 0.001) / 12;
+  const updateApplicationStatus = async (applicationId, status) => {
+    try {
+      const response = await axios.put(`${API_BASE_URL}/applications/${applicationId}/status`, { status });
+      if (response.data.success) {
+        setApplications(prev => prev.map(app => app._id === applicationId ? { ...app, status, updatedAt: new Date().toISOString() } : app));
+        if (selectedApplication?._id === applicationId) {
+          setSelectedApplication(prev => ({ ...prev, status, updatedAt: new Date().toISOString() }));
+        }
+        alert(`Application status updated to: ${status}`);
+      }
+    } catch (error) {
+      console.error('Error updating application status:', error);
+      alert('Failed to update application status');
     }
-    return Math.round(basePremium);
+  };
+  
+  const calculateBasePremium = (application) => {
+      if (!application || !application.insuranceSpecificData?.coverageAmount) return 0;
+      const coverageAmount = application.insuranceSpecificData.coverageAmount;
+      let basePremium = 0;
+      switch (application.insuranceType) {
+          case 'Life': basePremium = (coverageAmount * 0.001) / 12; break;
+          case 'Health': basePremium = 400; break;
+          case 'Home': basePremium = (coverageAmount * 0.0015) / 12; break;
+          case 'Motor': basePremium = (coverageAmount * 0.02) / 12; break;
+          case 'Business': basePremium = (coverageAmount * 0.002) / 12; break;
+          default: basePremium = (coverageAmount * 0.001) / 12;
+      }
+      return Math.round(basePremium);
   };
 
   const calculateAdjustedPremium = (application, adjustment) => {
-    const basePremium = calculateBasePremium(application);
-    const adjustedPremium = basePremium * (1 + adjustment / 100);
-    return Math.round(adjustedPremium);
-  };
-  
-  // Risk Analysis Dashboard handlers
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-    setError(null);
+      const basePremium = calculateBasePremium(application);
+      return Math.round(basePremium * (1 + adjustment / 100));
   };
 
-  const handleUpload = async () => {
-    if (!selectedFile) {
-      setError("Please select a file first!");
-      return;
-    }
-    setError(null);
-    setUploading(true);
-    setAssessmentData({
-      risk_score: null,
-      risk_level: 'Not assessed',
-      location: 'Not specified',
-      weather: null,
-      hazard_alerts: [],
-      financial_alerts: [],
-      financial_alert_count: 0,
-      total_alert_count: 0,
-      alert_count: 0,
-      last_updated: null,
-    });
-
-    const formData = new FormData();
-    formData.append('file', selectedFile);
-
-    try {
-      const response = await fetch('http://localhost:5000/api/assess', {
-        method: 'POST',
-        body: formData,
-      });
-      const result = await response.json();
-
-      if (response.ok) {
-        setAssessmentData({
-          risk_score: result.risk_score || 'N/A',
-          risk_level: result.risk_level || 'Analysis complete',
-          location: result.location_found || 'Not specified',
-          weather: result.weather_details,
-          hazard_alerts: result.hazard_alerts || [],
-          financial_alerts: result.financial_alerts || [],
-          financial_alert_count: result.financial_alert_count || 0,
-          total_alert_count: (result.alert_count || 0) + (result.financial_alert_count || 0),
-          alert_count: result.alert_count || 0,
-          last_updated: result.timestamp || new Date().toISOString()
-        });
-      } else {
-        throw new Error(result.error || `Request failed with status ${response.status}`);
-      }
-    } catch (err) {
-      setError(`Assessment Failed: ${err.message}`);
-      setAssessmentData({
-        risk_score: null,
-        risk_level: 'Not assessed',
-        location: 'Not specified',
-        weather: null,
-        hazard_alerts: [],
-        financial_alerts: [],
-        financial_alert_count: 0,
-        total_alert_count: 0,
-        alert_count: 0,
-        last_updated: null,
-      });
-    } finally {
-      setUploading(false);
+  const getStatusBadgeStyle = (status) => {
+    switch (status) {
+        case 'Completed':
+        case 'Approved':
+            return { background: '#c6f6d5', color: '#22543d' };
+        case 'In Review':
+        case 'Under Review':
+            return { background: '#fed7d7', color: '#742a2a' };
+        case 'Pending':
+            return { background: '#fef5e7', color: '#744210' };
+        case 'Rejected':
+            return { background: '#fbb6ce', color: '#702459' };
+        case 'Requires Info':
+            return { background: '#dbeafe', color: '#1e40af' };
+        default:
+            return { background: '#e2e8f0', color: '#4a5568' };
     }
   };
 
   const renderApplicationsList = (apps, title) => {
+    if (loading) return <p>Loading applications...</p>;
+    if (error) return <p style={{ color: 'red' }}>{error}</p>;
+
     return (
       <div style={{ background: 'white', borderRadius: '8px', padding: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
         <h2 style={{ margin: '0 0 20px 0', color: '#1a202c', fontSize: '20px' }}>{title}</h2>
@@ -301,49 +226,36 @@ const WorkflowView = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {apps.map(app => (
               <div
-                key={app.id}
+                key={app._id}
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  padding: '16px',
-                  border: selectedApplication?.id === app.id ? '2px solid #4299e1' : '1px solid #e2e8f0',
-                  borderRadius: '8px',
-                  background: selectedApplication?.id === app.id ? '#ebf8ff' : '#f8fafc',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s'
+                  display: 'flex', alignItems: 'center', padding: '16px',
+                  border: selectedApplication?._id === app._id ? '2px solid #4299e1' : '1px solid #e2e8f0',
+                  borderRadius: '8px', background: selectedApplication?._id === app._id ? '#ebf8ff' : '#f8fafc',
+                  cursor: 'pointer', transition: 'all 0.2s'
                 }}
                 onClick={() => handleSelectApplication(app)}
               >
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 'bold', color: '#1a202c', marginBottom: '4px' }}>
-                    #{app.id} - {app.applicant}
+                    #{app._id.slice(-6)} - {app.personalInfo.fullName}
                   </div>
                   <div style={{ fontSize: '14px', color: '#4a5568', marginBottom: '4px' }}>
-                    {app.type} • {app.date}
+                    {app.insuranceType} Insurance • {new Date(app.createdAt).toLocaleDateString()}
                   </div>
                   <div style={{ fontSize: '12px', color: '#718096' }}>
-                    📍 {app.location}
+                    📍 {app.personalInfo.address}
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <span style={{
-                    padding: '4px 8px',
-                    borderRadius: '4px',
-                    fontSize: '12px',
-                    fontWeight: 'bold',
-                    background: app.status === 'Completed' ? '#c6f6d5' : app.status === 'In Review' ? '#fed7d7' : '#fef5e7',
-                    color: app.status === 'Completed' ? '#22543d' : app.status === 'In Review' ? '#742a2a' : '#744210'
+                    padding: '4px 8px', borderRadius: '4px', fontSize: '12px',
+                    fontWeight: 'bold', ...getStatusBadgeStyle(app.status)
                   }}>
                     {app.status}
                   </span>
                   <button style={{
-                    padding: '6px 12px',
-                    background: '#4299e1',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    fontSize: '12px',
-                    cursor: 'pointer'
+                    padding: '6px 12px', background: '#4299e1', color: 'white', border: 'none',
+                    borderRadius: '4px', fontSize: '12px', cursor: 'pointer'
                   }}>
                     {app.status === 'Completed' ? 'View' : 'Review'}
                   </button>
@@ -353,29 +265,25 @@ const WorkflowView = () => {
           </div>
         ) : (
           <div style={{ textAlign: 'center', padding: '40px', color: '#718096' }}>
-            <p>No applications available.</p>
+            <p>No applications found for this category.</p>
           </div>
         )}
       </div>
     );
   };
-
+  
   const renderApplicationDetails = () => {
     if (!selectedApplication) return null;
-    const isCompleted = selectedApplication.status === 'Completed';
+    const isCompleted = selectedApplication.status === 'Completed' || selectedApplication.status === 'Approved' || selectedApplication.status === 'Rejected';
 
     return (
       <div style={{ background: 'white', borderRadius: '8px', padding: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', paddingBottom: '16px', borderBottom: '1px solid #e2e8f0' }}>
-          <h2 style={{ margin: 0, color: '#1a202c' }}>Application #{selectedApplication.id}</h2>
+          <h2 style={{ margin: 0, color: '#1a202c' }}>Application #{selectedApplication._id.slice(-8)}</h2>
           <span style={{
-            padding: '6px 12px',
-            borderRadius: '6px',
-            fontSize: '14px',
-            fontWeight: 'bold',
-            background: selectedApplication.status === 'Completed' ? '#c6f6d5' : selectedApplication.status === 'In Review' ? '#fed7d7' : '#fef5e7',
-            color: selectedApplication.status === 'Completed' ? '#22543d' : selectedApplication.status === 'In Review' ? '#742a2a' : '#744210'
+            padding: '6px 12px', borderRadius: '6px', fontSize: '14px',
+            fontWeight: 'bold', ...getStatusBadgeStyle(selectedApplication.status)
           }}>
             {selectedApplication.status}
           </span>
@@ -383,347 +291,113 @@ const WorkflowView = () => {
 
         {/* Application Information */}
         <div style={{ marginBottom: '24px', padding: '20px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-          <h3 style={{ margin: '0 0 16px 0', color: '#1a202c', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            📋 Application Information
-          </h3>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
-            <div>
-              <div style={{ fontSize: '12px', color: '#718096', textTransform: 'uppercase', letterSpacing: '1px' }}>Applicant</div>
-              <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#1a202c' }}>{selectedApplication.applicant}</div>
+            <h3 style={{ margin: '0 0 16px 0', color: '#1a202c', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                📋 Application Information
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+                <div><div style={{ fontSize: '12px', color: '#718096' }}>Applicant</div><div style={{ fontWeight: 'bold' }}>{selectedApplication.personalInfo?.fullName}</div></div>
+                <div><div style={{ fontSize: '12px', color: '#718096' }}>Insurance Type</div><div style={{ fontWeight: 'bold' }}>{selectedApplication.insuranceType}</div></div>
+                <div><div style={{ fontSize: '12px', color: '#718096' }}>Coverage Amount</div><div style={{ fontWeight: 'bold' }}>${selectedApplication.insuranceSpecificData?.coverageAmount?.toLocaleString()}</div></div>
+                <div><div style={{ fontSize: '12px', color: '#718096' }}>Policy Term</div><div style={{ fontWeight: 'bold' }}>{selectedApplication.insuranceSpecificData?.policyTerm} years</div></div>
             </div>
-            <div>
-              <div style={{ fontSize: '12px', color: '#718096', textTransform: 'uppercase', letterSpacing: '1px' }}>Insurance Type</div>
-              <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#1a202c' }}>{selectedApplication.type}</div>
-            </div>
-            <div>
-              <div style={{ fontSize: '12px', color: '#718096', textTransform: 'uppercase', letterSpacing: '1px' }}>Coverage Amount</div>
-              <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#1a202c' }}>${selectedApplication.coverageAmount?.toLocaleString()}</div>
-            </div>
-            <div>
-              <div style={{ fontSize: '12px', color: '#718096', textTransform: 'uppercase', letterSpacing: '1px' }}>Policy Term</div>
-              <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#1a202c' }}>{selectedApplication.policyTerm} years</div>
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '16px' }}>
-            <div style={{ fontSize: '12px', color: '#718096', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Asset Details</div>
-            <div style={{ color: '#4a5568' }}>{selectedApplication.assetDetails}</div>
-          </div>
-
-          <div>
-            <div style={{ fontSize: '12px', color: '#718096', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Location</div>
-            <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#1a202c', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              📍 {selectedApplication.location}
-            </div>
-          </div>
+            <div><div style={{ fontSize: '12px', color: '#718096' }}>Location</div><div style={{ fontWeight: 'bold' }}>📍 {selectedApplication.personalInfo?.address}</div></div>
         </div>
 
         {/* Location-Based Risk Analysis */}
         {!isCompleted && (
           <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ margin: '0 0 16px 0', color: '#1a202c', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              🌍 Location-Based Risk Analysis
-            </h3>
-
+            <h3 style={{ margin: '0 0 16px 0', color: '#1a202c' }}>🌍 Location-Based Risk Analysis</h3>
             <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', alignItems: 'center', padding: '16px', background: '#f0f9ff', borderRadius: '8px', border: '1px solid #0284c7' }}>
-              <input
-                type="text"
-                value={locationInput}
-                onChange={(e) => setLocationInput(e.target.value)}
-                placeholder="Enter location for risk assessment..."
-                style={{
-                  flex: 1,
-                  padding: '8px 12px',
-                  border: '1px solid #cbd5e0',
-                  borderRadius: '4px',
-                  fontSize: '14px'
-                }}
-              />
-              <button
-                onClick={handleLocationRiskAssessment}
-                disabled={isAssessing}
-                style={{
-                  padding: '8px 16px',
-                  background: isAssessing ? '#a0aec0' : '#0284c7',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: isAssessing ? 'not-allowed' : 'pointer',
-                  fontSize: '14px',
-                  fontWeight: 'bold'
-                }}
-              >
+              <input type="text" value={locationInput} onChange={(e) => setLocationInput(e.target.value)} placeholder="Enter location for risk assessment..." style={{ flex: 1, padding: '8px 12px', border: '1px solid #cbd5e0', borderRadius: '4px' }} />
+              <button onClick={handleLocationRiskAssessment} disabled={isAssessing} style={{ padding: '8px 16px', background: isAssessing ? '#a0aec0' : '#0284c7', color: 'white', border: 'none', borderRadius: '4px', cursor: isAssessing ? 'not-allowed' : 'pointer', fontWeight: 'bold' }}>
                 {isAssessing ? '🔄 Analyzing...' : '🔍 Analyze Location Risk'}
               </button>
             </div>
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
-              <RiskAlerts
-                location={assessmentData.location}
-                locationWeather={assessmentData.weather}
-                hazardAlerts={assessmentData.hazard_alerts}
-                financialAlerts={assessmentData.financial_alerts}
-                alertCount={assessmentData.alert_count}
-                financialAlertCount={assessmentData.financial_alert_count}
-                lastUpdated={assessmentData.last_updated}
-              />
+              <RiskAlerts location={assessmentData.location} locationWeather={assessmentData.weather} hazardAlerts={assessmentData.hazard_alerts} financialAlerts={assessmentData.financial_alerts} alertCount={assessmentData.alert_count} financialAlertCount={assessmentData.financial_alert_count} lastUpdated={assessmentData.last_updated} />
               <GeoRiskMap />
-              <RiskScore
-                risk_score={assessmentData.risk_score}
-                risk_level={assessmentData.risk_level}
-              />
+              <RiskScore risk_score={assessmentData.risk_score} risk_level={assessmentData.risk_level} />
               <ScenarioTesting />
             </div>
-
-            {/* Add ComplianceAnalysis component */}
-            <ComplianceAnalysis
-              complianceData={complianceAnalysisData}
-              onRunCheck={handleComplianceAnalysis}
-            />
+            <ComplianceAnalysis complianceData={complianceAnalysisData} onRunCheck={handleComplianceAnalysis} />
           </div>
         )}
 
-        {/* Completed Application Results */}
-        {isCompleted ? (
-          <div style={{ padding: '20px', background: '#f0fff4', borderRadius: '8px', border: '1px solid #68d391' }}>
-            <h3 style={{ margin: '0 0 16px 0', color: '#22543d', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              ✅ Assessment Results
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '12px', color: '#22543d', textTransform: 'uppercase', letterSpacing: '1px' }}>Risk Score</div>
-                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#22543d' }}>{selectedApplication.riskScore}</div>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '12px', color: '#22543d', textTransform: 'uppercase', letterSpacing: '1px' }}>Monthly Premium</div>
-                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#22543d' }}>${selectedApplication.premium}</div>
-              </div>
-            </div>
-            <div style={{ marginTop: '16px' }}>
-              <div style={{ fontSize: '12px', color: '#22543d', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Assessment Notes</div>
-              <div style={{ color: '#276749' }}>{selectedApplication.notes}</div>
-            </div>
-          </div>
-        ) : (
-          /* Traditional Assessment Tools */
-          <div>
-            <h3 style={{ margin: '0 0 16px 0', color: '#1a202c', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              🛠️ Traditional Assessment Tools
-            </h3>
-
-            <div style={{ display: 'grid', gap: '20px' }}>
-              {/* Risk Assessment */}
-              <div style={{ padding: '16px', border: '1px solid #e2e8f0', borderRadius: '8px' }}>
-                <h4 style={{ margin: '0 0 12px 0', color: '#1a202c' }}>🎯 AI Risk Assessment</h4>
-                {riskScore ? (
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '20px' }}>
-                    <div style={{ textAlign: 'center' }}>
-                      <div style={{
-                        width: '80px',
-                        height: '80px',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        background: riskScore.overall > 70 ? '#fed7d7' : riskScore.overall > 50 ? '#fef5e7' : '#c6f6d5',
-                        color: riskScore.overall > 70 ? '#742a2a' : riskScore.overall > 50 ? '#744210' : '#22543d',
-                        fontSize: '20px',
-                        fontWeight: 'bold',
-                        margin: '0 auto'
-                      }}>
-                        {riskScore.overall}
-                      </div>
-                      <div style={{ marginTop: '8px', fontSize: '14px', color: '#4a5568' }}>
-                        {riskScore.overall > 70 ? 'High Risk' : riskScore.overall > 50 ? 'Medium Risk' : 'Low Risk'}
-                      </div>
-                    </div>
+        {/* Assessment & Decision Tools */}
+        {!isCompleted ? (
+            <div>
+              <h3 style={{ margin: '24px 0 16px 0', color: '#1a202c' }}>🛠️ Assessment & Decision Tools</h3>
+              <div style={{ display: 'grid', gap: '20px' }}>
+                {/* AI Risk Assessment, Compliance, Premium Calculator ... */}
+                <div style={{ padding: '16px', border: '1px solid #e2e8f0', borderRadius: '8px' }}>
+                    <h4 style={{ margin: '0 0 12px 0' }}>🎯 AI Risk Assessment</h4>
+                    {riskScore ? ( <div> ... </div> ) : ( <button onClick={handleRunRiskAssessment} style={{ padding: '8px 16px', background: '#4299e1', color: 'white', border: 'none', borderRadius: '4px' }}>🚀 Run AI Risk Assessment</button> )}
+                </div>
+                <div style={{ padding: '16px', border: '1px solid #e2e8f0', borderRadius: '8px' }}>
+                    <h4 style={{ margin: '0 0 12px 0' }}>📋 APRA Compliance Check</h4>
+                    {complianceResults ? ( <div> ... </div> ) : ( <button onClick={handleRunComplianceCheck} style={{ padding: '8px 16px', background: '#4299e1', color: 'white', border: 'none', borderRadius: '4px' }}>🔍 Run Compliance Check</button> )}
+                </div>
+                <div style={{ padding: '16px', border: '1px solid #e2e8f0', borderRadius: '8px' }}>
+                    <h4 style={{ margin: '0 0 12px 0' }}>💵 Premium Calculator</h4>
                     <div>
-                      <h5 style={{ margin: '0 0 8px 0', color: '#1a202c' }}>Risk Breakdown</h5>
-                      {Object.entries(riskScore.breakdown).map(([key, value]) => (
-                        <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                          <span style={{ width: '80px', fontSize: '12px', textTransform: 'capitalize' }}>{key}</span>
-                          <div style={{ flex: 1, height: '8px', background: '#e2e8f0', borderRadius: '4px' }}>
-                            <div style={{
-                              width: `${value}%`,
-                              height: '100%',
-                              background: value > 70 ? '#e53e3e' : value > 50 ? '#dd6b20' : '#38a169',
-                              borderRadius: '4px'
-                            }}></div>
-                          </div>
-                          <span style={{ fontSize: '12px', fontWeight: 'bold' }}>{value}</span>
-                        </div>
-                      ))}
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Base Premium:</span><span style={{ fontWeight: 'bold' }}>${calculateBasePremium(selectedApplication)}/month</span></div>
+                        <label>Risk-Based Adjustment (%)</label>
+                        <input type="range" min="-30" max="50" value={premiumAdjustment} onChange={(e) => handleAdjustPremium(parseInt(e.target.value))} style={{ width: '100%' }} />
+                        <div style={{ textAlign: 'center' }}>{premiumAdjustment > 0 ? `+${premiumAdjustment}%` : `${premiumAdjustment}%`}</div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'bold', fontSize: '16px', paddingTop: '8px', borderTop: '1px solid #e2e8f0' }}><span>Final Premium:</span><span>${calculateAdjustedPremium(selectedApplication, premiumAdjustment)}/month</span></div>
                     </div>
-                  </div>
-                ) : (
-                  <button
-                    onClick={handleRunRiskAssessment}
-                    style={{
-                      padding: '8px 16px',
-                      background: '#4299e1',
-                      color: 'white',
-                      border: 'none',
-                      borderRadius: '4px',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    🚀 Run AI Risk Assessment
-                  </button>
-                )}
-              </div>
+                </div>
 
-              {/* Compliance Check */}
-              <div style={{ padding: '16px', border: '1px solid #e2e8f0', borderRadius: '8px' }}>
-                <h4 style={{ margin: '0 0 12px 0', color: '#1a202c' }}>📋 APRA Compliance Check</h4>
-                {complianceResults ? (
-                  <div>
-                    <div style={{ marginBottom: '12px' }}>
-                      <span style={{
-                        padding: '4px 8px',
-                        borderRadius: '4px',
-                        fontSize: '12px',
-                        fontWeight: 'bold',
-                        background: complianceResults.status === 'Pass' ? '#c6f6d5' : '#fed7d7',
-                        color: complianceResults.status === 'Pass' ? '#22543d' : '#742a2a'
-                      }}>
-                        {complianceResults.status}
-                      </span>
-                    </div>
-                    <div style={{ display: 'grid', gap: '8px' }}>
-                      {complianceResults.regulations.map((reg, index) => (
-                        <div key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '14px' }}>
-                          <span>{reg.name}</span>
-                          <span style={{
-                            padding: '2px 6px',
-                            borderRadius: '3px',
-                            fontSize: '11px',
-                            background: reg.status === 'Compliant' ? '#c6f6d5' : '#fed7d7',
-                            color: reg.status === 'Compliant' ? '#22543d' : '#742a2a'
-                          }}>
-                            {reg.status}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <button
-                    onClick={handleRunComplianceCheck}
-                    style={{
-                      padding: '8px 16px',
-                      background: '#4299e1',
-                      color: 'white',
-                      border: 'none',
-                      borderRadius: '4px',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    🔍 Run Compliance Check
-                  </button>
-                )}
-              </div>
-
-              {/* Premium Calculator */}
-              <div style={{ padding: '16px', border: '1px solid #e2e8f0', borderRadius: '8px' }}>
-                <h4 style={{ margin: '0 0 12px 0', color: '#1a202c' }}>💵 Premium Calculator</h4>
-                <div style={{ display: 'grid', gap: '12px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span>Base Premium:</span>
-                    <span style={{ fontWeight: 'bold' }}>${calculateBasePremium(selectedApplication)}/month</span>
-                  </div>
-                  <div>
-                    <label style={{ display: 'block', marginBottom: '4px', fontSize: '14px' }}>Risk-Based Adjustment (%)</label>
-                    <input
-                      type="range"
-                      min="-30"
-                      max="50"
-                      value={premiumAdjustment}
-                      onChange={(e) => handleAdjustPremium(parseInt(e.target.value))}
-                      style={{ width: '100%' }}
-                    />
-                    <div style={{ textAlign: 'center', fontSize: '12px', color: '#4a5568' }}>
-                      {premiumAdjustment > 0 ? `+${premiumAdjustment}%` : `${premiumAdjustment}%`}
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'bold', fontSize: '16px', paddingTop: '8px', borderTop: '1px solid #e2e8f0' }}>
-                    <span>Final Premium:</span>
-                    <span>${calculateAdjustedPremium(selectedApplication, premiumAdjustment)}/month</span>
+                {/* Final Decision */}
+                <div style={{ padding: '16px', border: '1px solid #e2e8f0', borderRadius: '8px', textAlign: 'center' }}>
+                  <h4 style={{ margin: '0 0 12px 0' }}>✅ Final Decision</h4>
+                  <p style={{ color: '#4a5568', marginBottom: '16px' }}>Update the application status based on your assessment.</p>
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+                    <button onClick={() => updateApplicationStatus(selectedApplication._id, 'Approved')} style={{ padding: '12px 24px', background: '#38a169', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>Approve</button>
+                    <button onClick={() => updateApplicationStatus(selectedApplication._id, 'Rejected')} style={{ padding: '12px 24px', background: '#e53e3e', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>Reject</button>
+                    <button onClick={() => updateApplicationStatus(selectedApplication._id, 'Requires Info')} style={{ padding: '12px 24px', background: '#dd6b20', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>Request Info</button>
                   </div>
                 </div>
               </div>
-
-              {/* Generate Report */}
-              <div style={{ padding: '16px', border: '1px solid #e2e8f0', borderRadius: '8px', textAlign: 'center' }}>
-                <h4 style={{ margin: '0 0 12px 0', color: '#1a202c' }}>📊 Generate Assessment Report</h4>
-                <p style={{ color: '#4a5568', marginBottom: '16px', fontSize: '14px' }}>
-                  Generate a comprehensive underwriting report based on your assessment.
-                </p>
-                <button
-                  onClick={handleGenerateReport}
-                  disabled={!riskScore || !complianceResults}
-                  style={{
-                    padding: '12px 24px',
-                    background: (!riskScore || !complianceResults) ? '#a0aec0' : '#38a169',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '6px',
-                    cursor: (!riskScore || !complianceResults) ? 'not-allowed' : 'pointer',
-                    fontSize: '14px',
-                    fontWeight: 'bold'
-                  }}
-                >
-                  📄 Generate & Send Report
-                </button>
-                {(!riskScore || !complianceResults) && (
-                  <div style={{ marginTop: '8px', fontSize: '12px', color: '#e53e3e' }}>
-                    Complete risk assessment and compliance check first
-                  </div>
-                )}
-              </div>
             </div>
-          </div>
+        ) : (
+            <div style={{ padding: '20px', background: '#f0fff4', borderRadius: '8px', border: '1px solid #68d391' }}>
+                <h3 style={{ margin: '0 0 16px 0', color: '#22543d' }}>✅ Assessment Completed</h3>
+                <p>This application has been processed. Final Status: <strong>{selectedApplication.status}</strong></p>
+                {/* Display final details if available */}
+            </div>
         )}
       </div>
     );
   };
-
-  // Determine which list to render based on URL
+  
+  // Filter applications based on the current route
   let listToRender;
   let title = '';
-  switch (status) {
-    case 'in-review':
-      listToRender = applications.filter(app => app.status === 'In Review');
-      title = 'Applications In Review';
-      break;
-    case 'completed':
-      listToRender = completedApplications;
-      title = 'Completed Applications';
-      break;
-    default:
-      listToRender = applications.filter(app => app.status === 'Pending');
-      title = 'New Application Requests';
+  const statusMap = {
+    'in-review': ['In Review', 'Under Review', 'Requires Info'],
+    'completed': ['Completed', 'Approved', 'Rejected'],
+    'default': ['Pending']
+  };
+
+  const currentStatuses = statusMap[routeStatus] || statusMap['default'];
+  listToRender = applications.filter(app => currentStatuses.includes(app.status));
+  
+  switch(routeStatus) {
+    case 'in-review': title = 'Applications In Review'; break;
+    case 'completed': title = 'Completed Applications'; break;
+    default: title = 'New Application Requests';
   }
 
   return (
     <div style={{ display: 'flex', height: '100vh', background: '#f7fafc' }}>
-      {/* Applications List Panel */}
       <div style={{ width: '400px', padding: '20px', borderRight: '1px solid #e2e8f0', background: '#ffffff', overflowY: 'auto' }}>
         {renderApplicationsList(listToRender, title)}
       </div>
-
-      {/* Details Panel */}
       <div style={{ flex: 1, padding: '20px', overflowY: 'auto' }}>
         {selectedApplication ? renderApplicationDetails() : (
-          <div style={{
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'white',
-            borderRadius: '8px',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-          }}>
+          <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'white', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
             <div style={{ textAlign: 'center', color: '#718096' }}>
               <div style={{ fontSize: '48px', marginBottom: '16px' }}>📋</div>
               <h3 style={{ margin: '0 0 8px 0', color: '#4a5568' }}>Select an Application</h3>
@@ -736,157 +410,55 @@ const WorkflowView = () => {
   );
 };
 
+
 // Main Dashboard Component
 const UnderwriterDashboard = ({ onLogout }) => {
+  const navLinkStyle = ({ isActive }) => ({
+    display: 'block', padding: '12px 16px', color: 'white', textDecoration: 'none',
+    borderRadius: '4px', transition: 'background 0.2s',
+    background: isActive ? '#4299e1' : 'transparent'
+  });
+
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Header */}
-      <header style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '16px 24px',
-        background: '#1a202c',
-        color: 'white',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-      }}>
-        <div style={{ fontSize: '18px', fontWeight: 'bold' }}>
-          🤖 AI Underwriting Risk Assessment
-        </div>
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 24px', background: '#1a202c', color: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+        <div style={{ fontSize: '18px', fontWeight: 'bold' }}>🤖 AI Underwriting Risk Assessment</div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontWeight: 'bold' }}>Sarah Johnson</div>
             <div style={{ fontSize: '12px', color: '#a0aec0' }}>Senior Underwriter</div>
           </div>
-          <button
-            onClick={onLogout}
-            style={{
-              padding: '6px 12px',
-              background: '#e53e3e',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontSize: '12px'
-            }}
-          >
-            Logout
-          </button>
+          <button onClick={onLogout} style={{ padding: '6px 12px', background: '#e53e3e', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '12px' }}>Logout</button>
         </div>
       </header>
-
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
-        {/* Sidebar */}
-        <aside style={{
-          width: '250px',
-          background: '#2d3748',
-          color: 'white',
-          display: 'flex',
-          flexDirection: 'column'
-        }}>
+        <aside style={{ width: '250px', background: '#2d3748', color: 'white', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '20px' }}>
             <h2 style={{ margin: '0 0 16px 0', fontSize: '16px' }}>Underwriter Portal</h2>
-            <div style={{
-              padding: '16px',
-              background: '#4a5568',
-              borderRadius: '8px',
-              marginBottom: '20px'
-            }}>
+            <div style={{ padding: '16px', background: '#4a5568', borderRadius: '8px' }}>
               <h3 style={{ margin: '0 0 8px 0', fontSize: '14px' }}>Sarah Johnson</h3>
-              <div style={{ fontSize: '12px', color: '#cbd5e0' }}>
-                <div>Property & Auto Insurance</div>
-                <div>8 years experience</div>
-                <div>Europe Region</div>
-              </div>
+              <div style={{ fontSize: '12px', color: '#cbd5e0' }}>Property & Auto Insurance</div>
             </div>
           </div>
-
           <nav style={{ padding: '0 20px', flex: 1 }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <NavLink
-                to="/underwriter-dashboard"
-                end
-                style={({ isActive }) => ({
-                  display: 'block',
-                  padding: '12px 16px',
-                  color: 'white',
-                  textDecoration: 'none',
-                  borderRadius: '4px',
-                  transition: 'background 0.2s',
-                  background: isActive ? '#4299e1' : 'transparent'
-                })}
-              >
-                📋 New Requests
-              </NavLink>
-              <NavLink
-                to="/underwriter-dashboard/in-review"
-                style={({ isActive }) => ({
-                  display: 'block',
-                  padding: '12px 16px',
-                  color: 'white',
-                  textDecoration: 'none',
-                  borderRadius: '4px',
-                  transition: 'background 0.2s',
-                  background: isActive ? '#4299e1' : 'transparent'
-                })}
-              >
-                🔍 In Review
-              </NavLink>
-              <NavLink
-                to="/underwriter-dashboard/completed"
-                style={({ isActive }) => ({
-                  display: 'block',
-                  padding: '12px 16px',
-                  color: 'white',
-                  textDecoration: 'none',
-                  borderRadius: '4px',
-                  transition: 'background 0.2s',
-                  background: isActive ? '#4299e1' : 'transparent'
-                })}
-              >
-                ✅ Completed
-              </NavLink>
-              <NavLink
-                to="/underwriter-dashboard/settings"
-                style={({ isActive }) => ({
-                  display: 'block',
-                  padding: '12px 16px',
-                  color: 'white',
-                  textDecoration: 'none',
-                  borderRadius: '4px',
-                  transition: 'background 0.2s',
-                  background: isActive ? '#4299e1' : 'transparent'
-                })}
-              >
-                ⚙️ Profile Settings
-              </NavLink>
+              <NavLink to="/underwriter-dashboard" end style={navLinkStyle}>📋 New Requests</NavLink>
+              <NavLink to="/underwriter-dashboard/in-review" style={navLinkStyle}>🔍 In Review</NavLink>
+              <NavLink to="/underwriter-dashboard/completed" style={navLinkStyle}>✅ Completed</NavLink>
+              <NavLink to="/underwriter-dashboard/settings" style={navLinkStyle}>⚙️ Profile Settings</NavLink>
             </div>
           </nav>
         </aside>
-
-        {/* Main Content */}
         <main style={{ flex: 1, overflow: 'hidden' }}>
           <Routes>
             <Route path="/" element={<WorkflowView />} />
             <Route path="/:status" element={<WorkflowView />} />
             <Route path="/settings" element={
-              <div style={{
-                height: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: '#f7fafc'
-              }}>
-                <div style={{
-                  background: 'white',
-                  padding: '40px',
-                  borderRadius: '8px',
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                  textAlign: 'center'
-                }}>
-                  <div style={{ fontSize: '48px', marginBottom: '16px' }}>⚙️</div>
-                  <h2 style={{ margin: '0 0 8px 0', color: '#1a202c' }}>Profile Settings</h2>
-                  <p style={{ color: '#4a5568' }}>Settings panel coming soon...</p>
+              <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ background: 'white', padding: '40px', borderRadius: '8px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '48px' }}>⚙️</div>
+                  <h2>Profile Settings</h2>
+                  <p>Settings panel coming soon...</p>
                 </div>
               </div>
             } />
