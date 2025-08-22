@@ -1,59 +1,68 @@
 # AI Underwriting Risk Assessment Platform  
-Navigate the future of insurance underwriting with real-time risk intelligence.  
-This platform combines AI-powered risk scoring, regulatory compliance automation, and interactive dashboards to make underwriting faster, explainable, and adaptive.
+Real-Time Risk Intelligence for Smarter Insurance Decisions  
 
-🌟 Features  
-AI-Powered Risk Scoring  
-- Processes historical claims + live external feeds (climate, economic, hazard, sentiment)  
-- Generates instant, explainable risk scores (SHAP-based)  
+An AI-powered underwriting assistant that combines historical claims data with live external feeds (climate, economic, hazard, sentiment).  
+It generates instant, explainable risk scores, ensures APRA compliance, and delivers insights through an interactive dashboard.  
 
-Regulatory Compliance  
+---
+
+## 🌟 Features  
+
+**AI Risk Scoring**  
+- Processes claims + real-time external data  
+- Explainable results with SHAP  
+
+**Regulatory Compliance**  
 - Built-in APRA compliance engine  
-- Automatic policy template generation  
+- Auto-generates policy templates  
 
-Interactive Dashboard  
-- Risk heatmaps and trends  
+**Interactive Dashboard**  
+- Heatmaps, risk trends, and competitor overlays  
 - “What-if” simulations and scenario testing  
 
-Real-Time Feeds  
-- Weather data via OpenWeatherMap  
-- Financial data via FinnHub and FRED  
-- Hazard insights from government databases  
+---
 
-📁 Project Structure  
-/frontend – React dashboard  
-/backend – Flask API, risk model, compliance engine  
-/models – XGBoost model + SHAP explainability  
-/data – Sample claims and synthetic datasets  
-/notebooks – Model training and evaluation demos  
-/docs – References and technical documentation  
+## 📁 Project Structure  
 
-🚀 Getting Started  
+- `/frontend` – React dashboard (Recharts visualizations)  
+- `/backend` – Flask API with AI model and compliance engine  
+- `/models` – XGBoost model and explainability logic  
+- `/data` – Sample claims + synthetic datasets  
+- `/notebooks` – Model training & evaluation  
+- `/docs` – Documentation and references  
 
-**Prerequisites**  
-- Python 3.9+  
-- Node.js 18+  
-- API keys for OpenWeatherMap, FinnHub, FRED  
+---
 
-**Installation**  
-''bash
-# Clone repository
+## 🚀 Getting Started  
+
+1. Clone the repository  
+```bash
 git clone https://github.com/yourusername/ai-underwriting-risk.git
 cd ai-underwriting-risk
+```
 
-# Backend setup
+2. Backend setup
+```
 cd backend
 pip install -r requirements.txt
+```
 
-# Frontend setup
-cd backend
-pip install -r requirements.txt
-
-# Frontend setup
+3. Frontend setup
+```
 cd ../frontend
 npm install
-Run Application
+```
 
+4. Configure environment variables
+```
+Create a .env file in /backend with:
+OPENWEATHER_API_KEY=""
+FINNHUB_API_KEY=""
+FRED_API_KEY=""
+```
+
+5. Run the application
+```
 # Start backend
 cd backend
 flask run
@@ -61,11 +70,4 @@ flask run
 # Start frontend
 cd frontend
 npm start
-
-📚 References
-APRA Prudential Standards
-OpenWeatherMap
-FinnHub Economic Data
-Lundberg et al. (2017) — SHAP Explainable AI
-cd ../frontend
-npm install
+```
