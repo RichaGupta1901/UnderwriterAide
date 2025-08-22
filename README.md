@@ -23,7 +23,8 @@ It generates instant, explainable risk scores, ensures APRA compliance, and deli
 ---
 ## Methodology 
 
-![WhatsApp Image 2025-08-22 at 12 35 47_0354cdd9](https://github.com/user-attachments/assets/4f9dd58e-7931-4a93-9987-291c07ca4531)
+<img width="3840" height="2685" alt="Mermaid Chart - Create complex, visual diagrams with text  A smarter way of creating diagrams -2025-08-22-071825" src="https://github.com/user-attachments/assets/c3c35c6a-580c-4c47-ba56-6ae0d0527a7b" />
+
 
 
 ---
