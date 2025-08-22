@@ -21,6 +21,12 @@ It generates instant, explainable risk scores, ensures APRA compliance, and deli
 - “What-if” simulations and scenario testing  
 
 ---
+## Methodology 
+
+![WhatsApp Image 2025-08-22 at 12 35 47_0354cdd9](https://github.com/user-attachments/assets/4f9dd58e-7931-4a93-9987-291c07ca4531)
+
+
+---
 
 ## 📁 Project Structure  
 
@@ -33,7 +39,7 @@ It generates instant, explainable risk scores, ensures APRA compliance, and deli
 
 ---
 
-## 🚀 Getting Started  
+## Getting Started  
 
 1. Clone the repository  
 ```bash
