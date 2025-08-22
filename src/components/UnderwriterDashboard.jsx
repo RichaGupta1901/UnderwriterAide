@@ -17,13 +17,14 @@ const WorkflowView = () => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedApplication, setSelectedApplication] = useState(null);
-  
+
   // State from HEAD version
   const [riskScore, setRiskScore] = useState(null);
   const [complianceResults, setComplianceResults] = useState(null);
   const [premiumAdjustment, setPremiumAdjustment] = useState(0);
   const [locationInput, setLocationInput] = useState('');
   const [isAssessing, setIsAssessing] = useState(false);
+  const [isRiskAssessing, setIsRiskAssessing] = useState(false);
   const [complianceAnalysisData, setComplianceAnalysisData] = useState(null);
   const [assessmentData, setAssessmentData] = useState({
     risk_score: null,
@@ -40,7 +41,7 @@ const WorkflowView = () => {
   const [error, setError] = useState(null);
 
   const API_BASE_URL = 'http://localhost:5000/api';
-  const underwriterId = localStorage.getItem("userId"); 
+  const underwriterId = localStorage.getItem("userId");
 
   useEffect(() => {
     fetchUnderwriterApplications();
@@ -91,37 +92,132 @@ const WorkflowView = () => {
   // --- Start of Mock/Simulated handlers from HEAD ---
   // In a real application, these would become API calls.
 
-  const handleLocationRiskAssessment = async () => {
+    const handleLocationRiskAssessment = async () => {
     if (!locationInput.trim()) {
       alert('Please enter a location first');
       return;
     }
     setIsAssessing(true);
-    setTimeout(() => {
-      const mockAssessment = {
-        risk_score: Math.floor(Math.random() * 40) + 40,
-        risk_level: Math.random() > 0.5 ? 'Medium Risk' : 'Low Risk',
-        location: locationInput,
-        weather: { description: 'Clear skies, low precipitation risk', temperature: '22°C', conditions: 'Stable' },
-        hazard_alerts: ['Bushfire season approaching - elevated risk', 'Flood zone classification: Low risk'],
-        financial_alerts: ['Property values stable in area', 'Insurance claims in region below average'],
-        financial_alert_count: 2,
-        alert_count: 2,
-        last_updated: new Date().toISOString()
-      };
-      setAssessmentData({ ...mockAssessment, total_alert_count: mockAssessment.alert_count + mockAssessment.financial_alert_count });
-      setIsAssessing(false);
-    }, 2000);
+    setError(null); // Clear previous errors
+
+    try {
+      // We run the location-specific and general finance checks in parallel
+      const [locationResponse, financeResponse] = await Promise.all([
+        axios.get(`${API_BASE_URL}/debug/test_city/${locationInput.trim()}`),
+        axios.get(`${API_BASE_URL}/debug/finance`)
+      ]);
+
+      // Now, we populate the state with real data from the backend
+      setAssessmentData({
+        risk_score: locationResponse.data.hazard_count * 10, // Create a simple risk score based on hazard count
+        risk_level: locationResponse.data.hazard_count > 3 ? 'High Risk' : 'Medium Risk',
+        location: locationResponse.data.city,
+        weather: locationResponse.data.weather, // The weather string from the backend
+        hazard_alerts: locationResponse.data.hazards, // The hazards array from the backend
+        financial_alerts: financeResponse.data.financial_alerts, // The finance alerts array
+        financial_alert_count: financeResponse.data.financial_alerts_count,
+        alert_count: locationResponse.data.hazard_count,
+        total_alert_count: locationResponse.data.hazard_count + financeResponse.data.financial_alerts_count,
+        last_updated: new Date().toISOString(),
+      });
+
+    } catch (err) {
+      console.error("Error during location risk assessment:", err);
+      setError("Failed to fetch risk data from the backend. Is the server running?");
+      // Reset the data on failure
+      setAssessmentData(prev => ({
+        ...prev,
+        location: 'New South Wales',
+        weather: null,
+        hazard_alerts: [],
+        financial_alerts: []
+      }));
+    } finally {
+      setIsAssessing(false); // Ensure the loading state is turned off
+    }
   };
 
-  const handleRunRiskAssessment = () => {
-    setTimeout(() => {
-      setRiskScore({
-        overall: Math.floor(Math.random() * 30) + 50,
-        breakdown: { financial: Math.floor(Math.random() * 30) + 50, operational: Math.floor(Math.random() * 30) + 50, compliance: Math.floor(Math.random() * 30) + 50, market: Math.floor(Math.random() * 30) + 50 },
-        factors: ['Asset location in high-risk area', 'Limited financial history', 'Previous claims history']
-      });
-    }, 1500);
+    // This helper function now dynamically translates the selected application's
+  // data into the format the backend ML model expects.
+  const mapApplicationToModelData = (application) => {
+    // --- THIS IS THE CRUCIAL PART ---
+    // We are now deriving values directly from the user-selected 'application' object.
+
+    // Example: Extracting the state from an address string like "Sydney, NSW"
+    const address = application.personalInfo?.address || '';
+    const state = address.split(',')[1]?.trim() || 'Unknown';
+
+    // Example: Calculating a premium if it's not directly available
+    const annualPremium = (application.insuranceSpecificData?.coverageAmount * 0.01) || 0;
+
+    // The function must return a flat object where keys match the backend model's columns.
+    // NOTE: You must adjust these keys and transformations to match your exact data structure.
+    return {
+      // Personal Info
+      'Customer Name': application.personalInfo?.fullName || 'Unknown',
+      'Age_x': application.personalInfo?.age || 0,
+      'State_x': state,
+      'Email': application.personalInfo?.email || 'Unknown',
+      'Phone': application.personalInfo?.phone || 'Unknown',
+
+      // Insurance Info
+      'Insurance Type_x': application.insuranceType || 'Unknown',
+      'Annual Premium (AUD)_x': annualPremium,
+      'Policy Number': application._id, // Using the application ID as a policy number
+      'Product Tier': application.insuranceSpecificData?.tier || 'Standard',
+      'Payment Frequency': 'Annually', // Example default if not present
+
+      // Claim Info (assuming no prior claims for a new application)
+      'Claim Amount (AUD)_x': 0,
+      'Claim Status_x': 'No Claim',
+
+      // Policy Dates (providing sensible defaults if missing)
+      'Policy Start Date_x': new Date().toISOString().split('T')[0],
+      'Policy End Date_x': new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+
+      // The model expects many columns. We provide defaults for any others.
+      // In a real scenario, you'd map all available data.
+      'Age_y': 0,
+      'State_y': 'Unknown',
+      'Insurance Type_y': 'Unknown',
+      'Annual Premium (AUD)_y': 0,
+      'Claim Amount (AUD)_y': 0,
+      'Claim Status_y': 'Unknown',
+      'Policy Start Date_y': '1970-01-01',
+      'Policy End Date_y': '1970-01-01',
+      'Risk Score': 0,
+      'Agent Name': 'System'
+    };
+  };
+
+  const handleRunRiskAssessment = async () => {
+    if (!selectedApplication) {
+      alert("Please select an application first.");
+      return;
+    }
+    setIsRiskAssessing(true);
+    setError(null);
+    setRiskScore(null);
+
+    try {
+      // 1. DYNAMICALLY prepare the data from the user's selected application
+      const modelPayload = mapApplicationToModelData(selectedApplication);
+
+      // 2. Call the backend with the payload specific to this application
+      const response = await axios.post(`${API_BASE_URL}/predict_ml`, modelPayload);
+
+      // 3. Update the state with the real, application-specific prediction
+      setRiskScore(response.data);
+
+    } catch (err) {
+      console.error("Error running AI risk assessment:", err);
+      // Provide more detailed error feedback if the server sends it
+      const errorMessage = err.response?.data?.error || "Failed to get a prediction from the AI model.";
+      setError(errorMessage);
+      setRiskScore({ score: 'Error', level: 'Failed' });
+    } finally {
+      setIsRiskAssessing(false);
+    }
   };
 
   const handleRunComplianceCheck = () => {
@@ -151,7 +247,7 @@ const WorkflowView = () => {
       }, 3000);
     });
   };
-  
+
   const handleAdjustPremium = (adjustment) => setPremiumAdjustment(adjustment);
 
   const handleGenerateReport = () => {
@@ -175,7 +271,7 @@ const WorkflowView = () => {
       alert('Failed to update application status');
     }
   };
-  
+
   const calculateBasePremium = (application) => {
       if (!application || !application.insuranceSpecificData?.coverageAmount) return 0;
       const coverageAmount = application.insuranceSpecificData.coverageAmount;
@@ -271,7 +367,7 @@ const WorkflowView = () => {
       </div>
     );
   };
-  
+
   const renderApplicationDetails = () => {
     if (!selectedApplication) return null;
     const isCompleted = selectedApplication.status === 'Completed' || selectedApplication.status === 'Approved' || selectedApplication.status === 'Rejected';
@@ -313,7 +409,7 @@ const WorkflowView = () => {
                 {isAssessing ? '🔄 Analyzing...' : '🔍 Analyze Location Risk'}
               </button>
             </div>
-            
+
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
               <RiskAlerts location={assessmentData.location} locationWeather={assessmentData.weather} hazardAlerts={assessmentData.hazard_alerts} financialAlerts={assessmentData.financial_alerts} alertCount={assessmentData.alert_count} financialAlertCount={assessmentData.financial_alert_count} lastUpdated={assessmentData.last_updated} />
               <GeoRiskMap />
@@ -371,7 +467,7 @@ const WorkflowView = () => {
       </div>
     );
   };
-  
+
   // Filter applications based on the current route
   let listToRender;
   let title = '';
@@ -383,7 +479,7 @@ const WorkflowView = () => {
 
   const currentStatuses = statusMap[routeStatus] || statusMap['default'];
   listToRender = applications.filter(app => currentStatuses.includes(app.status));
-  
+
   switch(routeStatus) {
     case 'in-review': title = 'Applications In Review'; break;
     case 'completed': title = 'Completed Applications'; break;

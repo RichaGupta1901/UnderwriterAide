@@ -4,16 +4,30 @@
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env file if it exists
+# Load environment variables from a .env file
 load_dotenv()
 
-# OpenWeatherMap API Key
-# Get your free API key from: https://openweathermap.org/api
-OPENWEATHERMAP_API_KEY = os.getenv('OPENWEATHERMAP_API_KEY', 'your_openweather_api_key_here')
 
-# NewsAPI Key  
-# Get your free API key from: https://newsapi.org/
-NEWS_API_KEY = os.getenv('NEWS_API_KEY', 'your_newsapi_key_here')
+class Config:
+    """Configuration settings for the Flask application."""
+    # API Keys
+    NEWS_API_KEY = os.getenv("NEWS_API_KEY")
+    OPENWEATHERMAP_API_KEY = os.getenv("OPENWEATHERMAP_API_KEY")
+    FINANCE_API_KEY = os.getenv("FINANCE_API_KEY")
+    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+    # ML Model Paths
+    MODEL_DIR = os.path.join(os.path.dirname(__file__), '..', 'Model1')
+    MODEL_PATH = os.path.join(MODEL_DIR, 'risk_scoring_model.pkl')
+    ENCODERS_PATH = os.path.join(MODEL_DIR, 'label_encoders.pkl')
+
+    # Static Data Paths
+    STATIC_DATA_DIR = os.path.join(os.path.dirname(__file__), 'static_data')
+    APRA_CHECKLIST_PATH = os.path.join(STATIC_DATA_DIR, 'apra_checklist.json')
+
+    # Template Paths
+    TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates')
+    POLICY_TEMPLATE_PATH = os.path.join(TEMPLATE_DIR, 'policy_template.html.html')
 
 # API Configuration
 API_TIMEOUT = 10  # seconds

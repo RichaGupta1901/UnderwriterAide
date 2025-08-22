@@ -1,9 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const bcrypt = require('bcryptjs');
 require('dotenv').config();
 const authRoutes = require("./routes/auth");
 const underwriterRoutes = require("./routes/underwriters");
+const flaskApiRoutes = require("./routes/flaskApi");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 
 app.use(express.json());
+
 
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
@@ -33,7 +36,7 @@ const applicationSchema = new mongoose.Schema({
   underwriterName: { type: String, required: true },
   insuranceType: { type: String, required: true },
   status: { type: String, default: 'Pending' },
-  
+
   personalInfo: {
     fullName: String,
     dateOfBirth: Date,
@@ -65,7 +68,7 @@ const applicationSchema = new mongoose.Schema({
     apraConsent: Boolean,
   },
   additionalDetails: String,
-  
+
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
@@ -87,11 +90,13 @@ const underwriterSchema = new mongoose.Schema({
 
 const Underwriter = mongoose.model('Underwriter', underwriterSchema);
 
+
 // ==========================
 // Routes
 // ==========================
 app.use("/api/auth", authRoutes);
 app.use("/api/underwriters", underwriterRoutes);
+app.use("/api", flaskApiRoutes);
 
 // // Get all underwriters (excluding password)
 // app.get('/api/underwriters', async (req, res) => {
@@ -99,10 +104,10 @@ app.use("/api/underwriters", underwriterRoutes);
 //     const underwriterRoutes = require("./routes/underwriters");
 //     app.use("/api/underwriters", underwriterRoutes);
 //   } catch (error) {
-//     res.status(500).json({ 
-//       success: false, 
-//       message: 'Failed to fetch underwriters', 
-//       error: error.message 
+//     res.status(500).json({
+//       success: false,
+//       message: 'Failed to fetch underwriters',
+//       error: error.message
 //     });
 //   }
 // });
@@ -110,15 +115,15 @@ app.use("/api/underwriters", underwriterRoutes);
 // Register new underwriter
 app.post('/api/underwriters', async (req, res) => {
   try {
-    const { 
-      name, 
-      insuranceTypes, 
-      yearsExperience, 
-      region, 
-      certificates, 
-      email, 
-      phone, 
-      password 
+    const {
+      name,
+      insuranceTypes,
+      yearsExperience,
+      region,
+      certificates,
+      email,
+      phone,
+      password
     } = req.body;
 
     // Check required fields
@@ -151,18 +156,18 @@ app.post('/api/underwriters', async (req, res) => {
     // Exclude password & format response
     const { password: _, ...underwriterWithoutPassword } = savedUnderwriter.toObject();
 
-    res.status(201).json({ 
-      success: true, 
+    res.status(201).json({
+      success: true,
       underwriter: {
         ...underwriterWithoutPassword,
         insuranceTypes: underwriterWithoutPassword.insuranceTypes?.join(", "), // return as CSV string
-      } 
+      }
     });
   } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to add underwriter', 
-      error: error.message 
+    res.status(500).json({
+      success: false,
+      message: 'Failed to add underwriter',
+      error: error.message
     });
   }
 });
