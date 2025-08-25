@@ -19,7 +19,10 @@ It generates instant, explainable risk scores, ensures APRA compliance, and deli
 **Interactive Dashboard**  
 - Heatmaps, risk trends, and competitor overlays  
 - “What-if” simulations and scenario testing  
+---
+## Demo
 
+https://drive.google.com/file/d/1wloD03FqieasdOcluZQ3iYrBRVSd0wut/view?usp=sharing
 ---
 ## Methodology 
 
