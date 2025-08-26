@@ -182,6 +182,7 @@ const Login = ({ onLogin }) => {
                   required
                 >
                   <option value="">Select Region</option>
+                  <option value="Australia">Australia</option>
                   <option value="North America">North America</option>
                   <option value="Europe">Europe</option>
                   <option value="Asia Pacific">Asia Pacific</option>
