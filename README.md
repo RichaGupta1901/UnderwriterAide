@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# AI Underwriting Risk Assessment Platform  
+Real-Time Risk Intelligence for Smarter Insurance Decisions  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered underwriting assistant that combines historical claims data with live external feeds (climate, economic, hazard, sentiment).  
+It generates instant, explainable risk scores, ensures APRA compliance, and delivers insights through an interactive dashboard.  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌟 Features  
 
-### `npm start`
+**AI Risk Scoring**  
+- Processes claims + real-time external data  
+- Explainable results with SHAP  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Regulatory Compliance**  
+- Built-in APRA compliance engine  
+- Auto-generates policy templates  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Interactive Dashboard**  
+- Heatmaps, risk trends, and competitor overlays  
+- “What-if” simulations and scenario testing  
+---
+## Demo
 
-### `npm test`
+https://drive.google.com/file/d/1wloD03FqieasdOcluZQ3iYrBRVSd0wut/view?usp=sharing
+---
+## Methodology 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="3840" height="2685" alt="Mermaid Chart - Create complex, visual diagrams with text  A smarter way of creating diagrams -2025-08-22-071825" src="https://github.com/user-attachments/assets/c3c35c6a-580c-4c47-ba56-6ae0d0527a7b" />
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Project Structure  
 
-### `npm run eject`
+- `/frontend` – React dashboard (Recharts visualizations)  
+- `/backend` – Flask API with AI model and compliance engine  
+- `/models` – XGBoost model and explainability logic  
+- `/data` – Sample claims + synthetic datasets  
+- `/notebooks` – Model training & evaluation  
+- `/docs` – Documentation and references  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository  
+```bash
+git clone https://github.com/yourusername/ai-underwriting-risk.git
+cd ai-underwriting-risk
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Backend setup
+```
+cd backend
+pip install -r requirements.txt
+```
 
-## Learn More
+3. Frontend setup
+```
+cd ../frontend
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Configure environment variables
+```
+Create a .env file in /backend with:
+OPENWEATHER_API_KEY=""
+FINNHUB_API_KEY=""
+FRED_API_KEY=""
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Run the application
+```
+# Start backend
+cd backend
+flask run
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Start frontend
+cd frontend
+npm start
+```
