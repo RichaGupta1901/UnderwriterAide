@@ -22,9 +22,9 @@ It generates instant, explainable risk scores, ensures APRA compliance, and deli
 ---
 ## Demo
 
-<video width="800" controls>
-  <source src="https://github.com/RichaGupta1901/UnderwriterAide/raw/main/MUFG%20-%20Usecase%208%20demo.mp4" type="video/mp4">
-</video>
+<p align="center">
+  <img src="https://github.com/RichaGupta1901/UnderwriterAide/raw/main/MUFG%20-%20Usecase%208%20demo.mp4" alt="Website" width="1000">
+</p>
 
 https://drive.google.com/file/d/1wloD03FqieasdOcluZQ3iYrBRVSd0wut/view?usp=sharing
 ---
