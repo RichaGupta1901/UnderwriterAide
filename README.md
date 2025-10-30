@@ -23,7 +23,7 @@ It generates instant, explainable risk scores, ensures APRA compliance, and deli
 ## Demo
 
 <p align="center">
-  <img src="https://drive.google.com/file/d/1wloD03FqieasdOcluZQ3iYrBRVSd0wut/view?usp=sharing" alt="Website" width="1000">
+  <img src=".assets/MUFG - Usecase 8 demo.mp4" alt="Website" width="1000">
 </p>
 
 https://drive.google.com/file/d/1wloD03FqieasdOcluZQ3iYrBRVSd0wut/view?usp=sharing
